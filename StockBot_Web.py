@@ -3,15 +3,13 @@ import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
-from datetime import datetime
 
 # ==========================================
-# ⚙️ הגדרות: מניות, דוחות וסקטורים
+# ⚙️ הגדרות: מניות וסקטורים
 # ==========================================
 st.set_page_config(page_title="StockBot Strategic AI", layout="wide", page_icon="🧠")
 
-# 1. מסד נתונים לתאריכי דוחות (מתעדכן ידנית)
-# פורמט: 'TICKER': 'DD/MM/YYYY'
+# תאריכי דוחות (מתעדכן ידנית)
 EARNINGS_CALENDAR = {
     'NVDA': '21/02/2026', 'PLTR': '05/02/2026', 'CRWD': '04/03/2026',
     'PANW': '20/02/2026', 'ZS': '27/02/2026', 'SNOW': '28/02/2026',
@@ -21,52 +19,30 @@ EARNINGS_CALENDAR = {
     'IONQ': '27/03/2026', 'RKLB': '26/02/2026', 'VRT': '21/02/2026'
 }
 
-# 2. רשימת ה-30+ החדשות והקיימות (ממוינות לסקטורים)
+# רשימת המניות
 STOCKS = list(set([
-    # --- ☢️ Nuclear & Clean Energy (הטרנד של 2026) ---
-    'CCJ', 'LEU', 'BWXT', 'OKLO', 'SMR', 'NNE', # קיימים
-    'CEG', 'TLN', 'VST', 'PEG', # חברות חשמל שמספקות ל-Data Centers
-    'URA', 'NLR', 'UEC', 'NXE', # כריית אורניום
-    'FSLR', 'ENPH', 'NEE', # אנרגיה סולארית ומתחדשת
-
-    # --- ❄️ AI Cooling & Infrastructure (הצוואר בקבוק) ---
-    'VRT', 'ETN', 'MOD', 'GLW', # קירור וכבלים לחוות שרתים (חם מאוד!)
-    'ANET', 'PSTG', 'STX', 'WDC', # אחסון ותקשורת
-
-    # --- 🧠 AI Chips & Compute ---
-    'NVDA', 'AMD', 'AVGO', 'ARM', 'TSM', 'SMCI', 'MU', 
-    'GFS', 'ON', 'MRVL', 'INTC',
-
-    # --- ⚛️ Quantum Computing ---
-    'IONQ', 'RGTI', 'QBTS', 'QUBT', 'IBM', 'GOOGL', 'MSFT',
-    'HON', # Honeywell (שחקנית קוונטום חזקה)
-
-    # --- 🛡️ Cyber & Software ---
-    'PANW', 'CRWD', 'ZS', 'NET', 'PLTR', 
-    'FTNT', 'TENB', 'DT', 'SNOW', 'DDOG', 'MNDY', 'CYBR',
-
-    # --- 🚀 Space & Defense ---
-    'RKLB', 'ASTS', 'LUNR', 'SPCE', 'JOBY', 'ACHR',
-    'KTOS', 'AVAV', 'RTX', 'LMT', 'AXON', 'BA',
-
-    # --- 🧬 Biotech (Gene Editing) ---
+    'CCJ', 'LEU', 'BWXT', 'OKLO', 'SMR', 'NNE', 'CEG', 'TLN', 'VST', 'PEG',
+    'URA', 'NLR', 'UEC', 'NXE', 'FSLR', 'ENPH', 'NEE',
+    'VRT', 'ETN', 'MOD', 'GLW', 'ANET', 'PSTG', 'STX', 'WDC',
+    'NVDA', 'AMD', 'AVGO', 'ARM', 'TSM', 'SMCI', 'MU', 'GFS', 'ON', 'MRVL', 'INTC',
+    'IONQ', 'RGTI', 'QBTS', 'QUBT', 'IBM', 'GOOGL', 'MSFT', 'HON',
+    'PANW', 'CRWD', 'ZS', 'NET', 'PLTR', 'FTNT', 'TENB', 'DT', 'SNOW', 'DDOG', 'MNDY', 'CYBR',
+    'RKLB', 'ASTS', 'LUNR', 'SPCE', 'JOBY', 'ACHR', 'KTOS', 'AVAV', 'RTX', 'LMT', 'AXON', 'BA',
     'CRSP', 'VRTX', 'LLY', 'NVO', 'BEAM', 'NTLA',
-
-    # --- 💰 Crypto & Fintech ---
-    'MSTR', 'COIN', 'HOOD', 'SQ', 'FI', 'PYPL'
+    'MSTR', 'COIN', 'HOOD', 'SQ', 'FI', 'PYPL',
+    'WIX', 'INNO', 'CAMT', 'NVMI'
 ]))
 
-# רשימת ה-IPO (ללא שינוי)
+# רשימת ה-IPO
 IPO_DATA = [
     {"Company": "SpaceX", "Valuation": "$250B", "Sector": "Space", "Status": "Rumored 2025", "Hype": "🔥🔥🔥🔥🔥"},
     {"Company": "OpenAI", "Valuation": "$100B+", "Sector": "AI", "Status": "Unlikely Soon", "Hype": "🔥🔥🔥🔥🔥"},
     {"Company": "Databricks", "Valuation": "$43B", "Sector": "Data", "Status": "Expected 2025", "Hype": "🔥🔥🔥🔥"},
     {"Company": "Stripe", "Valuation": "$65B", "Sector": "Fintech", "Status": "Expected 2025", "Hype": "🔥🔥🔥🔥"},
-    {"Company": "Discord", "Valuation": "$15B", "Sector": "Social", "Status": "Rumored", "Hype": "🔥🔥"},
 ]
 
 # ==========================================
-# 🧠 המנוע: אנליסטים + טכני
+# 🧠 המנוע
 # ==========================================
 @st.cache_data(ttl=3600)
 def get_stock_data(tickers):
@@ -76,14 +52,14 @@ def get_stock_data(tickers):
     
     for i, ticker in enumerate(tickers):
         progress_bar.progress((i + 1) / len(tickers))
-        status.text(f"Analyzing Analysts & Charts: {ticker}...")
+        status.text(f"Analyzing: {ticker}...")
         
         try:
             stock = yf.Ticker(ticker)
-            df = stock.history(period="1y") # מספיק שנה לניתוח שוטף
+            df = stock.history(period="1y")
             if len(df) < 50: continue
 
-            # --- Technicals ---
+            # Technicals
             df['SMA_50'] = df['Close'].rolling(window=50).mean()
             df['SMA_200'] = df['Close'].rolling(window=200).mean()
             price = df['Close'].iloc[-1]
@@ -93,31 +69,30 @@ def get_stock_data(tickers):
             gain = (delta.where(delta > 0, 0)).ewm(alpha=1/14, adjust=False).mean()
             loss = (-delta.where(delta < 0, 0)).ewm(alpha=1/14, adjust=False).mean()
             rs = gain / loss
-            rsi = 100 - (100 / (1 + rs))
-            rsi_val = rsi.iloc[-1]
+            rsi_val = 100 - (100 / (1 + rs)).iloc[-1]
 
             # Support
             support = df['Low'].tail(60).min()
             dist_support = ((price - support) / price) * 100
 
-            # --- Analyst Data (החלק החדש) ---
+            # --- Analyst Data Merged ---
             info = stock.info
             target_price = info.get('targetMeanPrice', price)
             recommendation = info.get('recommendationKey', 'hold').upper().replace('_', ' ')
             
-            # חישוב Upside
             upside_pct = 0
             if target_price:
                 upside_pct = ((target_price - price) / price) * 100
 
-            # עיצוב הטקסט (כמו בתמונה שביקשת)
-            # ירוק לעלייה, אדום לירידה
-            target_display = f"${target_price:.2f}" if target_price else "N/A"
-            
-            # תאריך דוח הבא
+            # בניית הסטרינג המאוחד (כמו בתמונה)
+            arrow = "▲" if upside_pct > 0 else "▼"
+            target_str = f"${target_price:.2f}" if target_price else "N/A"
+            # הפורמט: RATING | ▲ 15% (Target: $100)
+            analyst_outlook = f"{recommendation} | {arrow} {upside_pct:.1f}% (Target: {target_str})"
+
             earnings_date = EARNINGS_CALENDAR.get(ticker, "TBD")
 
-            # --- Scoring ---
+            # Scoring
             score = 0
             sma200 = df['SMA_200'].iloc[-1]
             if not pd.isna(sma200) and price > sma200: score += 20
@@ -137,9 +112,8 @@ def get_stock_data(tickers):
                 "Price": price,
                 "Score": score,
                 "Verdict": verdict,
-                "Analyst Rating": recommendation, # BUY / HOLD / SELL
-                "Target Price": target_display,
-                "Upside %": upside_pct, # מספר נקי למיון
+                "Analyst Outlook": analyst_outlook, # העמודה החדשה
+                "Upside_Num": upside_pct, # נשמר למספרים בשביל המיון והגרף
                 "Earnings Date": earnings_date,
                 "RSI": rsi_val,
                 "Dist_Support %": dist_support,
@@ -153,96 +127,74 @@ def get_stock_data(tickers):
     return pd.DataFrame(data)
 
 # ==========================================
-# 🖥️ התצוגה (Dashboard)
+# 🖥️ התצוגה
 # ==========================================
-st.title("🧠 StockBot Strategic (V9)")
-st.caption("Includes: Analyst Targets, Earnings Dates & New AI Sectors")
+st.title("🧠 StockBot Strategic (V10)")
 
-if st.button("🚀 RUN STRATEGIC SCAN"):
-    with st.spinner('Gathering Intelligence...'):
+if st.button("🚀 RUN SCAN"):
+    with st.spinner('Calculating...'):
         df_results = get_stock_data(STOCKS)
         
-        # מדדים עליונים
-        strong = len(df_results[df_results['Verdict'] == "💎 STRONG BUY"])
-        snipers = len(df_results[df_results['Dist_Support %'] < 3])
-        avg_upside = df_results['Upside %'].mean()
-        
-        c1, c2, c3, c4 = st.columns(4)
-        c1.metric("Strong Buys", strong)
-        c2.metric("Sniper Alerts", snipers)
-        c3.metric("Avg Market Upside", f"{avg_upside:.1f}%")
-        c4.metric("Total Stocks", len(df_results))
+        snipers = df_results[df_results['Dist_Support %'] < 3]
+        if not snipers.empty:
+            targets = ", ".join(snipers['Ticker'].tolist())
+            st.success(f"🎯 SNIPER ALERT (Near Support): {targets}")
 
-        if snipers > 0:
-            targets = df_results[df_results['Dist_Support %'] < 3]['Ticker'].tolist()
-            st.success(f"🎯 SNIPER ALERT (Near Support): {', '.join(targets)}")
+        tab1, tab2, tab3 = st.tabs(["📋 Strategic Board", "🗺️ Upside Map", "📈 Charts"])
 
-        tab1, tab2, tab3, tab4 = st.tabs(["📋 Strategic Board", "🗺️ Upside Map", "🦄 IPOs", "📈 Charts"])
-
-        # --- Tab 1: הטבלה האסטרטגית ---
+        # --- Tab 1 ---
         with tab1:
             st.markdown("### Analyst Forecasts & Earnings")
             
-            # פונקציות צבע
-            def color_verdict(v):
-                if 'STRONG' in v: return 'background-color: #d4edda; color: black; font-weight: bold'
-                if 'SELL' in v: return 'background-color: #f8d7da; color: black'
-                return ''
+            def style_dataframe(row):
+                styles = [''] * len(row)
+                # צבע לרקע של ה-Verdict
+                if 'STRONG' in row['Verdict']: 
+                    styles[2] = 'background-color: #d4edda; color: black; font-weight: bold'
+                elif 'SELL' in row['Verdict']: 
+                    styles[2] = 'background-color: #f8d7da; color: black'
+                
+                # צבע לטקסט של האנליסטים (Analyst Outlook)
+                outlook = row['Analyst Outlook']
+                if 'STRONG BUY' in outlook or 'BUY' in outlook:
+                    if '▲' in outlook:
+                        styles[3] = 'color: green; font-weight: bold' # ירוק בוהק
+                elif 'SELL' in outlook or '▼' in outlook:
+                     styles[3] = 'color: red'
+                
+                return styles
 
-            def color_upside(v):
-                if v > 15: return 'color: green; font-weight: bold'
-                if v < 0: return 'color: red'
-                return 'color: black'
-
-            # עיצוב הטבלה
+            # הצגת הטבלה הנקייה
             st.dataframe(
-                df_results[['Ticker', 'Price', 'Verdict', 'Analyst Rating', 'Upside %', 'Target Price', 'Earnings Date', 'Dist_Support %']]
-                .style.map(color_verdict, subset=['Verdict'])
-                .map(color_upside, subset=['Upside %'])
-                .format({
-                    "Price": "${:.2f}", 
-                    "Upside %": "{:.1f}%", 
-                    "Dist_Support %": "{:.1f}%"
-                }),
+                df_results[['Ticker', 'Price', 'Verdict', 'Analyst Outlook', 'Earnings Date', 'Dist_Support %']]
+                .style.apply(style_dataframe, axis=1)
+                .format({"Price": "${:.2f}", "Dist_Support %": "{:.1f}%"}),
                 use_container_width=True,
                 height=700
             )
 
-        # --- Tab 2: מפת הפוטנציאל ---
+        # --- Tab 2 ---
         with tab2:
-            st.markdown("### 🗺️ Risk vs. Analyst Upside")
             fig = px.scatter(
-                df_results, x="RSI", y="Upside %",
+                df_results, x="RSI", y="Upside_Num",
                 color="Verdict", size="Score",
-                hover_data=["Ticker", "Target Price", "Earnings Date"],
+                hover_data=["Ticker", "Analyst Outlook"],
                 text="Ticker",
                 color_discrete_map={"💎 STRONG BUY": "green", "🟢 BUY": "lightgreen", "WAIT": "gold", "🔴 SELL": "red"},
-                title="Top Left = Best Opportunities (Cheap + High Upside)"
+                title="Risk (RSI) vs. Reward (Upside)"
             )
-            fig.add_hline(y=15, line_dash="dash", line_color="green", annotation_text="High Upside Area")
-            fig.add_vline(x=40, line_dash="dash", line_color="blue", annotation_text="Oversold Area")
+            fig.add_hline(y=15, line_dash="dash", line_color="green")
+            fig.add_vline(x=40, line_dash="dash", line_color="blue")
             st.plotly_chart(fig, use_container_width=True)
 
-        # --- Tab 3: IPOs ---
+        # --- Tab 3 ---
         with tab3:
-            st.dataframe(pd.DataFrame(IPO_DATA), use_container_width=True)
-
-        # --- Tab 4: גרפים ---
-        with tab4:
-            top_picks = df_results[df_results['Score'] >= 50].sort_values('Score', ascending=False)
-            if top_picks.empty:
-                st.info("No top picks currently.")
-            else:
-                for i, row in top_picks.iterrows():
-                    with st.expander(f"{row['Ticker']} | Upside: {row['Upside %']:.1f}% | Report: {row['Earnings Date']}"):
-                        hist = row['History']
-                        fig = go.Figure()
-                        fig.add_trace(go.Scatter(x=hist.index, y=hist['Close'], name='Price', line=dict(color='blue')))
-                        fig.add_trace(go.Scatter(x=hist.index, y=hist['SMA_200'], name='SMA 200', line=dict(color='black')))
-                        fig.add_trace(go.Scatter(x=hist.index, y=hist['SMA_50'], name='SMA 50', line=dict(color='orange', dash='dash')))
-                        
-                        st.plotly_chart(fig, use_container_width=True)
-                        st.write(f"**Analyst Verdict:** {row['Analyst Rating']} -> Target: {row['Target Price']}")
-
-else:
-    st.info("System Ready. Database Updated with 2026 AI & Nuclear Stocks.")
+            top = df_results[df_results['Score'] >= 50].sort_values('Score', ascending=False)
+            for i, row in top.iterrows():
+                with st.expander(f"{row['Ticker']} | {row['Analyst Outlook']}"):
+                    hist = row['History']
+                    fig = go.Figure()
+                    fig.add_trace(go.Scatter(x=hist.index, y=hist['Close'], name='Price', line=dict(color='blue')))
+                    fig.add_trace(go.Scatter(x=hist.index, y=hist['SMA_200'], name='SMA 200', line=dict(color='black')))
+                    fig.add_trace(go.Scatter(x=hist.index, y=hist['SMA_50'], name='SMA 50', line=dict(color='orange', dash='dash')))
+                    st.plotly_chart(fig, use_container_width=True)
