@@ -3,14 +3,13 @@ import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
-import time # הוספנו מודול זמן להשהיות
+import time
 
 # ==========================================
 # ⚙️ הגדרות: מניות וסקטורים
 # ==========================================
-st.set_page_config(page_title="StockBot Strategic AI", layout="wide", page_icon="🧠")
+st.set_page_config(page_title="StockBot Strategic AI", layout="wide", page_icon="🛡️")
 
-# תאריכי דוחות (מתעדכן ידנית)
 EARNINGS_CALENDAR = {
     'NVDA': '21/02/2026', 'PLTR': '05/02/2026', 'CRWD': '04/03/2026',
     'PANW': '20/02/2026', 'ZS': '27/02/2026', 'SNOW': '28/02/2026',
@@ -20,7 +19,6 @@ EARNINGS_CALENDAR = {
     'IONQ': '27/03/2026', 'RKLB': '26/02/2026', 'VRT': '21/02/2026'
 }
 
-# רשימת המניות
 STOCKS = list(set([
     'CCJ', 'LEU', 'BWXT', 'OKLO', 'SMR', 'NNE', 'CEG', 'TLN', 'VST', 'PEG',
     'URA', 'NLR', 'UEC', 'NXE', 'FSLR', 'ENPH', 'NEE',
@@ -34,7 +32,6 @@ STOCKS = list(set([
     'WIX', 'INNO', 'CAMT', 'NVMI'
 ]))
 
-# רשימת ה-IPO
 IPO_DATA = [
     {"Company": "SpaceX", "Valuation": "$250B", "Sector": "Space", "Status": "Rumored 2025", "Hype": "🔥🔥🔥🔥🔥"},
     {"Company": "OpenAI", "Valuation": "$100B+", "Sector": "AI", "Status": "Unlikely Soon", "Hype": "🔥🔥🔥🔥🔥"},
@@ -43,32 +40,49 @@ IPO_DATA = [
 ]
 
 # ==========================================
-# 🧠 המנוע
+# 🧠 המנוע ההיברידי (Batch Processing)
 # ==========================================
-@st.cache_data(ttl=600) # קיצרנו את הזיכרון ל-10 דקות לרענון מהיר יותר
+@st.cache_data(ttl=900) # זיכרון ל-15 דקות
 def get_stock_data(tickers):
     data = []
-    progress_bar = st.progress(0)
     status = st.empty()
+    progress_bar = st.progress(0)
     
+    # שלב 1: משיכה המונית של המחירים (מהיר וחסין לחסימות)
+    status.text("🚀 Phase 1: Bulk Downloading Market Data...")
+    try:
+        # מוריד את כל ההיסטוריה במכה אחת
+        batch_history = yf.download(tickers, period="1y", group_by='ticker', threads=True, progress=False)
+    except Exception as e:
+        st.error(f"Critical Error downloading batch data: {e}")
+        return pd.DataFrame()
+
+    total = len(tickers)
+    
+    # שלב 2: עיבוד וניסיון עדין למשיכת נתוני אנליסטים
     for i, ticker in enumerate(tickers):
-        progress_bar.progress((i + 1) / len(tickers))
-        status.text(f"Analyzing: {ticker}...")
-        
-        # --- מנגנון אנטי-חסימה ---
-        time.sleep(0.1) # השהייה קטנה למנוע עומס
+        progress_bar.progress((i + 1) / total)
+        status.text(f"Phase 2: Analyzing {ticker}...")
         
         try:
-            stock = yf.Ticker(ticker)
-            df = stock.history(period="1y")
+            # חילוץ הדאטה של המניה מתוך המאגר הגדול
+            # yf.download מחזיר מבנה שונה אם זו מניה אחת או רבות
+            if len(tickers) > 1:
+                df = batch_history[ticker].copy()
+            else:
+                df = batch_history.copy()
+            
+            # ניקוי שורות ריקות (קורה לפעמים במשיכה המונית)
+            df.dropna(how='all', inplace=True)
+            
             if len(df) < 50: continue
 
-            # Technicals
+            # --- Technicals (חישוב מהיר ללא אינטרנט) ---
             df['SMA_50'] = df['Close'].rolling(window=50).mean()
             df['SMA_200'] = df['Close'].rolling(window=200).mean()
-            price = df['Close'].iloc[-1]
+            price = float(df['Close'].iloc[-1])
 
-            # RSI (EMA)
+            # RSI
             delta = df['Close'].diff()
             gain = (delta.where(delta > 0, 0)).ewm(alpha=1/14, adjust=False).mean()
             loss = (-delta.where(delta < 0, 0)).ewm(alpha=1/14, adjust=False).mean()
@@ -79,30 +93,40 @@ def get_stock_data(tickers):
             support = df['Low'].tail(60).min()
             dist_support = ((price - support) / price) * 100
 
-            # --- Analyst Data Merged ---
-            info = stock.info
-            target_price = info.get('targetMeanPrice', price)
-            recommendation = info.get('recommendationKey', 'hold').upper().replace('_', ' ')
-            
+            # --- Fundamentals (החלק הרגיש) ---
+            # מנסים למשוך נתוני אנליסטים. אם נכשל - לא קורסים!
+            analyst_outlook = "N/A (Data Blocked)"
+            target_price = None
             upside_pct = 0
-            if target_price:
-                upside_pct = ((target_price - price) / price) * 100
-
-            arrow = "▲" if upside_pct > 0 else "▼"
-            target_str = f"${target_price:.2f}" if target_price else "N/A"
-            analyst_outlook = f"{recommendation} | {arrow} {upside_pct:.1f}% (Target: {target_str})"
+            
+            try:
+                stock_info = yf.Ticker(ticker)
+                info = stock_info.info
+                
+                target_price = info.get('targetMeanPrice')
+                recommendation = info.get('recommendationKey', 'hold').upper().replace('_', ' ')
+                
+                if target_price:
+                    upside_pct = ((target_price - price) / price) * 100
+                    arrow = "▲" if upside_pct > 0 else "▼"
+                    analyst_outlook = f"{recommendation} | {arrow} {upside_pct:.1f}% (Target: ${target_price:.2f})"
+                else:
+                    analyst_outlook = f"{recommendation} | Target: N/A"
+            except:
+                # אם נחסמנו, נשארים עם נתונים טכניים בלבד
+                pass
 
             earnings_date = EARNINGS_CALENDAR.get(ticker, "TBD")
 
-            # Scoring
+            # Scoring (מותאם גם אם אין אנליסטים)
             score = 0
             sma200 = df['SMA_200'].iloc[-1]
-            if not pd.isna(sma200) and price > sma200: score += 20
+            if not pd.isna(sma200) and price > sma200: score += 25
             if 30 <= rsi_val <= 60: score += 15
             elif rsi_val < 30: score += 25
-            if upside_pct > 15: score += 20
-            if dist_support < 5: score += 15
-            if recommendation in ['STRONG BUY', 'BUY']: score += 10
+            if dist_support < 5: score += 20
+            # בונוס אנליסטים רק אם הצלחנו למשוך
+            if target_price and upside_pct > 15: score += 15
 
             verdict = "WAIT"
             if score >= 70: verdict = "💎 STRONG BUY"
@@ -121,91 +145,74 @@ def get_stock_data(tickers):
                 "Dist_Support %": dist_support,
                 "History": df
             })
-
-        except Exception as e:
-            # במקרה של שגיאה במניה בודדת, מדלגים עליה בלי לקרוס
-            continue
             
+        except Exception as e:
+            continue
+
     progress_bar.empty()
     status.empty()
     
-    # --- הגנה מפני קריסה (החזרת טבלה ריקה עם עמודות) ---
     if not data:
-        return pd.DataFrame(columns=["Ticker", "Price", "Score", "Verdict", "Analyst Outlook", "Upside_Num", "Earnings Date", "RSI", "Dist_Support %", "History"])
+        return pd.DataFrame()
         
     return pd.DataFrame(data)
 
 # ==========================================
 # 🖥️ התצוגה
 # ==========================================
-st.title("🧠 StockBot Strategic (V11 - Robust)")
+st.title("🧠 StockBot Strategic (V12 - Hybrid)")
 
-if st.button("🚀 RUN SCAN"):
-    with st.spinner('Calculating...'):
+if st.button("🚀 RUN SMART SCAN"):
+    with st.spinner('Accessing Global Market Data...'):
         df_results = get_stock_data(STOCKS)
         
-        # --- בדיקת חירום: האם הגיעו נתונים? ---
         if df_results.empty:
-            st.error("⚠️ No data fetched! Yahoo Finance might be blocking the Cloud IP temporarily. Please try again in a few minutes or run locally.")
-            st.stop() # עוצר את הריצה כאן כדי לא לקרוס
-        
-        # מכאן הכל ממשיך כרגיל רק אם יש נתונים
-        snipers = df_results[df_results['Dist_Support %'] < 3]
-        if not snipers.empty:
-            targets = ", ".join(snipers['Ticker'].tolist())
-            st.success(f"🎯 SNIPER ALERT (Near Support): {targets}")
+            st.warning("⚠️ Market data unavailable. This usually resolves in 5-10 minutes. Yahoo is limiting cloud requests.")
+        else:
+            snipers = df_results[df_results['Dist_Support %'] < 3]
+            if not snipers.empty:
+                targets = ", ".join(snipers['Ticker'].tolist())
+                st.success(f"🎯 SNIPER ALERT: {targets} are at support level!")
 
-        tab1, tab2, tab3 = st.tabs(["📋 Strategic Board", "🗺️ Upside Map", "📈 Charts"])
+            tab1, tab2, tab3 = st.tabs(["📋 Strategic Board", "🗺️ Upside Map", "📈 Charts"])
 
-        # --- Tab 1 ---
-        with tab1:
-            st.markdown("### Analyst Forecasts & Earnings")
-            
-            def style_dataframe(row):
-                styles = [''] * len(row)
-                if 'STRONG' in row['Verdict']: 
-                    styles[2] = 'background-color: #d4edda; color: black; font-weight: bold'
-                elif 'SELL' in row['Verdict']: 
-                    styles[2] = 'background-color: #f8d7da; color: black'
-                
-                outlook = row['Analyst Outlook']
-                if 'STRONG BUY' in outlook or 'BUY' in outlook:
-                    if '▲' in outlook:
-                        styles[3] = 'color: green; font-weight: bold'
-                elif 'SELL' in outlook or '▼' in outlook:
-                     styles[3] = 'color: red'
-                return styles
+            with tab1:
+                def style_row(row):
+                    styles = [''] * len(row)
+                    if 'STRONG' in row['Verdict']: styles[2] = 'background-color: #d4edda; color: black; font-weight: bold'
+                    elif 'SELL' in row['Verdict']: styles[2] = 'background-color: #f8d7da; color: black'
+                    
+                    # צבע לאנליסטים
+                    outlook = str(row['Analyst Outlook'])
+                    if '▲' in outlook: styles[3] = 'color: green; font-weight: bold'
+                    elif '▼' in outlook: styles[3] = 'color: red'
+                    return styles
 
-            st.dataframe(
-                df_results[['Ticker', 'Price', 'Verdict', 'Analyst Outlook', 'Earnings Date', 'Dist_Support %']]
-                .style.apply(style_dataframe, axis=1)
-                .format({"Price": "${:.2f}", "Dist_Support %": "{:.1f}%"}),
-                use_container_width=True,
-                height=700
-            )
+                st.dataframe(
+                    df_results[['Ticker', 'Price', 'Verdict', 'Analyst Outlook', 'Earnings Date', 'Dist_Support %']]
+                    .style.apply(style_row, axis=1)
+                    .format({"Price": "${:.2f}", "Dist_Support %": "{:.1f}%"}),
+                    use_container_width=True, height=700
+                )
 
-        # --- Tab 2 ---
-        with tab2:
-            fig = px.scatter(
-                df_results, x="RSI", y="Upside_Num",
-                color="Verdict", size="Score",
-                hover_data=["Ticker", "Analyst Outlook"],
-                text="Ticker",
-                color_discrete_map={"💎 STRONG BUY": "green", "🟢 BUY": "lightgreen", "WAIT": "gold", "🔴 SELL": "red"},
-                title="Risk (RSI) vs. Reward (Upside)"
-            )
-            fig.add_hline(y=15, line_dash="dash", line_color="green")
-            fig.add_vline(x=40, line_dash="dash", line_color="blue")
-            st.plotly_chart(fig, use_container_width=True)
+            with tab2:
+                fig = px.scatter(
+                    df_results, x="RSI", y="Upside_Num",
+                    color="Verdict", size="Score",
+                    hover_data=["Ticker", "Analyst Outlook"], text="Ticker",
+                    color_discrete_map={"💎 STRONG BUY": "green", "🟢 BUY": "lightgreen", "WAIT": "gold", "🔴 SELL": "red"},
+                    title="Risk vs Reward"
+                )
+                fig.add_vline(x=40, line_dash="dash", line_color="blue")
+                st.plotly_chart(fig, use_container_width=True)
 
-        # --- Tab 3 ---
-        with tab3:
-            top = df_results[df_results['Score'] >= 50].sort_values('Score', ascending=False)
-            for i, row in top.iterrows():
-                with st.expander(f"{row['Ticker']} | {row['Analyst Outlook']}"):
-                    hist = row['History']
-                    fig = go.Figure()
-                    fig.add_trace(go.Scatter(x=hist.index, y=hist['Close'], name='Price', line=dict(color='blue')))
-                    fig.add_trace(go.Scatter(x=hist.index, y=hist['SMA_200'], name='SMA 200', line=dict(color='black')))
-                    fig.add_trace(go.Scatter(x=hist.index, y=hist['SMA_50'], name='SMA 50', line=dict(color='orange', dash='dash')))
-                    st.plotly_chart(fig, use_container_width=True)
+            with tab3:
+                top = df_results[df_results['Score'] >= 50].sort_values('Score', ascending=False)
+                for i, row in top.iterrows():
+                    with st.expander(f"{row['Ticker']} | {row['Analyst Outlook']}"):
+                        hist = row['History']
+                        fig = go.Figure()
+                        fig.add_trace(go.Scatter(x=hist.index, y=hist['Close'], name='Price', line=dict(color='blue')))
+                        fig.add_trace(go.Scatter(x=hist.index, y=hist['SMA_200'], name='SMA 200', line=dict(color='black')))
+                        fig.add_trace(go.Scatter(x=hist.index, y=hist['SMA_50'], name='SMA 50', line=dict(color='orange', dash='dash')))
+                        st.plotly_chart(fig, use_container_width=True)
