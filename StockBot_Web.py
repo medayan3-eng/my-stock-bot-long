@@ -11,15 +11,42 @@ st.set_page_config(page_title="StockBot Precision AI", layout="wide", page_icon=
 
 # רשימת המעקב (ללא כפילויות)
 STOCKS = list(set([
-    'NOW', 'ZS', 'NET', 'CRM', # תוכנה וסייבר
-    'NVDA', 'AMD', 'AVGO', 'ARM', 'TSM', 'SMCI', 'MU', 'ANET', 'VRT', 'PLTR', # שבבים ו-AI
-    'MSFT', 'GOOGL', 'AMZN', 'META', 'AAPL', 'TSLA', # ענקיות
-    'OKLO', 'SMR', 'NNE', 'CCJ', 'LEU', 'BWXT', 'VST', 'GEV', 'GE', 'FSLR', # אנרגיה
-    'IONQ', 'RGTI', 'QBTS', 'QUBT', 'IBM', # קוונטום
-    'RKLB', 'ASTS', 'LUNR', 'SPCE', 'ACHR', 'JOBY', 'KTOS', 'AVAV', 'RTX', 'LMT', # חלל וביטחון
-    'CRSP', 'VRTX', 'LLY', 'ISRG', 'NVO', # רפואה
-    'MSTR', 'COIN', 'HOOD', 'SQ', # קריפטו
-    'CAMT', 'NVMI', 'CYBR', 'WIX', 'INNO', 'MNDY' # ישראליות
+    # --- 1. Storage & Memory (כמו WDC שהתפוצצה) ---
+    'WDC',  # Western Digital (הבעלים של SanDisk) - זיכרון
+    'MU',   # Micron - הזיכרון המהיר שחייבים ל-AI
+    'STX',  # Seagate - כוננים קשיחים לחוות שרתים
+    'PSTG', # Pure Storage - אחסון מהיר מאוד
+    
+    # --- 2. AI Infrastructure & Cooling (הצוואר בקבוק הבא) ---
+    'VRT',  # Vertiv - קירור לשרתים (חובה!)
+    'ETN',  # Eaton - ניהול חשמל לדאטה סנטר
+    'MOD',  # Modine - מערכות קירור תעשייתיות
+    'ANET', # Arista Networks - תקשורת מהירה בין מחשבים
+
+    # --- 3. Energy & Nuclear (חשמל ל-AI) ---
+    'OKLO', 'SMR', 'NNE', 'CCJ', 'BWXT', 'VST', 'GEV', 'CEG', 'TLN',
+    
+    # --- 4. Quantum & Future Tech ---
+    'IONQ', 'RGTI', 'QBTS', 'QUBT', 'IBM',
+    
+    # --- 5. Space & Defense ---
+    'RKLB', 'ASTS', 'LUNR', 'SPCE', 'KTOS', 'AVAV', 'RTX', 'LMT', 'AXON',
+    
+    # --- 6. Cyber Security (התקפות AI) ---
+    'PANW', 'CRWD', 'ZS', 'NET', 'TENB', 'S',
+
+    # --- 7. Giants & Software ---
+    'NVDA', 'AMD', 'AVGO', 'ARM', 'TSM', 'SMCI', 'PLTR',
+    'MSFT', 'GOOGL', 'AMZN', 'META', 'AAPL', 'TSLA', 'NOW', 'CRM', 'DELL',
+    
+    # --- 8. Bio-Tech (Gene Editing 2026) ---
+    'CRSP', 'VRTX', 'LLY', 'NVO', 'BEAM', 'NTLA',
+    
+    # --- 9. Crypto & Fintech ---
+    'MSTR', 'COIN', 'HOOD', 'SQ', 'FI',
+    
+    # --- 10. Israeli Tech ---
+    'CAMT', 'NVMI', 'CYBR', 'WIX', 'INNO', 'MNDY'
 ]))
 
 ETFS = {'QTUM': 'Quantum ETF', 'URA': 'Uranium ETF', 'ITA': 'Defense ETF', 'SMH': 'Semi ETF'}
@@ -239,4 +266,5 @@ if st.button("🚀 RUN PRECISION SCAN"):
                         c4.metric("Dist to Support", f"{row['Dist_Support %']:.1f}%")
 
 else:
+
     st.info("System Calibrated. Click START to run precision scan.")
