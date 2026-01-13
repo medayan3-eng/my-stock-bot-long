@@ -3,6 +3,7 @@ import yfinance as yf
 import pandas as pd
 import plotly.graph_objects as go
 import plotly.express as px
+import time # הוספנו מודול זמן להשהיות
 
 # ==========================================
 # ⚙️ הגדרות: מניות וסקטורים
@@ -44,7 +45,7 @@ IPO_DATA = [
 # ==========================================
 # 🧠 המנוע
 # ==========================================
-@st.cache_data(ttl=3600)
+@st.cache_data(ttl=600) # קיצרנו את הזיכרון ל-10 דקות לרענון מהיר יותר
 def get_stock_data(tickers):
     data = []
     progress_bar = st.progress(0)
@@ -53,6 +54,9 @@ def get_stock_data(tickers):
     for i, ticker in enumerate(tickers):
         progress_bar.progress((i + 1) / len(tickers))
         status.text(f"Analyzing: {ticker}...")
+        
+        # --- מנגנון אנטי-חסימה ---
+        time.sleep(0.1) # השהייה קטנה למנוע עומס
         
         try:
             stock = yf.Ticker(ticker)
@@ -84,10 +88,8 @@ def get_stock_data(tickers):
             if target_price:
                 upside_pct = ((target_price - price) / price) * 100
 
-            # בניית הסטרינג המאוחד (כמו בתמונה)
             arrow = "▲" if upside_pct > 0 else "▼"
             target_str = f"${target_price:.2f}" if target_price else "N/A"
-            # הפורמט: RATING | ▲ 15% (Target: $100)
             analyst_outlook = f"{recommendation} | {arrow} {upside_pct:.1f}% (Target: {target_str})"
 
             earnings_date = EARNINGS_CALENDAR.get(ticker, "TBD")
@@ -112,29 +114,42 @@ def get_stock_data(tickers):
                 "Price": price,
                 "Score": score,
                 "Verdict": verdict,
-                "Analyst Outlook": analyst_outlook, # העמודה החדשה
-                "Upside_Num": upside_pct, # נשמר למספרים בשביל המיון והגרף
+                "Analyst Outlook": analyst_outlook,
+                "Upside_Num": upside_pct,
                 "Earnings Date": earnings_date,
                 "RSI": rsi_val,
                 "Dist_Support %": dist_support,
                 "History": df
             })
 
-        except: continue
+        except Exception as e:
+            # במקרה של שגיאה במניה בודדת, מדלגים עליה בלי לקרוס
+            continue
             
     progress_bar.empty()
     status.empty()
+    
+    # --- הגנה מפני קריסה (החזרת טבלה ריקה עם עמודות) ---
+    if not data:
+        return pd.DataFrame(columns=["Ticker", "Price", "Score", "Verdict", "Analyst Outlook", "Upside_Num", "Earnings Date", "RSI", "Dist_Support %", "History"])
+        
     return pd.DataFrame(data)
 
 # ==========================================
 # 🖥️ התצוגה
 # ==========================================
-st.title("🧠 StockBot Strategic (V10)")
+st.title("🧠 StockBot Strategic (V11 - Robust)")
 
 if st.button("🚀 RUN SCAN"):
     with st.spinner('Calculating...'):
         df_results = get_stock_data(STOCKS)
         
+        # --- בדיקת חירום: האם הגיעו נתונים? ---
+        if df_results.empty:
+            st.error("⚠️ No data fetched! Yahoo Finance might be blocking the Cloud IP temporarily. Please try again in a few minutes or run locally.")
+            st.stop() # עוצר את הריצה כאן כדי לא לקרוס
+        
+        # מכאן הכל ממשיך כרגיל רק אם יש נתונים
         snipers = df_results[df_results['Dist_Support %'] < 3]
         if not snipers.empty:
             targets = ", ".join(snipers['Ticker'].tolist())
@@ -148,23 +163,19 @@ if st.button("🚀 RUN SCAN"):
             
             def style_dataframe(row):
                 styles = [''] * len(row)
-                # צבע לרקע של ה-Verdict
                 if 'STRONG' in row['Verdict']: 
                     styles[2] = 'background-color: #d4edda; color: black; font-weight: bold'
                 elif 'SELL' in row['Verdict']: 
                     styles[2] = 'background-color: #f8d7da; color: black'
                 
-                # צבע לטקסט של האנליסטים (Analyst Outlook)
                 outlook = row['Analyst Outlook']
                 if 'STRONG BUY' in outlook or 'BUY' in outlook:
                     if '▲' in outlook:
-                        styles[3] = 'color: green; font-weight: bold' # ירוק בוהק
+                        styles[3] = 'color: green; font-weight: bold'
                 elif 'SELL' in outlook or '▼' in outlook:
                      styles[3] = 'color: red'
-                
                 return styles
 
-            # הצגת הטבלה הנקייה
             st.dataframe(
                 df_results[['Ticker', 'Price', 'Verdict', 'Analyst Outlook', 'Earnings Date', 'Dist_Support %']]
                 .style.apply(style_dataframe, axis=1)
