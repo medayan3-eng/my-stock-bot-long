@@ -17,6 +17,7 @@ from screener_il import calculate_indicators_il, debug_ticker_il
 from backtester_il import run_backtest_il
 from news_fetcher_il import fetch_news_il, fetch_market_news_il
 from stock_universe_il import STOCK_UNIVERSE_IL, SECTOR_MAP, get_by_sector
+from vix_analyzer import run_vix_spike_analysis, get_vix_spike_windows
 
 st.set_page_config(
     page_title="📊 TASE Stock Scanner — Murphy",
@@ -547,7 +548,7 @@ def main():
                 filtered.sort(key=lambda x: ps.get(x['ticker'],{}).get('win_rate',0),reverse=True)
 
             st.markdown(f"### 🎯 {len(filtered)} Opportunities")
-            t1,t2,t3,t4=st.tabs(["📋 Stocks","📈 Charts","📰 News","📊 Backtest"])
+            t1,t2,t3,t4,t5=st.tabs(["📋 Stocks","📈 Charts","📰 News","📊 Backtest","😨 VIX Spike Analysis"])
 
             with t1:
                 if not filtered: st.info("No stocks to display with current filters.")
@@ -581,6 +582,9 @@ def main():
             with t4:
                 if bt_data: render_backtest_panel_il(bt_data)
                 else: st.info("Press **STEP 2 — BACKTEST** in the sidebar after scanning.")
+
+            with t5:
+                render_vix_spike_tab(universe if "universe" in dir() else STOCK_UNIVERSE_IL)
     else:
         st.markdown(f"""
         <div style="text-align:center;padding:5rem 2rem;color:#3d4f6b;">
@@ -605,3 +609,221 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# ══════════════════════════════════════════════
+#  VIX SPIKE BEHAVIOR TAB  (injected as render fn)
+# ══════════════════════════════════════════════
+def render_vix_spike_tab(universe: list):
+    st.markdown("### 😨 VIX Spike Behavior Analysis")
+    st.caption(
+        "When the VIX fear index spiked above the threshold in the past, "
+        "which stocks rose and which fell? Run this to find safe havens and high-risk stocks."
+    )
+
+    # ── Controls ─────────────────────────────────────────────
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        threshold = st.slider("VIX Spike Threshold", 18, 50, 25, 1,
+                               help="Analyze periods when VIX was above this level")
+    with col2:
+        lookback = st.select_slider("Lookback Period",
+                                     options=[365, 548, 730, 1095],
+                                     value=730,
+                                     format_func=lambda x: f"{x//365} yr" + ("s" if x//365 > 1 else ""))
+    with col3:
+        min_events = st.number_input("Min spike events required", 1, 10, 2,
+                                      help="Only show stocks that appeared in at least N spike events")
+
+    # ── Preview: how many spikes exist ───────────────────────
+    with st.spinner("Checking historical VIX spikes..."):
+        preview_windows = get_vix_spike_windows(threshold, lookback)
+
+    if not preview_windows:
+        st.warning(f"No VIX spikes above {threshold} found in the last {lookback//365} year(s). Try lowering the threshold.")
+        return
+
+    # Show spike windows
+    st.markdown(f"**Found {len(preview_windows)} VIX spike event(s) above {threshold}:**")
+    spike_cols = st.columns(min(len(preview_windows), 4))
+    for i, w in enumerate(preview_windows[:4]):
+        with spike_cols[i]:
+            peak_col = "#f87171" if w['peak_vix'] >= 35 else "#fbbf24" if w['peak_vix'] >= 28 else "#fbbf24"
+            st.markdown(
+                f'<div class="metric-card" style="border-left-color:{peak_col};">'
+                f'<div class="scan-label">Spike #{i+1}</div>'
+                f'<div style="font-family:\'IBM Plex Mono\',monospace;font-size:0.85rem;color:#dde4f0;">'
+                f'{w["start"].strftime("%b %Y") if hasattr(w["start"], "strftime") else str(w["start"])[:7]}'
+                f'</div>'
+                f'<div style="font-family:\'IBM Plex Mono\',monospace;font-size:1.1rem;font-weight:700;color:{peak_col};">'
+                f'Peak: {w["peak_vix"]}</div>'
+                f'<div class="scan-label">{w["days"]} days</div>'
+                f'</div>',
+                unsafe_allow_html=True
+            )
+    if len(preview_windows) > 4:
+        st.caption(f"… and {len(preview_windows) - 4} more spike events")
+
+    st.markdown("---")
+
+    # ── Run analysis ─────────────────────────────────────────
+    if st.button("🔍 Analyze Stock Behavior During VIX Spikes", use_container_width=True, key="vix_run"):
+        with st.spinner(f"Analyzing {len(universe)} stocks across {len(preview_windows)} spike events…"):
+            pb  = st.progress(0)
+            txt = st.empty()
+            data = run_vix_spike_analysis(
+                tickers=universe,
+                threshold=threshold,
+                lookback_days=lookback,
+                progress_bar=pb,
+                status_text=txt,
+            )
+            pb.empty(); txt.empty()
+            st.session_state['vix_analysis'] = data
+
+    data = st.session_state.get('vix_analysis')
+    if not data:
+        st.info("Set the threshold above and press **Analyze** to run.")
+        return
+
+    if data.get('error'):
+        st.error(data['error']); return
+
+    summary = data.get('summary', {})
+
+    # ── Summary bar ──────────────────────────────────────────
+    sc = st.columns(5)
+    for col, lbl, val, clr in zip(sc,
+        ["Spike Events", "Stocks Analyzed", "Avg Spike Length", "Max VIX Seen", "% Stocks Rose"],
+        [str(summary.get('num_spikes',0)),
+         str(summary.get('tickers_analyzed',0)),
+         f"{summary.get('avg_spike_days',0):.0f} days",
+         str(summary.get('max_vix_seen',0)),
+         f"{summary.get('pct_stocks_rose',0):.0f}%"],
+        ["#dde4f0","#dde4f0","#fbbf24","#f87171",
+         "#00e5c0" if summary.get('pct_stocks_rose',0) > 50 else "#f87171"]):
+        col.markdown(
+            f'<div class="metric-card"><div class="scan-label">{lbl}</div>'
+            f'<div class="scan-stat" style="color:{clr};font-size:1.3rem;">{val}</div></div>',
+            unsafe_allow_html=True)
+
+    st.markdown("---")
+
+    # ── Filter by min events ─────────────────────────────────
+    risers  = [r for r in data.get('risers',  []) if r['num_events'] >= min_events]
+    fallers = [r for r in data.get('fallers', []) if r['num_events'] >= min_events]
+    all_s   = [r for r in data.get('all_stocks', []) if r['num_events'] >= min_events]
+
+    ta1, ta2, ta3 = st.tabs([
+        f"🟢 Safe Havens ({len(risers)})",
+        f"🔴 High Risk ({len(fallers)})",
+        "📋 All Stocks Table",
+    ])
+
+    # ── RISERS ───────────────────────────────────────────────
+    with ta1:
+        st.markdown(
+            "**Stocks that consistently ROSE during VIX spikes** "
+            f"(rose in ≥60% of spike events, min {min_events} events)"
+        )
+        if not risers:
+            st.info("No consistent risers found. Try lowering the Min spike events or threshold.")
+        else:
+            for r in risers[:20]:
+                _render_vix_stock_row(r, "riser")
+
+    # ── FALLERS ──────────────────────────────────────────────
+    with ta2:
+        st.markdown(
+            "**Stocks that consistently FELL during VIX spikes** "
+            f"(fell in ≥60% of spike events, min {min_events} events)"
+        )
+        if not fallers:
+            st.info("No consistent fallers found.")
+        else:
+            for r in fallers[:20]:
+                _render_vix_stock_row(r, "faller")
+
+    # ── TABLE ────────────────────────────────────────────────
+    with ta3:
+        if all_s:
+            rows = []
+            for r in all_s:
+                rows.append({
+                    "Ticker":       r['ticker_short'],
+                    "Events":       r['num_events'],
+                    "% Rose":       f"{r['pct_rose']:.0f}%",
+                    "% Fell":       f"{r['pct_fell']:.0f}%",
+                    "Avg Return":   f"{r['avg_return']:+.1f}%",
+                    "Median Return":f"{r['median_return']:+.1f}%",
+                    "Best Event":   f"{r['best_event']:+.1f}%",
+                    "Worst Event":  f"{r['worst_event']:+.1f}%",
+                    "Behavior":     "🟢 Safe Haven" if r['consistent_up'] else
+                                    "🔴 High Risk" if r['consistent_down'] else
+                                    "🟡 Mixed",
+                })
+            df = pd.DataFrame(rows)
+            st.dataframe(df, use_container_width=True, hide_index=True)
+
+            with st.expander("📋 Detailed event log (first 10 stocks)"):
+                for r in all_s[:10]:
+                    st.markdown(f"**{r['ticker_short']}** — {len(r['events'])} events")
+                    ev_rows = [{"Spike Start": e['spike_start'], "Spike End": e['spike_end'],
+                                "Peak VIX": e['peak_vix'], "Return %": f"{e['return_pct']:+.1f}%",
+                                "Result": "✅ UP" if e['went_up'] else "❌ DOWN"}
+                               for e in r['events']]
+                    st.dataframe(pd.DataFrame(ev_rows), use_container_width=True, hide_index=True)
+
+
+def _render_vix_stock_row(r: dict, kind: str):
+    """Render a single stock's VIX-spike behavior as a card."""
+    pct_key  = 'pct_rose' if kind == 'riser' else 'pct_fell'
+    pct_val  = r[pct_key]
+    bar_col  = "#00e5c0" if kind == 'riser' else "#f87171"
+    avg_col  = "#00e5c0" if r['avg_return'] >= 0 else "#f87171"
+    bar_pct  = int(pct_val)
+    label    = f"Rose in {pct_val:.0f}% of events" if kind == 'riser' else f"Fell in {pct_val:.0f}% of events"
+
+    events_html = ""
+    for e in r.get('events', []):
+        dot_col = "#00e5c0" if e['went_up'] else "#f87171"
+        events_html += (
+            f'<span title="{e["spike_start"]} → {e["spike_end"]} | VIX {e["peak_vix"]} | {e["return_pct"]:+.1f}%"'
+            f'style="display:inline-block;width:10px;height:10px;border-radius:50%;'
+            f'background:{dot_col};margin:1px;cursor:help;"></span>'
+        )
+
+    st.markdown(f"""
+    <div class="stock-card" style="padding:1rem 1.4rem;">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div>
+          <span class="ticker-symbol">{r['ticker_short']}</span>
+          <span style="margin-left:0.8rem;font-size:0.78rem;color:#5a7099;">{label}</span>
+        </div>
+        <div style="text-align:right;">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:1rem;font-weight:700;color:{avg_col};">
+            avg {r['avg_return']:+.1f}%
+          </span>
+          <span style="font-size:0.70rem;color:#3d4f6b;margin-left:0.6rem;">
+            median {r['median_return']:+.1f}%
+          </span>
+        </div>
+      </div>
+
+      <div style="margin:0.5rem 0;display:flex;align-items:center;gap:0.8rem;">
+        <div style="flex:1;background:#172035;border-radius:4px;height:6px;">
+          <div style="width:{bar_pct}%;background:{bar_col};height:100%;border-radius:4px;"></div>
+        </div>
+        <span style="font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:{bar_col};min-width:35px;">{bar_pct}%</span>
+      </div>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <div style="font-size:0.72rem;color:#3d4f6b;font-family:'IBM Plex Mono',monospace;">
+          {r['num_events']} events &nbsp;|&nbsp;
+          best {r['best_event']:+.1f}% &nbsp;|&nbsp; worst {r['worst_event']:+.1f}%
+        </div>
+        <div style="display:flex;gap:2px;align-items:center;" title="Each dot = one VIX spike event (hover for details)">
+          {events_html}
+        </div>
+      </div>
+    </div>
+    """, unsafe_allow_html=True)
