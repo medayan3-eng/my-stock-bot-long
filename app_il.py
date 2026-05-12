@@ -487,7 +487,7 @@ def main():
         else:
             universe = STOCK_UNIVERSE_IL[:params['max_stocks']]
         tag = f"  (Sector: {sector})" if sector != 'All' else ''
-        st.info(f"🔍 Scanning {len(universe)} stocks{tag}...")
+        scan_ph=st.empty(); scan_ph.info(f"🔍 Scanning {len(universe)} stocks{tag}...")
         pb=st.progress(0); st_txt=st.empty(); results=[]
         for i,ticker in enumerate(universe):
             pb.progress((i+1)/len(universe))
@@ -498,9 +498,11 @@ def main():
             except Exception: pass
         results.sort(key=lambda x: (-x.get('score',0), x.get('ticker','')))
         st.session_state.scan_results_il=results; st.session_state.backtest_results_il=None
-        pb.empty(); st_txt.empty()
+        pb.empty(); st_txt.empty(); scan_ph.empty()
         if not results:
-            st.warning("⚠️ 0 stocks passed filters. Try: RSI Max=65, uncheck MA, lower Min Beta.")
+            st.session_state['scan_warn'] = True
+        else:
+            st.session_state['scan_warn'] = False
 
     # ── STEP 2: BACKTEST
     if params['run_backtest']:
@@ -509,15 +511,19 @@ def main():
             st.warning("⚠️ Run Step 1 first!")
         else:
             tickers=[r['ticker'] for r in scan_res]
-            st.info(f"📊 Backtesting {len(tickers)} stocks — 1 year history…")
+            bt_ph=st.empty(); bt_ph.info(f"📊 Backtesting {len(tickers)} stocks — 1 year history…")
             pb2=st.progress(0); st2=st.empty()
             bt=run_backtest_il(tickers, params, pb2, st2)
             st.session_state.backtest_results_il=bt
-            pb2.empty(); st2.empty()
+            pb2.empty(); st2.empty(); bt_ph.empty()
 
     # ── DISPLAY
     results=st.session_state.scan_results_il
     bt_data=st.session_state.backtest_results_il
+
+    # Show persistent scan warning if needed
+    if st.session_state.get('scan_warn'):
+        st.warning("⚠️ 0 stocks passed filters. Try: RSI Max=65, uncheck MA, lower Min Beta.")
 
     if results is not None:
         if not results:
@@ -584,7 +590,7 @@ def main():
                 else: st.info("Press **STEP 2 — BACKTEST** in the sidebar after scanning.")
 
             with t5:
-                render_vix_spike_tab(universe if "universe" in dir() else STOCK_UNIVERSE_IL)
+                render_vix_spike_tab(STOCK_UNIVERSE_IL)
     else:
         st.markdown(f"""
         <div style="text-align:center;padding:5rem 2rem;color:#3d4f6b;">
