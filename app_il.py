@@ -554,7 +554,7 @@ def main():
                 filtered.sort(key=lambda x: ps.get(x['ticker'],{}).get('win_rate',0),reverse=True)
 
             st.markdown(f"### 🎯 {len(filtered)} Opportunities")
-            t1,t2,t3,t4,t5=st.tabs(["📋 Stocks","📈 Charts","📰 News","📊 Backtest","😨 VIX Spike Analysis"])
+            t1,t2,t3,t4=st.tabs(["📋 Stocks","📈 Charts","📰 News","📊 Backtest"])
 
             with t1:
                 if not filtered: st.info("No stocks to display with current filters.")
@@ -589,8 +589,6 @@ def main():
                 if bt_data: render_backtest_panel_il(bt_data)
                 else: st.info("Press **STEP 2 — BACKTEST** in the sidebar after scanning.")
 
-            with t5:
-                render_vix_spike_tab(STOCK_UNIVERSE_IL)
     else:
         st.markdown(f"""
         <div style="text-align:center;padding:5rem 2rem;color:#3d4f6b;">
@@ -611,6 +609,10 @@ def main():
               <div style="font-size:0.72rem;color:#3d4f6b;">Benchmark Index</div></div>
           </div>
         </div>""", unsafe_allow_html=True)
+
+    # ── VIX SPIKE ANALYSIS — always rendered at bottom, independent of scan
+    st.markdown("---")
+    render_vix_spike_tab(STOCK_UNIVERSE_IL)
 
 
 if __name__ == "__main__":
