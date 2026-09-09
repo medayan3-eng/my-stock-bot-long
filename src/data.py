@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import datetime as dt
 import math
+import time
 from typing import Dict, List, Optional
 
 import pandas as pd
@@ -55,7 +56,8 @@ def _clean(df: pd.DataFrame) -> Optional[pd.DataFrame]:
     if df.empty:
         return None
     df.index = pd.to_datetime(df.index)
-    return df.sort_index()
+    # float32 halves memory - a 2,400-name universe has to fit in ~1 GB
+    return df.sort_index().astype("float32")
 
 
 def download_prices(
@@ -79,6 +81,7 @@ def download_prices(
         group_by="ticker",
         threads=True,
         progress=False,
+        timeout=30,            # never block the UI indefinitely
     )
 
     out: Dict[str, pd.DataFrame] = {}
@@ -194,34 +197,50 @@ def sector_etf_for(sector: Optional[str]) -> Optional[str]:
     return SECTOR_ETF.get(sector.strip())
 
 
+def chunk_tickers(tickers: List[str], chunk_size: int = 60) -> List[List[str]]:
+    """Split a universe into fetch batches (deduplicated and sorted)."""
+    clean = sorted({t.strip().upper() for t in tickers if t and t.strip()})
+    return [clean[i: i + chunk_size] for i in range(0, len(clean), chunk_size)]
+
+
+def download_chunk(batch: List[str], period: str = "2y", attempts: int = 2) -> Dict[str, pd.DataFrame]:
+    """Fetch one batch, retrying the batch as a whole.
+
+    Deliberately no per-ticker fallback: when Yahoo rate-limits a batch,
+    retrying its 60 tickers individually triggers 60 more throttled requests
+    with their own backoff, which looks exactly like a frozen app. Better to
+    pause, retry once, then skip the batch and report it.
+    """
+    for attempt in range(attempts):
+        try:
+            got = download_prices(batch, period=period)
+            if got:
+                return got
+        except Exception:
+            pass
+        if attempt < attempts - 1:
+            time.sleep(3.0)                        # let the rate limiter cool off
+    return {}
+
+
 def download_prices_chunked(
     tickers: List[str],
-    period: str = "3y",
-    chunk_size: int = 120,
+    period: str = "2y",
+    chunk_size: int = 60,
     progress=None,
+    pause: float = 0.6,
 ) -> Dict[str, pd.DataFrame]:
-    """Download a large universe in batches.
-
-    Yahoo throttles very large single requests, so a 2,000-name universe is
-    fetched in chunks. `progress` is an optional callable(done, total, label).
-    A failed chunk is retried once ticker-by-ticker rather than lost wholesale.
-    """
-    tickers = sorted({t.strip().upper() for t in tickers if t and t.strip()})
+    """Download a large universe in batches, skipping any batch Yahoo refuses."""
     out: Dict[str, pd.DataFrame] = {}
-    total = len(tickers)
-    for start in range(0, total, chunk_size):
-        batch = tickers[start: start + chunk_size]
-        try:
-            out.update(download_prices(batch, period=period))
-        except Exception:
-            for t in batch:                       # salvage what we can
-                try:
-                    out.update(download_prices([t], period=period))
-                except Exception:
-                    pass
+    batches = chunk_tickers(tickers, chunk_size)
+    total = sum(len(b) for b in batches)
+    done = 0
+    for batch in batches:
+        out.update(download_chunk(batch, period=period))
+        done += len(batch)
         if progress:
-            done = min(start + chunk_size, total)
-            progress(done, total, f"Downloaded {done:,} / {total:,} tickers")
+            progress(done, total, f"Downloaded {done:,} / {total:,} tickers ({len(out):,} with data)")
+        time.sleep(pause)                          # stay under the rate limit
     return out
 
 
