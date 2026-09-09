@@ -194,6 +194,37 @@ def sector_etf_for(sector: Optional[str]) -> Optional[str]:
     return SECTOR_ETF.get(sector.strip())
 
 
+def download_prices_chunked(
+    tickers: List[str],
+    period: str = "3y",
+    chunk_size: int = 120,
+    progress=None,
+) -> Dict[str, pd.DataFrame]:
+    """Download a large universe in batches.
+
+    Yahoo throttles very large single requests, so a 2,000-name universe is
+    fetched in chunks. `progress` is an optional callable(done, total, label).
+    A failed chunk is retried once ticker-by-ticker rather than lost wholesale.
+    """
+    tickers = sorted({t.strip().upper() for t in tickers if t and t.strip()})
+    out: Dict[str, pd.DataFrame] = {}
+    total = len(tickers)
+    for start in range(0, total, chunk_size):
+        batch = tickers[start: start + chunk_size]
+        try:
+            out.update(download_prices(batch, period=period))
+        except Exception:
+            for t in batch:                       # salvage what we can
+                try:
+                    out.update(download_prices([t], period=period))
+                except Exception:
+                    pass
+        if progress:
+            done = min(start + chunk_size, total)
+            progress(done, total, f"Downloaded {done:,} / {total:,} tickers")
+    return out
+
+
 def load_universe_csv(path: str) -> tuple:
     """Read universe.csv -> (tickers, {ticker: sector}).
 
