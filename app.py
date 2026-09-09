@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import datetime as dt
 import os
+import time
 from typing import Dict, List
 
 import pandas as pd
@@ -22,8 +23,9 @@ from src import screener as screener_mod
 from src.config import load_config
 from src.data import (
     VIX,
+    chunk_tickers,
+    download_chunk,
     download_prices,
-    download_prices_chunked,
     get_fundamentals,
     load_universe_csv,
 )
@@ -49,6 +51,13 @@ def load_universe() -> List[str]:
     return tickers
 
 
+@st.cache_data(ttl=60 * 60 * 6, show_spinner=False, max_entries=80)
+def fetch_batch(batch: tuple, period: str) -> Dict[str, pd.DataFrame]:
+    """One cached batch. Cached per batch, so re-running resumes where it
+    stopped instead of re-downloading everything from the start."""
+    return download_chunk(list(batch), period=period)
+
+
 @st.cache_data(ttl=60 * 60 * 3, show_spinner=False)
 def fetch_context(period: str) -> Dict[str, pd.DataFrame]:
     """Benchmark, VIX and all eleven sector ETFs - one small request."""
@@ -70,8 +79,8 @@ tickers = load_universe()
 c1, c2 = st.columns([1, 3])
 run = c1.button("▶️ Run scan", type="primary", use_container_width=True)
 c2.caption(
-    f"{len(tickers):,} tickers loaded (S&P 500 + Russell 2000). "
-    "First run of the day takes several minutes."
+    f"{len(tickers):,} tickers loaded (S&P 500 + Russell 2000). The first run of the day "
+    "takes several minutes; batches are cached, so a repeat run resumes quickly."
 )
 
 
@@ -87,12 +96,23 @@ def run_scan() -> dict:
     sector_table = market_mod.build_sector_table_from(cfg, bench_df, sector_prices)
     regime = market_mod.evaluate_regime(cfg, context)
 
-    def on_download(done, total, label):
-        bar.progress(min(0.05 + 0.75 * done / max(total, 1), 0.80), text=label)
-
-    prices = download_prices_chunked(
-        tickers, period=cfg["scan"]["history_period"], progress=on_download
-    )
+    period = cfg["scan"]["history_period"]
+    batches = chunk_tickers(tickers, cfg["scan"].get("chunk_size", 60))
+    total = sum(len(b) for b in batches)
+    prices: Dict[str, pd.DataFrame] = {}
+    done = 0
+    skipped = 0
+    for batch in batches:
+        got = fetch_batch(tuple(batch), period)
+        if not got:
+            skipped += len(batch)
+        prices.update(got)
+        done += len(batch)
+        bar.progress(
+            min(0.05 + 0.75 * done / max(total, 1), 0.80),
+            text=f"Downloaded {done:,} / {total:,} · {len(prices):,} with data",
+        )
+        time.sleep(cfg["scan"].get("batch_pause_seconds", 0.6))
 
     def on_analyse(done, total, label):
         bar.progress(min(0.80 + 0.19 * done / max(total, 1), 0.99), text=label)
@@ -125,7 +145,7 @@ def run_scan() -> dict:
     bar.progress(1.0, text="Done.")
     bar.empty()
     return {"prices": prices, "regime": regime, "results": results,
-            "sector_table": sector_table, "loaded": len(prices)}
+            "sector_table": sector_table, "loaded": len(prices), "skipped": skipped}
 
 
 def add_earnings(results: pd.DataFrame, shortlist: List[str]) -> pd.DataFrame:
@@ -166,6 +186,12 @@ results: pd.DataFrame = state["results"]
 prices = state["prices"]
 
 st.caption(f"Last scan: {st.session_state.get('scan_time', '')} · {state['loaded']:,} tickers with usable data")
+if state.get("skipped"):
+    st.warning(
+        f"Yahoo rate-limited {state['skipped']:,} tickers, so they were skipped this run. "
+        "Press **Run scan** again in a minute — completed batches are cached, so it "
+        "resumes rather than starting over."
+    )
 
 m1, m2, m3, m4 = st.columns(4)
 m1.metric(
