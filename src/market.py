@@ -92,9 +92,18 @@ def sector_universe() -> List[str]:
 
 def build_sector_table(cfg: dict, benchmark_df: Optional[pd.DataFrame]) -> Dict[str, dict]:
     """RSI and relative strength for every SPDR sector ETF."""
+    prices = download_prices(sector_universe(), period="1y")
+    return build_sector_table_from(cfg, benchmark_df, prices)
+
+
+def build_sector_table_from(
+    cfg: dict,
+    benchmark_df: Optional[pd.DataFrame],
+    prices: Dict[str, pd.DataFrame],
+) -> Dict[str, dict]:
+    """Same, but reusing price history that has already been downloaded."""
     sc = cfg["sector"]
     etfs = sector_universe()
-    prices = download_prices(etfs, period="1y")
     lookback = int(sc["rs_lookback_days"])
 
     bench_ret = (
@@ -138,3 +147,43 @@ def sector_status(sector: Optional[str], table: Dict[str, dict]) -> dict:
     if etf is None or etf not in table:
         return {"etf": etf, "rsi": None, "rs_pct": None, "ok": None}
     return table[etf]
+
+
+def load_sector_prices(period: str = "1y") -> Dict[str, pd.DataFrame]:
+    return download_prices(sector_universe(), period=period)
+
+
+def infer_sector_etf(
+    close: pd.Series,
+    sector_prices: Dict[str, pd.DataFrame],
+    lookback: int = 120,
+) -> Optional[str]:
+    """Assign a stock to a sector ETF by return correlation.
+
+    Yahoo's per-ticker profile request is far too slow for a 2,000-name
+    universe, so the sector is inferred from price behaviour instead: whichever
+    SPDR sector ETF the stock's daily returns track most closely over the last
+    `lookback` bars. Costs nothing extra - the ETF history is already loaded.
+    """
+    if close is None or len(close) < 40 or not sector_prices:
+        return None
+    stock = close.pct_change().dropna().iloc[-lookback:]
+    if stock.empty or stock.std() == 0:
+        return None
+
+    best_etf, best_corr = None, -2.0
+    for etf, edf in sector_prices.items():
+        if edf is None or edf.empty:
+            continue
+        etf_ret = edf["Close"].pct_change().dropna().iloc[-lookback:]
+        joined = pd.concat([stock, etf_ret], axis=1, join="inner").dropna()
+        if len(joined) < 30:
+            continue
+        a, b = joined.iloc[:, 0], joined.iloc[:, 1]
+        if a.std() == 0 or b.std() == 0:
+            continue
+        corr = float(a.corr(b))
+        if pd.notna(corr) and corr > best_corr:
+            best_etf, best_corr = etf, corr
+    # A weak best match means the stock does not really belong to any sector.
+    return best_etf if best_corr >= 0.30 else None
