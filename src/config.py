@@ -108,7 +108,9 @@ DEFAULTS: Dict[str, Any] = {
 
     # ---------------- Scan behaviour ---------------- #
     "scan": {
-        "history_period": "3y",
+        "history_period": "2y",
+        "chunk_size": 60,
+        "batch_pause_seconds": 0.6,
         "min_bars": 260,              # need ~1y+ of data for 52w / SMA200
         "fetch_fundamentals": True,
         "score_weights": {
