@@ -74,7 +74,9 @@ risk:
   max_position_pct: 20.0
 
 scan:
-  history_period: 3y
+  history_period: 2y      # ~500 bars: enough for SMA200 + the 52-week high
+  chunk_size: 60          # tickers per Yahoo request
+  batch_pause_seconds: 0.6
   min_bars: 260
   fetch_fundamentals: true
   score_weights:
