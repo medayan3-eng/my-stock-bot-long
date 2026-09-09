@@ -13,8 +13,9 @@ import numpy as np
 import pandas as pd
 
 from . import indicators as ind
-from .data import BENCHMARK, get_fundamentals
-from .market import sector_status
+from . import patterns as pat
+from .data import BENCHMARK
+from .market import infer_sector_etf, sector_status
 
 # Rule order defines column order in the results table.
 RULES: List[str] = [
@@ -274,6 +275,8 @@ def scan(
     sector_table: Dict[str, dict],
     fundamentals: Optional[Dict[str, dict]] = None,
     tickers: Optional[List[str]] = None,
+    sector_prices: Optional[Dict[str, pd.DataFrame]] = None,
+    progress=None,
 ) -> pd.DataFrame:
     """Run the full rule set over the universe. Returns one row per ticker."""
     bench_df = prices.get(cfg["regime"]["benchmark"], prices.get(BENCHMARK))
@@ -307,13 +310,28 @@ def scan(
 
         fnd = fundamentals.get(tk, {})
         m = compute_metrics(tk, df, cfg, bench_ret, fnd)
+
+        # Sector: use a known label if we have one, otherwise infer it from
+        # return correlation against the SPDR sector ETFs.
         sec_info = sector_status(m.get("sector"), sector_table)
+        if sec_info.get("ok") is None and sector_prices:
+            etf = infer_sector_etf(df["Close"], sector_prices)
+            if etf and etf in sector_table:
+                sec_info = dict(sector_table[etf])
+                m["sector"] = m.get("sector") or f"inferred ({etf})"
+
         m["sector_etf"] = sec_info.get("etf")
         m["sector_rsi"] = sec_info.get("rsi")
         m["sector_rs_pct"] = sec_info.get("rs_pct")
 
         checks, warns = evaluate_rules(m, cfg, sec_info)
+
         row = dict(m)
+        try:
+            row.update(pat.analyse(df))
+        except Exception:
+            pass
+
         row.update({f"chk_{k}": v for k, v in checks.items()})
         row["rules_passed"] = int(sum(checks.values()))
         row["rules_total"] = len(checks)
@@ -323,6 +341,8 @@ def scan(
         row["warnings"] = " | ".join(warns)
         row["status"] = "ok"
         rows.append(row)
+        if progress and len(rows) % 50 == 0:
+            progress(len(rows), len(universe), f"Analysed {len(rows):,} / {len(universe):,}")
 
     out = pd.DataFrame(rows)
     if out.empty:
