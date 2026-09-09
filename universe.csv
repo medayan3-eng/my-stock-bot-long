@@ -1,528 +1,2402 @@
-ticker,sector
-A,Healthcare
-AAOI,Technology
-AAPL,Technology
-ABEO,Healthcare
-ABNB,Consumer Cyclical
-ABSI,Healthcare
-ACA,Industrials
-ACHV,Healthcare
-ACMR,Technology
-ACVA,Consumer Cyclical
-ADAM,Real Estate
-ADEA,Technology
-ADI,Technology
-ADPT,Healthcare
-ADT,Industrials
-AEHR,Technology
-AESI,Energy
-AFRM,Financial
-AGCO,Industrials
-AGEN,Healthcare
-AHRT,Real Estate
-ALAB,Technology
-ALLY,Financial
-ALM,Basic Materials
-AMAT,Technology
-AMBQ,Technology
-AMCX,Communication Services
-AMD,Technology
-AMP,Financial
-AMPL,Technology
-AMRX,Healthcare
-AMZN,Consumer Cyclical
-ANET,Technology
-ANF,Consumer Cyclical
-ANRO,Healthcare
-APAM,Financial
-APH,Technology
-APO,Financial
-APPS,Technology
-AQST,Healthcare
-ARCT,Healthcare
-ARE,Real Estate
-ARES,Financial
-ARHS,Consumer Cyclical
-ARLO,Industrials
-ARMK,Industrials
-ARW,Technology
-ARWR,Healthcare
-ASST,Financial
-ASTH,Healthcare
-ATAI,Healthcare
-ATKR,Industrials
-ATRC,Healthcare
-ATRO,Industrials
-AUR,Consumer Cyclical
-AVAH,Healthcare
-AVBP,Healthcare
-AVNT,Basic Materials
-AVPT,Technology
-AVR,Healthcare
-AVT,Technology
-AXGN,Healthcare
-AXON,Industrials
-AXTA,Basic Materials
-AXTI,Technology
-AZTA,Healthcare
-BAC,Financial
-BAM,Financial
-BAND,Technology
-BBNX,Healthcare
-BBY,Consumer Cyclical
-BDC,Technology
-BE,Industrials
-BEAM,Healthcare
-BEN,Financial
-BFH,Financial
-BFLY,Healthcare
-BHVN,Healthcare
-BILL,Technology
-BJRI,Consumer Cyclical
-BKNG,Consumer Cyclical
-BKR,Energy
-BLBD,Industrials
-BLFS,Healthcare
-BLK,Financial
-BLKB,Technology
-BLMN,Consumer Cyclical
-BLZE,Technology
-BMNR,Financial
-BNY,Financial
-BRKR,Healthcare
-BTSG,Healthcare
-BWA,Consumer Cyclical
-BWIN,Financial
-BX,Financial
-BXP,Real Estate
-BZH,Consumer Cyclical
-C,Financial
-CAI,Healthcare
-CAKE,Consumer Cyclical
-CARS,Communication Services
-CAT,Industrials
-CBRE,Real Estate
-CBRL,Consumer Cyclical
-CDE,Basic Materials
-CDNA,Healthcare
-CECO,Industrials
-CEG,Utilities
-CERT,Healthcare
-CFG,Financial
-CGNX,Technology
-CHEF,Consumer Defensive
-CLF,Basic Materials
-CLPT,Healthcare
-CLSK,Financial
-CMC,Industrials
-CMCO,Industrials
-CNC,Healthcare
-CNK,Communication Services
-CODI,Industrials
-COF,Financial
-COHR,Technology
-COHU,Technology
-COMP,Real Estate
-CRBG,Financial
-CRL,Healthcare
-CRM,Technology
-CRMD,Healthcare
-CROX,Consumer Cyclical
-CRS,Industrials
-CRSR,Technology
-CRVS,Healthcare
-CRWD,Technology
-CSX,Industrials
-CTOS,Industrials
-CUBE,Real Estate
-CUZ,Real Estate
-CVNA,Consumer Cyclical
-CXT,Industrials
-CYRX,Industrials
-CZR,Consumer Cyclical
-DAL,Industrials
-DAN,Consumer Cyclical
-DAR,Consumer Defensive
-DASH,Consumer Cyclical
-DAVE,Technology
-DBRG,Financial
-DC,Basic Materials
-DCH,Consumer Cyclical
-DDOG,Technology
-DEI,Real Estate
-DELL,Technology
-DFTX,Healthcare
-DHC,Real Estate
-DIOD,Technology
-DIS,Communication Services
-DLR,Real Estate
-DMRA,Healthcare
-DNLI,Healthcare
-DNTH,Healthcare
-DOCN,Technology
-DRH,Real Estate
-DSGN,Healthcare
-DUOL,Technology
-DXCM,Healthcare
-DXYZ,Financial
-DYN,Healthcare
-EAT,Consumer Cyclical
-EBAY,Consumer Cyclical
-EL,Consumer Defensive
-ELAN,Healthcare
-ELF,Consumer Defensive
-EMN,Basic Materials
-EMR,Industrials
-ENTG,Technology
-EOLS,Healthcare
-EPR,Real Estate
-EQH,Financial
-ESI,Basic Materials
-ESTA,Healthcare
-ESTC,Technology
-ETD,Consumer Cyclical
-ETSY,Consumer Cyclical
-EVC,Communication Services
-EXPD,Industrials
-EXPE,Consumer Cyclical
-EXTR,Technology
-F,Consumer Cyclical
-FA,Industrials
-FAF,Financial
-FBRX,Healthcare
-FCEL,Industrials
-FCX,Basic Materials
-FDMT,Healthcare
-FDX,Industrials
-FFIV,Technology
-FIGS,Consumer Cyclical
-FIVN,Technology
-FLEX,Technology
-FLR,Industrials
-FLS,Industrials
-FLYW,Technology
-FORM,Technology
-FOSL,Consumer Cyclical
-FOXF,Consumer Cyclical
-FR,Real Estate
-FROG,Technology
-FRPT,Consumer Defensive
-FSS,Industrials
-FTDR,Consumer Cyclical
-FTNT,Technology
-FTRE,Healthcare
-GCT,Technology
-GE,Industrials
-GEN,Technology
-GH,Healthcare
-GLW,Technology
-GLXY,Financial
-GM,Consumer Cyclical
-GOOG,Communication Services
-GOOGL,Communication Services
-GPRE,Basic Materials
-GRAL,Healthcare
-GS,Financial
-GSAT,Communication Services
-GSHD,Financial
-GTES,Industrials
-HAPN,Financial
-HASI,Financial
-HIW,Real Estate
-HL,Basic Materials
-HLIT,Technology
-HNGE,Healthcare
-HNST,Consumer Defensive
-HOG,Consumer Cyclical
-HOOD,Financial
-HOS,Energy
-HPE,Technology
-HPP,Real Estate
-HPQ,Technology
-HRMY,Healthcare
-HST,Real Estate
-HTFL,Healthcare
-HTLD,Industrials
-HUT,Financial
-HWM,Industrials
-HXL,Industrials
-HZO,Consumer Cyclical
-IART,Healthcare
-IBKR,Financial
-ICHR,Technology
-ILMN,Healthcare
-IMNM,Healthcare
-INGM,Technology
-INN,Real Estate
-INTC,Technology
-IOT,Technology
-IQV,Healthcare
-IRM,Real Estate
-ITRI,Technology
-ITT,Industrials
-IVZ,Financial
-JACK,Consumer Cyclical
-JANX,Healthcare
-JBHT,Industrials
-JBIO,Healthcare
-JBL,Technology
-JEF,Financial
-JPM,Financial
-JXN,Financial
-KEY,Financial
-KEYS,Technology
-KFY,Industrials
-KKR,Financial
-KLAC,Technology
-KLIC,Technology
-KMX,Consumer Cyclical
-KN,Technology
-KNX,Industrials
-KOD,Healthcare
-KODK,Industrials
-KRC,Real Estate
-KSS,Consumer Cyclical
-KYMR,Healthcare
-LAMR,Real Estate
-LAND,Real Estate
-LEA,Consumer Cyclical
-LFST,Healthcare
-LIND,Consumer Cyclical
-LITE,Technology
-LNC,Financial
-LRCX,Technology
-LSCC,Technology
-LTH,Consumer Cyclical
-LXP,Real Estate
-LYFT,Technology
-LYV,Communication Services
-M,Consumer Cyclical
-MAC,Real Estate
-MARA,Financial
-MAS,Industrials
-MAX,Communication Services
-MC,Financial
-MCHB,Financial
-MCO,Financial
-MDB,Technology
-MEI,Technology
-MGM,Consumer Cyclical
-MGNI,Communication Services
-MGTX,Healthcare
-MHK,Consumer Cyclical
-MLI,Industrials
-MLKN,Consumer Cyclical
-MRAM,Technology
-MRNA,Healthcare
-MRVL,Technology
-MS,Financial
-MSFT,Technology
-MSTR,Technology
-MTCH,Communication Services
-MTSI,Technology
-MU,Technology
-MXL,Technology
-NAVI,Financial
-NEO,Healthcare
-NEOG,Healthcare
-NET,Technology
-NEXT,Energy
-NLY,Real Estate
-NMAX,Communication Services
-NRIX,Healthcare
-NSC,Industrials
-NTAP,Technology
-NTLA,Healthcare
-NTRA,Healthcare
-NTRS,Financial
-NTSK,Technology
-NUAI,Technology
-NUE,Basic Materials
-NUVB,Healthcare
-NVAX,Healthcare
-NVDA,Technology
-OC,Industrials
-OGN,Healthcare
-OII,Energy
-OMDA,Healthcare
-OMER,Healthcare
-OMF,Financial
-ONTO,Technology
-OPLN,Consumer Cyclical
-OSCR,Healthcare
-OSK,Industrials
-OUST,Technology
-OUT,Real Estate
-OWL,Financial
-P,Technology
-PAY,Technology
-PBI,Industrials
-PCVX,Healthcare
-PDFS,Technology
-PUBM,Technology
-PWR,Industrials
-PYPL,Financial
-QCOM,Technology
-QMCO,Technology
-QRVO,Technology
-QTWO,Technology
-RAL,Technology
-RAMP,Technology
-RBRK,Technology
-RDNT,Healthcare
-RF,Financial
-RGEN,Healthcare
-RHP,Real Estate
-RIOT,Financial
-RLAY,Healthcare
-RLJ,Real Estate
-RNG,Technology
-RNST,Financial
-ROK,Industrials
-PGNY,Healthcare
-PGY,Technology
-PH,Industrials
-PK,Real Estate
-PLTR,Technology
-PNFP,Financial
-PPG,Basic Materials
-PRAA,Financial
-PRCH,Financial
-PRG,Industrials
-PRKS,Consumer Cyclical
-PRM,Basic Materials
-PSNL,Healthcare
-PTGX,Healthcare
-PTRN,Consumer Cyclical
-RVTY,Healthcare
-RXO,Industrials
-RYAM,Basic Materials
-RYTM,Healthcare
-SAIL,Technology
-SANM,Technology
-SBET,Financial
-SBH,Consumer Cyclical
-SDGR,Healthcare
-SENS,Healthcare
-SEZL,Financial
-SG,Consumer Cyclical
-SGMT,Healthcare
-SHC,Healthcare
-SHO,Real Estate
-SHOO,Consumer Cyclical
-SITM,Technology
-SKT,Real Estate
-SKY,Consumer Cyclical
-SLDB,Healthcare
-SLG,Real Estate
-SLS,Healthcare
-SMCI,Technology
-SMTC,Technology
-SN,Consumer Cyclical
-SNDK,Technology
-SNDR,Industrials
-SNOW,Technology
-SNX,Technology
-SPG,Real Estate
-SPGI,Financial
-SPHR,Communication Services
-SRTA,Healthcare
-SSNC,Technology
-ST,Technology
-STGW,Communication Services
-STLD,Basic Materials
-STT,Financial
-STTK,Healthcare
-SVV,Consumer Cyclical
-SWIM,Industrials
-SWK,Industrials
-SWKS,Technology
-SYF,Financial
-SYNA,Technology
-SYRE,Healthcare
-TASK,Technology
-TEAM,Technology
-TECH,Healthcare
-TEM,Healthcare
-TENB,Technology
-TER,Technology
-TEX,Industrials
-TGTX,Healthcare
-TH,Industrials
-THC,Healthcare
-TILE,Consumer Cyclical
-TKR,Industrials
-TNDM,Healthcare
-TNGX,Healthcare
-TOST,Technology
-TPC,Industrials
-TPG,Financial
-TREX,Industrials
-TRLV,Healthcare
-TRNO,Real Estate
-TROW,Financial
-TRU,Financial
-TSHA,Healthcare
-TTMI,Technology
-TVTX,Healthcare
-TWI,Industrials
-TWLO,Technology
-TWST,Healthcare
-TXG,Healthcare
-TXN,Technology
-U,Technology
-UAL,Industrials
-UCTT,Technology
-ULCC,Industrials
-UMAC,Technology
-UNIT,Real Estate
-URBN,Consumer Cyclical
-URGN,Healthcare
-USB,Financial
-VC,Consumer Cyclical
-VCEL,Healthcare
-VCTR,Financial
-VECO,Technology
-VIA,Technology
-VIAV,Technology
-VIR,Healthcare
-VISN,Technology
-VLY,Financial
-VNO,Real Estate
-VOR,Healthcare
-VOYG,Industrials
-VRT,Industrials
-VSAT,Technology
-VSH,Technology
-VSTS,Industrials
-VSXY,Consumer Cyclical
-VYX,Technology
-W,Consumer Cyclical
-WAT,Healthcare
-WBD,Communication Services
-WCC,Industrials
-WDAY,Technology
-WDC,Technology
-WEAV,Healthcare
-WERN,Industrials
-WFRD,Energy
-WGS,Healthcare
-WHD,Energy
-WKC,Energy
-WNC,Industrials
-WSM,Consumer Cyclical
-WST,Healthcare
-WT,Financial
-WTTR,Energy
-WWW,Consumer Cyclical
-XHR,Real Estate
-XMAX,Consumer Cyclical
-XMTR,Industrials
-XPO,Industrials
-XYZ,Technology
-YEXT,Technology
-ZBRA,Technology
-ZD,Communication Services
-ZETA,Technology
-ZM,Technology
-ZYME,Healthcare
+ticker,index,name
+A,SP500,
+AA,SP500,
+AAC,RUSSELL2000,Aac Holdings Inc
+AAMC,RUSSELL2000,Altisource Asset
+AAOI,RUSSELL2000,Applied Optoelectronics Inc
+AAON,RUSSELL2000,Aaon Inc
+AAPL,SP500,
+AAT,RUSSELL2000,American Assets Trust
+AAVL,RUSSELL2000,Avalanche Biotechnologies Inc
+AAWW,RUSSELL2000,Atlas Air Worldwide Holdings
+ABAX,RUSSELL2000,Abaxis Inc
+ABC,SP500,
+ABCB,RUSSELL2000,Ameris Bancorp
+ABCD,RUSSELL2000,Cambium Learning Group
+ABCO,RUSSELL2000,The Advisory Board Company
+ABCW,RUSSELL2000,Anchor Bancorp Wisconsin Inc
+ABEO,RUSSELL2000,Abeona Therapeutics Inc
+ABG,RUSSELL2000,Asbury Automotive Group Inc
+ABM,RUSSELL2000,ABM Industries Incorporated
+ABMD,RUSSELL2000,Abiomed
+ABT,SP500,
+ABY,RUSSELL2000,Abengoa Yield Plc
+ACAD,RUSSELL2000,Acadia Pharmaceuticals Inc
+ACAT,RUSSELL2000,Arctic Cat Inc
+ACCO,RUSSELL2000,Acco Brands Corp
+ACE,SP500,
+ACET,RUSSELL2000,Aceto Corp
+ACHN,RUSSELL2000,Achillion Pharmaceuticals
+ACIW,RUSSELL2000,Aci Worldwide
+ACLS,RUSSELL2000,Axcelis Technologies
+ACN,SP500,
+ACOR,RUSSELL2000,Acorda Therapeutics
+ACRE,RUSSELL2000,Ares Commercial Real Estate Cor
+ACTA,RUSSELL2000,Actua Corporation
+ACTG,RUSSELL2000,Acacia Research Corp
+ACW,RUSSELL2000,Accuride Corporation
+ACXM,RUSSELL2000,Acxiom Corp
+ADBE,SP500,
+ADC,RUSSELL2000,Agree Realty Corp
+ADI,SP500,
+ADM,SP500,
+ADMS,RUSSELL2000,Adamas Pharmaceuticals Inc
+ADP,SP500,
+ADPT,RUSSELL2000,Adeptus Health Inc
+ADRO,RUSSELL2000,Aduro Biotech Inc
+ADSK,SP500,
+ADTN,RUSSELL2000,Adtran Inc
+ADUS,RUSSELL2000,Addus Homecare Corp
+ADXS,RUSSELL2000,Advaxis Inc
+AE,RUSSELL2000,Adams Resources & Energy
+AEE,SP500,
+AEGN,RUSSELL2000,Aegoin Corp
+AEGR,RUSSELL2000,Aegerion Pharmaceuticals
+AEIS,RUSSELL2000,Advanced Energy Industries
+AEL,RUSSELL2000,American Equity Investment Life
+AEO,RUSSELL2000,American Eagle Outfitters
+AEP,SP500,
+AEPI,RUSSELL2000,AEP Industries Inc
+AERI,RUSSELL2000,Aerie Pharmaceuticals Inc
+AES,SP500,
+AET,SP500,
+AF,RUSSELL2000,Astoria Financial Corp
+AFAM,RUSSELL2000,Almost Family Inc
+AFFX,RUSSELL2000,Affymetrix
+AFH,RUSSELL2000,Atlas Financial Holdings Inc
+AFL,SP500,
+AFMD,RUSSELL2000,Affimed Therapeutics B.V
+AFOP,RUSSELL2000,Alliance Fiber Optic Products
+AGEN,RUSSELL2000,Agenus Inc
+AGII,RUSSELL2000,Argo Group International Holdings Ltd
+AGL,SP500,
+AGM,RUSSELL2000,Federal Agricultural Mortgage Corp
+AGN,SP500,
+AGRX,RUSSELL2000,Agile Therapeutics Inc
+AGTC,RUSSELL2000,Applied Genetic Technologies Co
+AGX,RUSSELL2000,Argan Inc
+AGYS,RUSSELL2000,Agilysys Inc
+AHH,RUSSELL2000,Armada Hoffler Properties Inc
+AHP,RUSSELL2000,Ashford Hospitality Prime Inc
+AHS,RUSSELL2000,Amn Healthcare Services Inc
+AHT,RUSSELL2000,Ashford Hospitality Trust Inc
+AI,RUSSELL2000,Arlington Asset Investment Corp
+AIG,SP500,
+AIMC,RUSSELL2000,Altra Holdings
+AIN,RUSSELL2000,Albany International Corp
+AINC,RUSSELL2000,Ashford Inc. Common Stock
+AIQ,RUSSELL2000,Alliance Healthcare Services
+AIR,RUSSELL2000,AAR Corp
+AIRM,RUSSELL2000,Air Methods Corp
+AIT,RUSSELL2000,Applied Industrial Technologies
+AIV,SP500,
+AIZ,SP500,
+AJRD,RUSSELL2000,Gencorp Inc
+AJX,RUSSELL2000,Great Ajax Corp
+AKAM,SP500,
+AKBA,RUSSELL2000,Akebia Therapeutics Inc
+AKR,RUSSELL2000,Acadia Realty Trust
+AKS,RUSSELL2000,AK Steel Holding Corp
+ALCO,RUSSELL2000,Alico Inc
+ALDR,RUSSELL2000,Alder Biopharmaceuticals Inc
+ALE,RUSSELL2000,Allete Inc
+ALEX,RUSSELL2000,Alexander and Baldwin Inc
+ALG,RUSSELL2000,Alamo Group
+ALGT,RUSSELL2000,Allegiant Travel Company
+ALIM,RUSSELL2000,Alimera Sciences
+ALJ,RUSSELL2000,Alon USA Energy
+ALL,SP500,
+ALOG,RUSSELL2000,Analogic Corp
+ALTR,SP500,
+ALX,RUSSELL2000,Alexander's Inc
+ALXN,SP500,
+AMAG,RUSSELL2000,Amag Pharmaceuticals
+AMAT,SP500,
+AMBA,RUSSELL2000,Ambarella Inc
+AMBC,RUSSELL2000,Ambac Financial Group Inc
+AMBR,RUSSELL2000,Amber Road Inc
+AMC,RUSSELL2000,Amc Entertainment Holdings Inc
+AMCC,RUSSELL2000,Applied Micro Circuits Corp
+AMD,BOTH,Advanced Micro Devices
+AMED,RUSSELL2000,Amedisys Inc
+AMGN,SP500,
+AMKR,RUSSELL2000,Amkor Technology
+AMNB,RUSSELL2000,American National Bankshares
+AMOT,RUSSELL2000,Allied Motion Technologies
+AMP,SP500,
+AMPH,RUSSELL2000,Amphastar Pharmaceuticals Inc
+AMRC,RUSSELL2000,Ameresco Inc
+AMRI,RUSSELL2000,Albany Molecular Research
+AMSF,RUSSELL2000,Amerisafe Inc
+AMSG,RUSSELL2000,Amsurg Corp
+AMSWA,RUSSELL2000,American Software
+AMT,SP500,
+AMTG,RUSSELL2000,Apollo Residential Mortgage In
+AMWD,RUSSELL2000,American Woodmark Corp
+AMZN,SP500,
+AN,SP500,
+ANAC,RUSSELL2000,Anacor Pharmaceuticals
+ANCX,RUSSELL2000,Access National Corp
+ANDE,RUSSELL2000,The Andersons
+ANF,BOTH,Abercrombie & Fitch Company
+ANGI,RUSSELL2000,Angie's List Inc
+ANGO,RUSSELL2000,Angiodynamics
+ANH,RUSSELL2000,Anworth Mortgage Asset Corp
+ANIK,RUSSELL2000,Anika Therapeutics Inc
+ANIP,RUSSELL2000,ANI Pharmaceuticals Inc
+ANR,SP500,
+ANTH,RUSSELL2000,Anthera Pharmaceuticals
+AON,SP500,
+AOSL,RUSSELL2000,Alpha and Omega Semiconductor
+APA,SP500,
+APC,SP500,
+APD,SP500,
+APEI,RUSSELL2000,American Public Education
+APH,SP500,
+APIC,RUSSELL2000,Apigee Corp
+APOG,RUSSELL2000,Apogee Enterprises
+APOL,BOTH,Apollo Group
+APPS,RUSSELL2000,Digital Turbine Inc
+APTS,RUSSELL2000,Preferred Apartment Communities
+ARAY,RUSSELL2000,Accuray Incorporated
+ARC,RUSSELL2000,American Reprographics Company
+ARCB,RUSSELL2000,Arcbest Corp
+ARDX,RUSSELL2000,Ardelyx Inc
+AREX,RUSSELL2000,Approach Resources Inc
+ARG,SP500,
+ARI,RUSSELL2000,Apollo Commercial Real Estate
+ARIA,RUSSELL2000,Ariad Pharmaceuticals
+ARII,RUSSELL2000,American Railcar Industries
+ARNA,RUSSELL2000,Arena Pharmaceuticals
+AROW,RUSSELL2000,Arrow Financial Corp
+ARPI,RUSSELL2000,American Residential Properties
+ARR,RUSSELL2000,Armour Residential R
+ARRY,RUSSELL2000,Array Biopharma Inc
+ARTNA,RUSSELL2000,Artesian Resources Corp
+ARWR,RUSSELL2000,Arrowhead Research Corp
+ASC,RUSSELL2000,Ardmore Shipping Corp
+ASCMA,RUSSELL2000,Ascent Media Corp
+ASEI,RUSSELL2000,American Science and Engineering
+ASGN,RUSSELL2000,On Assignment
+ASMB,RUSSELL2000,Assembly Biosciences Inc
+ASNA,RUSSELL2000,Ascena Retail Group
+ASPS,RUSSELL2000,Altisource Portfolio Solutions S.A.
+AST,RUSSELL2000,Asterias Biotherapeutics Inc
+ASTE,RUSSELL2000,Astec Industries
+AT,RUSSELL2000,Atlantic Power Corp
+ATEN,RUSSELL2000,A10 Networks Inc
+ATI,SP500,
+ATLO,RUSSELL2000,Ames National Corp
+ATNI,RUSSELL2000,Atlantic Tele-Network
+ATRA,RUSSELL2000,Atara Biotherapeutics Inc
+ATRC,RUSSELL2000,Atricure
+ATRI,RUSSELL2000,Atrion Corp
+ATRO,RUSSELL2000,Astronics Corp
+ATRS,RUSSELL2000,Antares Pharma
+ATSG,RUSSELL2000,Air Transport Services Group Inc
+ATU,RUSSELL2000,Actuant Corp
+ATW,RUSSELL2000,Atwood Oceanics
+AVA,RUSSELL2000,Avista Corp
+AVAV,RUSSELL2000,Aerovironment
+AVB,SP500,
+AVD,RUSSELL2000,American Vanguard Corp
+AVG,RUSSELL2000,Avg Technologies N.V.
+AVHI,RUSSELL2000,Av Homes Inc
+AVID,RUSSELL2000,Avid Technology
+AVP,SP500,
+AVX,RUSSELL2000,Avx Corp
+AVY,SP500,
+AWR,RUSSELL2000,American States Water Company
+AXAS,RUSSELL2000,Abraxas Petroleum Corp
+AXDX,RUSSELL2000,Accelerate Diagnostics Inc
+AXE,RUSSELL2000,Anixter International Inc
+AXL,RUSSELL2000,American Axle & Manufacturing
+AXLL,RUSSELL2000,Georgia Gulf Corp
+AXP,SP500,
+AYR,RUSSELL2000,Aircastle Ltd
+AZO,SP500,
+AZPN,RUSSELL2000,Aspen Technology
+AZZ,RUSSELL2000,Azz Inc
+B,RUSSELL2000,Barnes Group
+BA,SP500,
+BABY,RUSSELL2000,Natus Medical Inc
+BAC,SP500,
+BANC,RUSSELL2000,First Pactrust Bancorp
+BANF,RUSSELL2000,Bancfirst Corp
+BANR,RUSSELL2000,Banner Corp
+BAS,RUSSELL2000,Basic Energy Services
+BAX,SP500,
+BBBY,SP500,
+BBCN,RUSSELL2000,Bbcn Bancorp Inc
+BBG,RUSSELL2000,Bill Barrett Corp
+BBOX,RUSSELL2000,Black Box Corp
+BBRG,RUSSELL2000,Bravo Brio Restaurant Group
+BBSI,RUSSELL2000,Barrett Business Services
+BBT,SP500,
+BBW,RUSSELL2000,Build-A-Bear Workshop
+BBX,RUSSELL2000,Bankatlantic Bancorp
+BBY,SP500,
+BCC,RUSSELL2000,Boise Cascade L.L.C. Common ST
+BCEI,RUSSELL2000,Bonanza Creek Energy Inc
+BCO,RUSSELL2000,Brink's Company
+BCOR,RUSSELL2000,Blucora Inc
+BCOV,RUSSELL2000,Brightcove Inc
+BCPC,RUSSELL2000,Balchem Corp
+BCR,SP500,
+BCRX,RUSSELL2000,Biocryst Pharmaceuticals
+BDC,RUSSELL2000,Belden Inc
+BDE,RUSSELL2000,Black Diamond
+BDGE,RUSSELL2000,Bridge Bancorp
+BDSI,RUSSELL2000,Biodelivery Sciences International
+BDX,SP500,
+BEAM,SP500,
+BEAT,RUSSELL2000,Cardionet
+BEBE,RUSSELL2000,Bebe Stores
+BECN,RUSSELL2000,Beacon Roofing Supply
+BEL,RUSSELL2000,Belmond Ltd
+BELFB,RUSSELL2000,Bel Fuse Inc
+BEN,SP500,
+BERY,RUSSELL2000,Berry Plastics Group Inc
+BF-B,SP500,
+BFAM,RUSSELL2000,Bright Horizons Family Solutions Inc
+BFIN,RUSSELL2000,Bankfinancial Corp
+BFS,RUSSELL2000,Saul Centers
+BGC,RUSSELL2000,General Cable Corp
+BGCP,RUSSELL2000,Bgc Partners
+BGFV,RUSSELL2000,Big 5 Sporting Goods Corp
+BGG,RUSSELL2000,Briggs & Stratton Corp
+BGS,RUSSELL2000,B&G Foods Holdings
+BH,RUSSELL2000,Biglari Holdings Inc
+BHB,RUSSELL2000,Bar Harbor Bankshares
+BHBK,RUSSELL2000,Blue Hills Bancorp Inc
+BHE,RUSSELL2000,Benchmark Electronics
+BHI,SP500,
+BHLB,RUSSELL2000,Berkshire Hills Bancorp
+BID,RUSSELL2000,Sotheby's Holdings
+BIG,BOTH,Big Lots
+BIIB,SP500,
+BIOS,RUSSELL2000,Bioscrip Inc
+BJRI,RUSSELL2000,Bj's Restaurants
+BK,SP500,
+BKE,RUSSELL2000,Buckle Inc
+BKH,RUSSELL2000,Black Hills Corp
+BKMU,RUSSELL2000,Bank Mutual Corp
+BKS,RUSSELL2000,Barnes & Noble
+BLBD,RUSSELL2000,Blue Bird Corp
+BLCM,RUSSELL2000,Bellicum Pharmaceuticals Inc
+BLDR,RUSSELL2000,Builders Firstsource
+BLK,SP500,
+BLKB,RUSSELL2000,Blackbaud Inc
+BLL,SP500,
+BLMN,RUSSELL2000,Bloomin' Brands Inc
+BLMT,RUSSELL2000,Bsb Bancorp Inc
+BLOX,RUSSELL2000,Infoblox Inc
+BLT,RUSSELL2000,Blount International
+BLX,RUSSELL2000,Banco Latinoamericano De Comercio
+BMC,SP500,
+BMI,RUSSELL2000,Badger Meter
+BMRC,RUSSELL2000,Bank of Marin Bancorp
+BMS,SP500,
+BMTC,RUSSELL2000,Bryn Mawr Bank Corp
+BMY,SP500,
+BNCL,RUSSELL2000,Beneficial Mutual Bancorp
+BNCN,RUSSELL2000,BNC Bancorp
+BNFT,RUSSELL2000,Benefitfocus Inc
+BNK,RUSSELL2000,C1 Financial Inc
+BOBE,RUSSELL2000,Bob Evans Farms
+BOFI,RUSSELL2000,Bofi Holding
+BOJA,RUSSELL2000,Bojangles' Inc
+BOOT,RUSSELL2000,Boot Barn Holdings Inc
+BOX,RUSSELL2000,Box Inc
+BPFH,RUSSELL2000,Boston Private Financial Holdings
+BPI,RUSSELL2000,Bridgepoint Education
+BPMC,RUSSELL2000,Blueprint Medicines Corp
+BRC,RUSSELL2000,Brady Corp
+BRCM,SP500,
+BREW,RUSSELL2000,Craft Brewers Alliance Inc
+BRG,RUSSELL2000,Bluerock Residential Growth Rei
+BRK-B,SP500,
+BRKL,RUSSELL2000,Brookline Bancorp
+BRKS,RUSSELL2000,Brooks Automation
+BRS,RUSSELL2000,Bristow Group Inc
+BRSS,RUSSELL2000,Global Brass and Copper Holdin
+BSET,RUSSELL2000,Bassett Furniture Industries Inc
+BSF,RUSSELL2000,Bear State Financial Inc
+BSFT,RUSSELL2000,Broadsoft Inc
+BSRR,RUSSELL2000,Sierra Bancorp
+BSTC,RUSSELL2000,Biospecifics Technologies Corp
+BSX,SP500,
+BTU,BOTH,Peabody Energy Corp
+BTX,RUSSELL2000,Biotime Inc
+BURL,RUSSELL2000,Burlington Stores Inc
+BUSE,RUSSELL2000,First Busey Corp
+BV,RUSSELL2000,Bazaarvoice Inc
+BWA,SP500,
+BWINB,RUSSELL2000,Baldwin & Lyons
+BWLD,RUSSELL2000,Buffalo Wild Wings
+BXP,SP500,
+BXS,RUSSELL2000,Bancorpsouth Inc
+BYD,RUSSELL2000,Boyd Gaming Corp
+BZH,RUSSELL2000,Beazer Homes USA
+C,SP500,
+CA,SP500,
+CAC,RUSSELL2000,Camden National Corp
+CACB,RUSSELL2000,Cascade Bancorp
+CACI,RUSSELL2000,Caci International
+CACQ,RUSSELL2000,Caesars Acquisition Company
+CAG,SP500,
+CAH,SP500,
+CAKE,RUSSELL2000,The Cheesecake Factory Inc
+CAL,RUSSELL2000,Caleres Inc
+CALA,RUSSELL2000,Calithera Biosciences Inc
+CALD,RUSSELL2000,Callidus Software
+CALM,RUSSELL2000,Cal-Maine Foods
+CALX,RUSSELL2000,Calix Inc
+CAM,SP500,
+CAMP,RUSSELL2000,Calamp Corp
+CARA,RUSSELL2000,Cara Therapeutics Inc
+CARB,RUSSELL2000,Carbonite Inc
+CASH,RUSSELL2000,Meta Financial Group
+CASS,RUSSELL2000,Cass Information Systems Inc
+CASY,RUSSELL2000,Caseys General Stores
+CAT,SP500,
+CATM,RUSSELL2000,Cardtronics Inc
+CATO,RUSSELL2000,Cato Corp
+CATY,RUSSELL2000,Cathay General Bancorp
+CAVM,RUSSELL2000,Cavium Inc
+CB,SP500,
+CBB,RUSSELL2000,Cincinnati Bell Inc
+CBE,SP500,
+CBF,RUSSELL2000,Capital Bank Financial Corp
+CBG,SP500,
+CBK,RUSSELL2000,Christopher & Banks Corp
+CBM,RUSSELL2000,Cambrex Corp
+CBMG,RUSSELL2000,Cellular Biomedicine Group Inc
+CBPX,RUSSELL2000,Continental Building Products
+CBR,RUSSELL2000,Ciber Inc
+CBRL,RUSSELL2000,Cracker Barrel Old Country Store
+CBS,SP500,
+CBU,RUSSELL2000,Community Bank System
+CBYL,RUSSELL2000,Carbylan Therapeutics Inc
+CBZ,RUSSELL2000,Cbiz Inc
+CCBG,RUSSELL2000,Capital City Bank Group
+CCC,RUSSELL2000,Calgon Carbon Corp
+CCE,SP500,
+CCF,RUSSELL2000,Chase Corp
+CCG,RUSSELL2000,Campus Crest Communities
+CCI,SP500,
+CCL,SP500,
+CCMP,RUSSELL2000,Cabot Microelectronics Corp
+CCNE,RUSSELL2000,Cnb Financial Corp
+CCOI,RUSSELL2000,Cogent Communications Group
+CCRN,RUSSELL2000,Cross Country Healthcare
+CCS,RUSSELL2000,Century Communities Inc
+CCXI,RUSSELL2000,Chemocentryx Inc
+CDE,RUSSELL2000,Coeur Mining Inc
+CDI,RUSSELL2000,Cdi Corp
+CDR,RUSSELL2000,Cedar Shopping Centers Inc
+CDRB,RUSSELL2000,Code Rebel Corp
+CDTX,RUSSELL2000,Cidara Therapeutics Inc
+CEB,RUSSELL2000,The Corporate Executive Board Company
+CECE,RUSSELL2000,Ceco Environmental
+CECO,RUSSELL2000,Career Education Corp
+CELG,SP500,
+CEMP,RUSSELL2000,Cempra Inc
+CENTA,RUSSELL2000,Central Garden & Pet Company
+CENX,RUSSELL2000,Century Aluminum Company
+CERN,SP500,
+CERS,RUSSELL2000,Cerus Corp
+CETV,RUSSELL2000,Central European Media Enterprises
+CEVA,RUSSELL2000,Ceva Inc
+CF,SP500,
+CFFN,RUSSELL2000,Capitol Federal Financial
+CFI,RUSSELL2000,Culp Inc
+CFN,SP500,
+CFNL,RUSSELL2000,Cardinal Financial Corp
+CGI,RUSSELL2000,Celadon Group
+CHCO,RUSSELL2000,City Holding Company
+CHDN,RUSSELL2000,Churchill Downs Inc
+CHE,RUSSELL2000,Chemed Inc
+CHEF,RUSSELL2000,The Chefs' Warehouse Inc
+CHFC,RUSSELL2000,Chemical Financial Corp
+CHFN,RUSSELL2000,Charter Financial
+CHGG,RUSSELL2000,Chegg Inc
+CHK,SP500,
+CHKE,RUSSELL2000,Cherokee Inc
+CHMT,RUSSELL2000,Chemtura Corp
+CHRS,RUSSELL2000,Coherus Biosciences Inc
+CHRW,SP500,
+CHS,RUSSELL2000,Chico's Fas
+CHSP,RUSSELL2000,Chesapeake Lodging Trust
+CHUY,RUSSELL2000,Chuy's Holding Inc
+CI,SP500,
+CIA,RUSSELL2000,Citizens Inc
+CIEN,RUSSELL2000,Ciena Corp
+CIFC,RUSSELL2000,Cifc Corp
+CINF,SP500,
+CIR,RUSSELL2000,Circor International
+CIVI,RUSSELL2000,Civitas Solutions Inc
+CJES,RUSSELL2000,C&J Energy Services Inc
+CKEC,RUSSELL2000,Carmike Cinemas
+CKH,RUSSELL2000,Seacor Smit Inc
+CKP,RUSSELL2000,Checkpoint Systms
+CL,SP500,
+CLC,RUSSELL2000,Clarcor Inc
+CLCT,RUSSELL2000,Collectors Universe
+CLD,RUSSELL2000,Cloud Peak Energy Inc
+CLDT,RUSSELL2000,Chatham Lodging Trust [Reit]
+CLDX,RUSSELL2000,Celldex Therapeutics Inc
+CLF,BOTH,Cliffs Natural Resources Inc
+CLFD,RUSSELL2000,Clearfield
+CLI,RUSSELL2000,Mack-Cali Realty Corp
+CLMS,RUSSELL2000,Calamos Asset Management
+CLNE,RUSSELL2000,Clean Energy Fuels
+CLNY,RUSSELL2000,Colony Financial Inc
+CLVS,RUSSELL2000,Clovis Oncology Inc
+CLW,RUSSELL2000,Clearwater Paper Corp
+CLX,SP500,
+CMA,SP500,
+CMC,RUSSELL2000,Commercial Metals Company
+CMCO,RUSSELL2000,Columbus Mckinnon Corp
+CMCSA,SP500,
+CME,SP500,
+CMG,SP500,
+CMI,SP500,
+CMLS,RUSSELL2000,Cumulus Media Inc
+CMN,RUSSELL2000,Cantel Medical
+CMO,RUSSELL2000,Capstead Mortgage Corp
+CMPR,RUSSELL2000,Cimpress N.V.
+CMRX,RUSSELL2000,Chimerix Inc
+CMS,SP500,
+CMT,RUSSELL2000,Core Molding Technologies Inc
+CMTL,RUSSELL2000,Comtech Telecommunications
+CNBKA,RUSSELL2000,Century Bancorp
+CNCE,RUSSELL2000,Concert Pharmaceuticals Inc
+CNL,RUSSELL2000,Cleco Power Llc
+CNMD,RUSSELL2000,Conmed Corp
+CNO,RUSSELL2000,Cno Financial Group
+CNOB,RUSSELL2000,Connectone Bancorp Inc
+CNP,SP500,
+CNS,RUSSELL2000,Cohn & Steers Inc
+CNSL,RUSSELL2000,Consolidated Communications Holdings
+CNX,SP500,
+CNXR,RUSSELL2000,Connecture Inc
+COB,RUSSELL2000,Community One Bancorp
+COBZ,RUSSELL2000,Cobiz Financial Inc
+COF,SP500,
+COG,SP500,
+COH,SP500,
+COHR,RUSSELL2000,Coherent Inc
+COHU,RUSSELL2000,Cohu Inc
+COKE,RUSSELL2000,Coca-Cola Bottling Co. Consolidated
+COL,SP500,
+COLB,RUSSELL2000,Columbia Banking System
+COLL,RUSSELL2000,Collegium Pharmaceutical Inc
+COLM,RUSSELL2000,Columbia Sportswear Company
+CONE,RUSSELL2000,Cyrusone Inc
+CONN,RUSSELL2000,Conn's Inc
+COP,SP500,
+COR,RUSSELL2000,Coresite Realty Corp
+CORE,RUSSELL2000,Core-Mark Holding Company
+CORI,RUSSELL2000,Corium International Inc
+CORR,RUSSELL2000,Corenergy Infrastructure Trust Inc
+CORT,RUSSELL2000,Corcept Therapeutics Inc
+COST,SP500,
+COV,SP500,
+COWN,RUSSELL2000,Cowen Group
+CPB,SP500,
+CPE,RUSSELL2000,Callon Petroleum Company
+CPF,RUSSELL2000,Central Pacific Financial Co
+CPHD,RUSSELL2000,Cepheid
+CPK,RUSSELL2000,Chesapeake Utilities Corp
+CPLA,RUSSELL2000,Capella Education Company
+CPRX,RUSSELL2000,Catalyst Pharmaceutical Partners
+CPS,RUSSELL2000,Cooper Std Hldg Inc
+CPSI,RUSSELL2000,Computer Programs and Systems
+CRAI,RUSSELL2000,Cra Internationalinc
+CRAY,RUSSELL2000,Cray Inc
+CRCM,RUSSELL2000,Care.Com Inc
+CRD-B,RUSSELL2000,Crawford Co Cl B
+CRIS,RUSSELL2000,Curis Inc
+CRM,SP500,
+CRMD,RUSSELL2000,Cormedix Inc
+CRMT,RUSSELL2000,America's Car-Mart
+CROX,RUSSELL2000,Crocs Inc
+CRR,RUSSELL2000,Carbo Ceramics
+CRS,RUSSELL2000,Carpenter Technology Corp
+CRUS,RUSSELL2000,Cirrus Logic
+CRVL,RUSSELL2000,Corvel Corp
+CRWN,RUSSELL2000,Crown Media Holdings
+CRY,RUSSELL2000,Cryolife
+CRZO,RUSSELL2000,Carrizo Oil & Gas
+CSBK,RUSSELL2000,Clifton Savings Bancorp
+CSC,SP500,
+CSCD,RUSSELL2000,Cascade Microtech
+CSCO,SP500,
+CSFL,RUSSELL2000,Centerstate Banks
+CSGS,RUSSELL2000,Csg Systems International
+CSH,RUSSELL2000,Cash America International
+CSII,RUSSELL2000,Cardiovascular Systems
+CSLT,RUSSELL2000,Castlight Health Inc
+CSOD,RUSSELL2000,Cornerstone Ondemand Inc
+CSS,RUSSELL2000,Css Industries
+CSU,RUSSELL2000,Capital Senior Living Corp
+CSV,RUSSELL2000,Carriage Services
+CSX,SP500,
+CTAS,SP500,
+CTB,RUSSELL2000,Cooper Tire & Rubber Company
+CTBI,RUSSELL2000,Community Trust Bancorp
+CTCT,RUSSELL2000,Constant Contact
+CTIC,RUSSELL2000,Cell Therapeutics
+CTL,SP500,
+CTLT,RUSSELL2000,Catalent Inc
+CTO,RUSSELL2000,Consolidated-Tomoka Land Co
+CTRE,RUSSELL2000,Caretrust REIT Inc
+CTRL,RUSSELL2000,Control4 Corp
+CTRN,RUSSELL2000,Citi Trends
+CTS,RUSSELL2000,Cts Corp
+CTSH,SP500,
+CTT,RUSSELL2000,Catchmark Timber Trust Inc
+CTWS,RUSSELL2000,Connecticut Water Service
+CTXS,SP500,
+CUB,RUSSELL2000,Cubic Corp
+CUBE,RUSSELL2000,Cubesmart
+CUBI,RUSSELL2000,Customers Bancorp
+CUDA,RUSSELL2000,Barracuda Networks Inc
+CUNB,RUSSELL2000,California United Bk
+CUTR,RUSSELL2000,Cutera Inc
+CUZ,RUSSELL2000,Cousins Properties Inc
+CVBF,RUSSELL2000,Cvb Financial Corp
+CVC,SP500,
+CVCO,RUSSELL2000,Cavco Industries
+CVEO,RUSSELL2000,Civeo Corporation Common Stock
+CVG,RUSSELL2000,Convergys Corp
+CVGI,RUSSELL2000,Commercial Vehicle Group
+CVGW,RUSSELL2000,Calavo Growers
+CVH,SP500,
+CVLT,RUSSELL2000,Commvault Systems
+CVRS,RUSSELL2000,Corindus Vascular Robotics Inc
+CVS,SP500,
+CVT,RUSSELL2000,Cvent Inc
+CVTI,RUSSELL2000,Covenant Transportation Group
+CVX,SP500,
+CW,RUSSELL2000,Curtiss-Wright Corp
+CWCO,RUSSELL2000,Consolidated Water Co. Ltd
+CWEI,RUSSELL2000,Clayton Williams Energy
+CWST,RUSSELL2000,Casella Waste Systems
+CWT,RUSSELL2000,California Water Service Group Holding
+CYNO,RUSSELL2000,Cynosure Inc
+CYS,RUSSELL2000,Cys Investments Inc
+CYTK,RUSSELL2000,Cytokinetics Inc
+CYTR,RUSSELL2000,Cytrx Corp
+CZNC,RUSSELL2000,Citizens & Northern Corp
+CZR,RUSSELL2000,Caesars Entertainment Corporati
+D,SP500,
+DAKT,RUSSELL2000,Daktronics
+DAN,RUSSELL2000,Dana Holding Corp
+DAR,RUSSELL2000,Darling International Inc
+DBD,RUSSELL2000,Diebold Inc
+DCO,RUSSELL2000,Ducommun Inc
+DCOM,RUSSELL2000,Dime Community Bancshares
+DCT,RUSSELL2000,Dct Industrial Trust Inc
+DD,SP500,
+DE,SP500,
+DEA,RUSSELL2000,Easterly Government Properties
+DECK,RUSSELL2000,Deckers Outdoor Corp
+DEL,RUSSELL2000,Deltic Timber Corp
+DELL,SP500,
+DENN,RUSSELL2000,Denny's Corp
+DEPO,RUSSELL2000,Depomed Inc
+DERM,RUSSELL2000,Dermira Inc
+DF,BOTH,Dean Foods Company
+DFRG,RUSSELL2000,Del Frisco's Restaurant Group Llc
+DFS,SP500,
+DFT,RUSSELL2000,Dupont Fabros Technology
+DGI,RUSSELL2000,Digitalglobe Inc
+DGICA,RUSSELL2000,Donegal Group
+DGII,RUSSELL2000,Digi International Inc
+DGX,SP500,
+DHI,SP500,
+DHIL,RUSSELL2000,Diamond Hill Investment Group
+DHR,SP500,
+DHT,RUSSELL2000,Dht Holdings
+DHX,RUSSELL2000,Dice Holdings
+DIN,RUSSELL2000,Dineequity Inc
+DIOD,RUSSELL2000,Diodes Inc
+DIS,SP500,
+DISCA,SP500,
+DJCO,RUSSELL2000,Daily Journal Corp. [S.C.]
+DK,RUSSELL2000,Delek US Holdings
+DLTR,SP500,
+DLX,RUSSELL2000,Deluxe Corp
+DMND,RUSSELL2000,Diamond Foods
+DMRC,RUSSELL2000,Digimarc Corp
+DNB,SP500,
+DNR,SP500,
+DO,SP500,
+DOC,RUSSELL2000,Physicians Realty Trust
+DOOR,RUSSELL2000,Masonite Wrldwde Hld
+DORM,RUSSELL2000,Dorman Products
+DOV,SP500,
+DOW,SP500,
+DPLO,RUSSELL2000,Dplo
+DPS,SP500,
+DRH,RUSSELL2000,Diamondrock Hospitality Company
+DRI,SP500,
+DRII,RUSSELL2000,Diamond Resorts International
+DRNA,RUSSELL2000,Dicerna Pharmaceuticals Inc
+DRRX,RUSSELL2000,Durect Corp
+DSPG,RUSSELL2000,DSP Group
+DTE,SP500,
+DTLK,RUSSELL2000,Datalink Corp
+DTSI,RUSSELL2000,DTS Inc
+DTV,SP500,
+DUK,SP500,
+DV,BOTH,Devry Inc
+DVA,SP500,
+DVAX,RUSSELL2000,Dynavax Technologies Corp
+DVN,SP500,
+DW,RUSSELL2000,Drew Industries Inc
+DWA,RUSSELL2000,Dreamworks Animation Skg
+DWRE,RUSSELL2000,Demandware Inc
+DX,RUSSELL2000,Dynex Capital
+DXLG,RUSSELL2000,Destination XL Inc.
+DXPE,RUSSELL2000,Dxp Enterprises
+DY,RUSSELL2000,Dycom Industries
+DYAX,RUSSELL2000,Dyax Corp
+DYN,RUSSELL2000,Dynegy Inc
+EA,SP500,
+EBAY,SP500,
+EBF,RUSSELL2000,Ennis Inc
+EBIX,RUSSELL2000,Ebix Inc
+EBS,RUSSELL2000,Emergent Biosolutions
+EBSB,RUSSELL2000,Meridian Interstate Bancorp
+EBTC,RUSSELL2000,Enterprise Bancorp Inc
+ECHO,RUSSELL2000,Echo Global Logistics
+ECL,SP500,
+ECOL,RUSSELL2000,US Ecology
+ECOM,RUSSELL2000,Channeladvisor Corp
+ECPG,RUSSELL2000,Encore Capital Group Inc
+ECR,RUSSELL2000,Eclipse Resources Corp
+ECYT,RUSSELL2000,Endocyte Inc
+ED,SP500,
+EDE,RUSSELL2000,Empire District Electric Company
+EDR,RUSSELL2000,Education Realty Trust Inc
+EE,RUSSELL2000,El Paso Electric Company
+EEFT,RUSSELL2000,Euronet Worldwide
+EFII,RUSSELL2000,Electronics For Imaging
+EFSC,RUSSELL2000,Enterprise Financial Services Corp
+EFX,SP500,
+EGBN,RUSSELL2000,Eagle Bancorp
+EGHT,RUSSELL2000,8X8 Inc
+EGL,RUSSELL2000,Engility Holdings Inc. Common
+EGLE,RUSSELL2000,Eagle Bulk Shipping Inc
+EGOV,RUSSELL2000,Nic Inc
+EGP,RUSSELL2000,Eastgroup Properties
+EGRX,RUSSELL2000,Eagle Pharmaceuticals Inc
+EHTH,RUSSELL2000,Ehealth Inc
+EIG,RUSSELL2000,Employers Holdings Inc
+EIGI,RUSSELL2000,Endurance International Group H
+EIX,SP500,
+EL,SP500,
+ELGX,RUSSELL2000,Endologix Inc
+ELLI,RUSSELL2000,Ellie Mae Inc
+ELNK,RUSSELL2000,Earthlink Inc
+ELRC,RUSSELL2000,Electro Rent Corp
+ELY,RUSSELL2000,Callaway Golf Company
+EMC,SP500,
+EMCI,RUSSELL2000,EMC Insurance Group
+EME,RUSSELL2000,Emcor Group
+EMKR,RUSSELL2000,Emcore Corp
+EMN,SP500,
+EMR,SP500,
+ENOC,RUSSELL2000,Enernoc Inc
+ENPH,RUSSELL2000,Enphase Energy Inc
+ENS,RUSSELL2000,Enersys Inc
+ENSG,RUSSELL2000,The Ensign Group
+ENT,RUSSELL2000,Global Eagle Entertainment Inc
+ENTA,RUSSELL2000,Enanta Pharmaceuticals Inc
+ENTG,RUSSELL2000,Entegris Inc
+ENTL,RUSSELL2000,Entellus Medical Inc
+ENV,RUSSELL2000,Envestnet Inc
+ENVA,RUSSELL2000,Enova International Inc. Commo
+EOG,SP500,
+EPAM,RUSSELL2000,Epam Systems Inc
+EPAY,RUSSELL2000,Bottomline Technologies
+EPIQ,RUSSELL2000,Epiq Systems
+EPM,RUSSELL2000,Evolution Petroleum Corp
+EPR,RUSSELL2000,Entertainment Properties Trust
+EPZM,RUSSELL2000,Epizyme Inc
+EQR,SP500,
+EQT,SP500,
+EQY,RUSSELL2000,Equity One
+ERA,RUSSELL2000,Era Group Inc. Common Stock W
+ERI,RUSSELL2000,Eldorado Resorts Inc
+ERN,RUSSELL2000,Erin Energy Corp
+EROS,RUSSELL2000,Eros International Plc
+ESCA,RUSSELL2000,Escalade Inc
+ESE,RUSSELL2000,Esco Technologies Inc
+ESGR,RUSSELL2000,Enstar Group Ltd
+ESL,RUSSELL2000,Esterline Technologies Corp
+ESND,RUSSELL2000,Essendant Inc
+ESNT,RUSSELL2000,Essent Group Ltd
+ESPR,RUSSELL2000,Esperion Therapeutics Inc
+ESRX,SP500,
+ESTE,RUSSELL2000,Earthstone Energy
+ESV,SP500,
+ETFC,SP500,
+ETH,RUSSELL2000,Ethan Allen Interiors Inc
+ETM,RUSSELL2000,Entercom Communications Corp
+ETN,SP500,
+ETR,SP500,
+ETSY,RUSSELL2000,Etsy Inc
+EVC,RUSSELL2000,Entravision Communications Corp
+EVDY,RUSSELL2000,Everyday Health Inc
+EVER,RUSSELL2000,Everbank Financial Corp
+EVLV,RUSSELL2000,Evine Live Inc
+EVR,RUSSELL2000,Evercore Partners Inc
+EVTC,RUSSELL2000,Evertec Inc. Common Stock
+EW,SP500,
+EXAC,RUSSELL2000,Exactech Inc
+EXAM,RUSSELL2000,Examworks Group
+EXAR,RUSSELL2000,Exar Corp
+EXAS,RUSSELL2000,Exact Sciences Corp
+EXC,SP500,
+EXEL,RUSSELL2000,Exelixis Inc
+EXLS,RUSSELL2000,Exlservice Holdings
+EXPD,SP500,
+EXPE,SP500,
+EXPO,RUSSELL2000,Exponent Inc
+EXPR,RUSSELL2000,Express Inc
+EXTR,RUSSELL2000,Extreme Networks
+EXXI,RUSSELL2000,Energy Xxi [Bermuda] Ltd
+EYES,RUSSELL2000,Second Sight Medical Products
+EZPW,RUSSELL2000,Ezcorp Inc
+F,SP500,
+FAF,RUSSELL2000,First American Corp
+FARM,RUSSELL2000,Farmer Brothers Company
+FARO,RUSSELL2000,Faro Technologies
+FAST,SP500,
+FBC,RUSSELL2000,Flagstar Bancorp
+FBIZ,RUSSELL2000,First Business Financial Services
+FBNC,RUSSELL2000,First Bancorp
+FBNK,RUSSELL2000,First Connecticut Bancorp Inc
+FBP,RUSSELL2000,First Bancorp
+FC,RUSSELL2000,Franklin Covey Company
+FCB,RUSSELL2000,Fcb Financial Holdings Inc
+FCBC,RUSSELL2000,First Community Bancshares
+FCEL,RUSSELL2000,Fuelcell Energy
+FCF,RUSSELL2000,First Commonwealth Financial Corp
+FCFS,RUSSELL2000,First Cash Financial Services
+FCH,RUSSELL2000,Felcor Lodging Trust Inc
+FCN,RUSSELL2000,Fti Consulting
+FCNCA,RUSSELL2000,First Citizens Bancshares
+FCS,RUSSELL2000,Fairchild Semiconductor International
+FCSC,RUSSELL2000,Fibrocell Science
+FCX,SP500,
+FDEF,RUSSELL2000,First Defiance Financial
+FDML,RUSSELL2000,Federal-Mogul Corp
+FDO,SP500,
+FDP,RUSSELL2000,Fresh Del Monte Produce
+FDX,SP500,
+FE,SP500,
+FEIC,RUSSELL2000,Fei Company
+FELE,RUSSELL2000,Franklin Electric Co
+FENX,RUSSELL2000,Fenix Parts Inc
+FET,RUSSELL2000,Forum Energy Technologies Inc
+FF,RUSSELL2000,Futurefuel Corp
+FFBC,RUSSELL2000,First Financial Bancorp
+FFG,RUSSELL2000,Fbl Financial Group
+FFIC,RUSSELL2000,Flushing Financial Corp
+FFIN,RUSSELL2000,First Financial Bankshares
+FFIV,SP500,
+FFKT,RUSSELL2000,Farmers Capital Bank Corp
+FGEN,RUSSELL2000,Fibrogen Inc
+FGL,RUSSELL2000,Fidelity & Guaranty
+FHN,SP500,
+FIBK,RUSSELL2000,First Interstate Bancsystem
+FICO,RUSSELL2000,Fair Isaac and Company Inc
+FII,SP500,
+FINL,RUSSELL2000,The Finish Line
+FIS,SP500,
+FISI,RUSSELL2000,Financial Institutions
+FISV,SP500,
+FITB,SP500,
+FIVE,RUSSELL2000,Five Below Inc
+FIVN,RUSSELL2000,Five9 Inc
+FIX,RUSSELL2000,Comfort Systems USA
+FIZZ,RUSSELL2000,National Beverage
+FLDM,RUSSELL2000,Fluidigm Corp
+FLIC,RUSSELL2000,The First of Long Island Corp
+FLIR,SP500,
+FLKS,RUSSELL2000,Flex Pharma Inc
+FLR,SP500,
+FLS,SP500,
+FLTX,RUSSELL2000,Fleetmatics Group Plc
+FLWS,RUSSELL2000,1-800 Flowers.Com
+FLXN,RUSSELL2000,Flexion Therapeutics Inc
+FLXS,RUSSELL2000,Flexsteel Industries
+FMBI,RUSSELL2000,First Midwest Bancorp
+FMC,SP500,
+FMER,RUSSELL2000,Firstmerit Corp
+FMI,RUSSELL2000,Foundation Medicine Inc
+FMSA,RUSSELL2000,Fmsa Holdings Inc
+FN,RUSSELL2000,Fabrinet
+FNB,RUSSELL2000,F.N.B. Corp
+FNBC,RUSSELL2000,First Nbc Bank Holding Company
+FNFV,RUSSELL2000,Fnfv Group of Fidelity National
+FNGN,RUSSELL2000,Financial Engines
+FNHC,RUSSELL2000,Federated National Holding Company
+FNLC,RUSSELL2000,First Bancorp Inc [Me]
+FNSR,RUSSELL2000,Finisar Corp
+FOE,RUSSELL2000,Ferro Corp
+FOLD,RUSSELL2000,Amicus Therapeutics
+FOMX,RUSSELL2000,Foamix Pharmaceuticals Ltd
+FOR,RUSSELL2000,Forestar Group Inc
+FORM,RUSSELL2000,Formfactor
+FORR,RUSSELL2000,Forrester Research
+FOSL,SP500,
+FOXF,RUSSELL2000,Fox Factory Holding Corp
+FPO,RUSSELL2000,First Potomac Realty Trust
+FPRX,RUSSELL2000,Five Prime Therapeutics Inc
+FR,RUSSELL2000,First Industrial Realty Trust
+FRAN,RUSSELL2000,Francesca's Holdings Corporatio
+FRED,RUSSELL2000,Fred's Inc
+FRGI,RUSSELL2000,Fiesta Restaurant Group Inc
+FRM,RUSSELL2000,Furmanite Corp
+FRME,RUSSELL2000,First Merchants Corp
+FRO,RUSSELL2000,Frontline Ltd
+FRP,RUSSELL2000,Fairpoint Communications
+FRPH,RUSSELL2000,Frp Holdings Inc
+FRPT,RUSSELL2000,Freshpet Inc
+FRSH,RUSSELL2000,Papa Murphys Holdings Inc
+FRX,SP500,
+FSAM,RUSSELL2000,Fifth Street Asset Management I
+FSB,RUSSELL2000,Franklin Financial Network Inc
+FSLR,SP500,
+FSP,RUSSELL2000,Franklin Street Properties
+FSS,RUSSELL2000,Federal Signal Corp
+FSTR,RUSSELL2000,L.B. Foster Company
+FTD,RUSSELL2000,Ftd Companies Inc
+FTI,SP500,
+FTK,RUSSELL2000,Flotek Industries
+FTR,SP500,
+FUEL,RUSSELL2000,Rocket Fuel Inc
+FUL,RUSSELL2000,H. B. Fuller Company
+FULT,RUSSELL2000,Fulton Financial Corp
+FVE,RUSSELL2000,Five Star Quality Care
+FWM,RUSSELL2000,Fairway Group Holdings Corp
+FWRD,RUSSELL2000,Forward Air Corp
+FXCB,RUSSELL2000,Fox Chase Bancorp
+GABC,RUSSELL2000,German American Bancorp
+GALE,RUSSELL2000,Galena Biopharma
+GAS,SP500,
+GB,RUSSELL2000,Greatbatch
+GBCI,RUSSELL2000,Glacier Bancorp
+GBL,RUSSELL2000,Gamco Investors
+GBLI,RUSSELL2000,Global Indemnity Plc
+GBNK,RUSSELL2000,Guaranty Bancorp
+GBX,RUSSELL2000,Greenbrier Companies
+GCAP,RUSSELL2000,Gain Capital Holdings
+GCI,SP500,
+GCO,RUSSELL2000,Genesco Inc
+GD,SP500,
+GDOT,RUSSELL2000,Green Dot Corp
+GE,SP500,
+GEF,RUSSELL2000,Greif Bros. Corp
+GEN,RUSSELL2000,Genesis Healthcare Inc
+GEO,RUSSELL2000,Geo Group Inc
+GEOS,RUSSELL2000,Oyo Geospace Corp
+GERN,RUSSELL2000,Geron Corp
+GES,RUSSELL2000,Guess Inc
+GFF,RUSSELL2000,Griffon Corp
+GHDX,RUSSELL2000,Genomic Health
+GHL,RUSSELL2000,Greenhill & Co. Inc
+GHM,RUSSELL2000,Graham Corp
+GIII,RUSSELL2000,G-III Apparel Group
+GILD,SP500,
+GIMO,RUSSELL2000,Gigamon Inc
+GIS,SP500,
+GK,RUSSELL2000,G&K Services
+GLDD,RUSSELL2000,Great Lakes Dredge & Dock Corp
+GLF,RUSSELL2000,Gulfmark Offshore
+GLOB,RUSSELL2000,Globant S.A.
+GLOG,RUSSELL2000,Gaslog Ltd
+GLRE,RUSSELL2000,Greenlight Capital Re
+GLT,RUSSELL2000,Glatfelter
+GLUU,RUSSELL2000,Glu Mobile Inc
+GLW,SP500,
+GME,SP500,
+GMED,RUSSELL2000,Globus Medical Inc
+GNBC,RUSSELL2000,Green Bancorp Inc
+GNCA,RUSSELL2000,Genocea Biosciences Inc
+GNCMA,RUSSELL2000,General Communication
+GNE,RUSSELL2000,Genie Energy Ltd. Class B Commo
+GNMK,RUSSELL2000,Genmark Diagnostics
+GNRC,RUSSELL2000,Generac Holdings Inc
+GNW,SP500,
+GOGL,RUSSELL2000,Golden Ocean Group Ltd
+GOGO,RUSSELL2000,Gogo Inc
+GOOD,RUSSELL2000,Gladstone Commercial Corp
+GOOG,SP500,
+GOV,RUSSELL2000,Government Properties Income Trust
+GPC,SP500,
+GPI,RUSSELL2000,Group 1 Automotive
+GPRE,RUSSELL2000,Green Plains Renewable Energy
+GPS,SP500,
+GPT,RUSSELL2000,Gramercy Property Trust
+GPX,RUSSELL2000,Gp Strategies Corp
+GRBK,RUSSELL2000,Green Brick Partners Inc
+GRC,RUSSELL2000,Gorman-Rupp Company
+GRUB,RUSSELL2000,Grubhub Inc
+GS,SP500,
+GSAT,RUSSELL2000,Globalstar
+GSBC,RUSSELL2000,Great Southern Bancorp
+GSIG,RUSSELL2000,Gsi Group Inc
+GSM,RUSSELL2000,Globe Specialty Metals Inc
+GST,RUSSELL2000,Gastar Exploration
+GT,SP500,
+GTLS,RUSSELL2000,Chart Industries
+GTN,RUSSELL2000,Gray Television
+GTS,RUSSELL2000,Triple-S Management Corp
+GTT,RUSSELL2000,Global Telcom & Technology Inc
+GTY,RUSSELL2000,Getty Realty Corp
+GUID,RUSSELL2000,Guidance Software
+GVA,RUSSELL2000,Granite Construction Inc
+GWB,RUSSELL2000,Great Western Bancorp Inc
+GWRE,RUSSELL2000,Guidewire Software Inc. Common
+GWW,SP500,
+HA,RUSSELL2000,Hawaiian Holdings
+HABT,RUSSELL2000,The Habit Restaurants Inc
+HAE,RUSSELL2000,Haemonetics Corp
+HAFC,RUSSELL2000,Hanmi Financial Corp
+HAL,SP500,
+HALL,RUSSELL2000,Hallmark Financial Services
+HALO,RUSSELL2000,Halozyme Therapeutics
+HAR,SP500,
+HAS,SP500,
+HASI,RUSSELL2000,Hannon Armstrong Sustainable In
+HAWK,RUSSELL2000,Blackhawk Network Holdings Inc
+HAYN,RUSSELL2000,Haynes International
+HBAN,SP500,
+HBHC,RUSSELL2000,Hancock Holding Company
+HBIO,RUSSELL2000,Harvard Bioscience
+HBNC,RUSSELL2000,Horizon Bancorp [In]
+HCBK,SP500,
+HCCI,RUSSELL2000,Heritage-Crystal Clean
+HCHC,RUSSELL2000,Hc2 Holdings Inc
+HCI,RUSSELL2000,Homeowners Choice
+HCKT,RUSSELL2000,The Hackett Group
+HCN,SP500,
+HCOM,RUSSELL2000,Hawaiian Telcom Hold
+HCP,SP500,
+HCSG,RUSSELL2000,Healthcare Services Group
+HD,SP500,
+HDP,RUSSELL2000,Hortonworks Inc
+HEES,RUSSELL2000,H&E Equipment Services
+HEI,RUSSELL2000,Heico Corp
+HEI-A,RUSSELL2000,Heico Cp Cl A
+HELE,RUSSELL2000,Helen of Troy Ltd
+HEOP,RUSSELL2000,Heritage Oaks Bancorp
+HES,SP500,
+HF,RUSSELL2000,HFF Inc
+HFWA,RUSSELL2000,Heritage Financial Corp
+HGR,RUSSELL2000,Hanger Orthopedic Group
+HHS,RUSSELL2000,Harte-Hanks
+HI,RUSSELL2000,Hillenbrand Inc
+HIBB,RUSSELL2000,Hibbett Sports
+HIFR,RUSSELL2000,Infrareit Inc
+HIFS,RUSSELL2000,Hingham Institution For Savings
+HIG,SP500,
+HIL,RUSSELL2000,Hill International
+HIVE,RUSSELL2000,Aerohive Networks Inc
+HIW,RUSSELL2000,Highwoods Properties
+HK,RUSSELL2000,Halcon Resources
+HL,RUSSELL2000,Hecla Mining Company
+HLIT,RUSSELL2000,Harmonic Inc
+HLS,RUSSELL2000,Healthsouth Corp
+HLTH,RUSSELL2000,Nobilis Health Corp
+HLX,RUSSELL2000,Helix Energy Solutions Group
+HMHC,RUSSELL2000,Houghton Mifflin Harcourt C
+HMN,RUSSELL2000,Horace Mann Educators Corp
+HMPR,RUSSELL2000,Hampton Roads Bankshares Inc
+HMST,RUSSELL2000,Homestreet Inc
+HMSY,RUSSELL2000,Hms Holdings Corp
+HMTV,RUSSELL2000,Hemisphere Media
+HNH,RUSSELL2000,Handy & Harman Ltd
+HNI,RUSSELL2000,Hon Industries Inc
+HNRG,RUSSELL2000,Hallador Energy Company
+HNZ,SP500,
+HOFT,RUSSELL2000,Hooker Furniture Corp
+HOG,SP500,
+HOMB,RUSSELL2000,Home Bancshares
+HON,SP500,
+HOS,RUSSELL2000,Hornbeck Offshore Services
+HOT,SP500,
+HOV,RUSSELL2000,Hovnanian Enterprises Inc
+HP,SP500,
+HPP,RUSSELL2000,Hudson Pacific Properties
+HPQ,SP500,
+HPY,RUSSELL2000,Heartland Payment Systems
+HQY,RUSSELL2000,Healthequity Inc
+HR,RUSSELL2000,Healthcare Realty Trust Inc
+HRB,SP500,
+HRG,RUSSELL2000,Harbinger Group Inc
+HRL,SP500,
+HRS,SP500,
+HRTG,RUSSELL2000,Heritage Insurance Holdings
+HRTX,RUSSELL2000,Heron Therapeutics Inc
+HSC,RUSSELL2000,Harsco Corp
+HSII,RUSSELL2000,Heidrick & Struggles International
+HSKA,RUSSELL2000,Heska Corp
+HSNI,RUSSELL2000,HSN Inc
+HSP,SP500,
+HST,SP500,
+HSTM,RUSSELL2000,Healthstream Inc
+HSY,SP500,
+HT,RUSSELL2000,Hersha Hospitality Trust
+HTBI,RUSSELL2000,Hometrust Bancshares Inc
+HTBK,RUSSELL2000,Heritage Commerce Corp
+HTH,RUSSELL2000,Hilltop Holdings Inc
+HTLD,RUSSELL2000,Heartland Express
+HTLF,RUSSELL2000,Heartland Financial USA
+HTS,RUSSELL2000,Hatteras Financial Corp
+HTWR,RUSSELL2000,Heartware International
+HUBG,RUSSELL2000,Hub Group
+HUBS,RUSSELL2000,Hubspot Inc
+HUM,SP500,
+HURC,RUSSELL2000,Hurco Companies
+HURN,RUSSELL2000,Huron Consulting Group Inc
+HVT,RUSSELL2000,Haverty Furniture Companies
+HW,RUSSELL2000,Headwaters Inc
+HWAY,RUSSELL2000,Healthways Inc
+HWKN,RUSSELL2000,Hawkins Inc
+HY,RUSSELL2000,Hyster-Yale Materials Handling
+HYH,RUSSELL2000,Halyard Health Inc. Common Sto
+HZO,RUSSELL2000,Marinemax Inc
+I,RUSSELL2000,Intelsat S.A. Common Shares
+IART,RUSSELL2000,Integra Lifesciences Holdings Corp
+IBCP,RUSSELL2000,Independent Bank Corp
+IBKC,RUSSELL2000,Iberiabank Corp
+IBM,SP500,
+IBOC,RUSSELL2000,International Bancshares Corp
+IBP,RUSSELL2000,Installed Building Products I
+IBTX,RUSSELL2000,Independent Bank Group Inc
+ICD,RUSSELL2000,Independence Contract Drilling Inc
+ICE,SP500,
+ICFI,RUSSELL2000,Icf International
+ICON,RUSSELL2000,Iconix Brand Group
+ICUI,RUSSELL2000,Icu Medical
+IDA,RUSSELL2000,Idacorp Inc
+IDCC,RUSSELL2000,Interdigital
+IDRA,RUSSELL2000,Idera Pharmaceuticals
+IDT,RUSSELL2000,IDT Corp
+IDTI,RUSSELL2000,Integrated Device Technology
+IFF,SP500,
+IGT,SP500,
+IHC,RUSSELL2000,Independence Holding Company
+IIIN,RUSSELL2000,Insteel Industries
+IILG,RUSSELL2000,Interval Leisure Group
+IIVI,RUSSELL2000,Ii-Vi Inc
+IL,RUSSELL2000,Intralinks Holdings
+IMAX,RUSSELL2000,Imax Corp
+IMDZ,RUSSELL2000,Immune Design Corp
+IMGN,RUSSELL2000,Immunogen
+IMH,RUSSELL2000,Impac Mortgage Holdings
+IMKTA,RUSSELL2000,Ingles Markets Inc
+IMMR,RUSSELL2000,Immersion Corp
+IMMU,RUSSELL2000,Immunomedics
+IMN,RUSSELL2000,Imation Corp
+IMPR,RUSSELL2000,Imprivata Inc
+IMPV,RUSSELL2000,Imperva Inc
+INAP,RUSSELL2000,Internap Network Services Corp
+INCR,RUSSELL2000,Inc Research Holdings Inc
+INDB,RUSSELL2000,Independent Bank
+INFI,RUSSELL2000,Infinity Pharmaceuticals
+INFN,RUSSELL2000,Infinera Corp
+INGN,RUSSELL2000,Inogen Inc
+ININ,RUSSELL2000,Interactive Intelligence
+INN,RUSSELL2000,Summit Hotel Properties
+INO,RUSSELL2000,Inovio Pharmaceuticals
+INSM,RUSSELL2000,Insmed Inc
+INSY,RUSSELL2000,Insys Therapeutics Inc
+INTC,SP500,
+INTL,RUSSELL2000,Intl Fcstone Inc
+INTU,SP500,
+INVN,RUSSELL2000,Invensense Inc
+INWK,RUSSELL2000,Innerworkings
+IO,RUSSELL2000,ION Geophysical Corp
+IOSP,RUSSELL2000,Innospec Inc
+IP,SP500,
+IPAR,RUSSELL2000,Inter Parfums
+IPCC,RUSSELL2000,Infinity Property and Casualty Corp
+IPG,SP500,
+IPHI,RUSSELL2000,Inphi Corp
+IPHS,RUSSELL2000,Innophos Holdings
+IPI,RUSSELL2000,Intrepid Potash Inc
+IPXL,RUSSELL2000,Impax Laboratories
+IQNT,RUSSELL2000,Inteliquent Inc
+IR,SP500,
+IRBT,RUSSELL2000,Irobot Corp
+IRC,RUSSELL2000,Inland Real Estate Corp
+IRDM,RUSSELL2000,Iridium Communications Inc
+IRET,RUSSELL2000,Investors Real Estate Trust
+IRM,SP500,
+IRMD,RUSSELL2000,Iradimed Corporation
+IRT,RUSSELL2000,Independence Realty Trust Inc
+IRWD,RUSSELL2000,Ironwood Pharmaceuticals
+ISBC,RUSSELL2000,Investors Bancorp
+ISCA,RUSSELL2000,International Speedway Corp
+ISIL,RUSSELL2000,Intersil Corp
+ISLE,RUSSELL2000,Isle of Capri Casinos
+ISRG,SP500,
+ISRL,RUSSELL2000,Isramco Inc
+ITCI,RUSSELL2000,Intra-Cellular Ther
+ITG,RUSSELL2000,Investment Technology Group
+ITRI,RUSSELL2000,Itron Inc
+ITW,SP500,
+IVC,RUSSELL2000,Invacare Corp
+IVR,RUSSELL2000,Invesco Mortgage Capital Inc
+IVZ,SP500,
+IXYS,RUSSELL2000,Ixys Corp
+JACK,RUSSELL2000,Jack In The Box Inc
+JAKK,RUSSELL2000,Jakks Pacific
+JBL,SP500,
+JBSS,RUSSELL2000,John B. Sanfilippo & Son
+JBT,RUSSELL2000,John Bean Technologies Corp
+JCI,SP500,
+JCOM,RUSSELL2000,J2 Global Communications Inc
+JCP,SP500,
+JDS,SP500,
+JDSU,SP500,
+JEC,SP500,
+JGW,RUSSELL2000,Jgwpt Holdings Inc
+JIVE,RUSSELL2000,Jive Software Inc
+JJSF,RUSSELL2000,J & J Snack Foods
+JMBA,RUSSELL2000,Jamba Inc
+JMG,RUSSELL2000,Journal Media Group Inc. Commo
+JNJ,SP500,
+JNPR,SP500,
+JNS,RUSSELL2000,Janus Capital Group Inc
+JOE,RUSSELL2000,St. Joe Company
+JONE,RUSSELL2000,Jones Energy Inc
+JOUT,RUSSELL2000,Johnson Outdoors Inc
+JOY,SP500,
+JPM,SP500,
+JRVR,RUSSELL2000,James River Group Holdings Ltd
+JWN,SP500,
+K,SP500,
+KAI,RUSSELL2000,Kadant Inc
+KALU,RUSSELL2000,Kaiser Aluminum Corp
+KAMN,RUSSELL2000,Kaman Corp
+KBAL,RUSSELL2000,Kimball International Inc
+KBH,RUSSELL2000,KB Home
+KCG,RUSSELL2000,Kcg Holdings Inc
+KCLI,RUSSELL2000,Kansas City Life Insurance Company
+KE,RUSSELL2000,Kimball Electronics Inc
+KEG,RUSSELL2000,Key Energy Services
+KELYA,RUSSELL2000,Kelly Services
+KERX,RUSSELL2000,Keryx Biopharmaceuticals
+KEY,SP500,
+KEYW,RUSSELL2000,The Keyw Holding Corp
+KFRC,RUSSELL2000,Kforce Inc
+KFT,SP500,
+KFY,RUSSELL2000,Korn/Ferry International
+KIM,SP500,
+KIRK,RUSSELL2000,Kirkland's Inc
+KITE,RUSSELL2000,Kite Pharma Inc
+KKD,RUSSELL2000,Krispy Kreme Doughnuts
+KLAC,SP500,
+KLXI,RUSSELL2000,Klx Inc
+KMB,SP500,
+KMG,RUSSELL2000,KMG Chemicals
+KMI,SP500,
+KMPR,RUSSELL2000,Unitrin
+KMX,SP500,
+KN,RUSSELL2000,Knowles Corporation Common Stoc
+KND,RUSSELL2000,Kindred Healthcare
+KNL,RUSSELL2000,Knoll Inc
+KNX,RUSSELL2000,Knight Transportation
+KO,SP500,
+KODK,RUSSELL2000,Eastman Kodak
+KONA,RUSSELL2000,Kona Grill
+KOP,RUSSELL2000,Koppers Holdings Inc
+KOPN,RUSSELL2000,Kopin Corp
+KPTI,RUSSELL2000,Karyopharm Therapeutics Inc
+KR,SP500,
+KRA,RUSSELL2000,Kraton Performance Polymers Inc
+KRG,RUSSELL2000,Kite Realty Group Trust
+KRNY,RUSSELL2000,Kearny Financial
+KRO,RUSSELL2000,Kronos Worldwide Inc
+KS,RUSSELL2000,Kapstone Paper and Packaging Corp
+KSS,SP500,
+KTOS,RUSSELL2000,Kratos Defense & Security Solutions
+KTWO,RUSSELL2000,K2M Group Holdings Inc
+KVHI,RUSSELL2000,Kvh Industries
+KW,RUSSELL2000,Kennedy-Wilson Holdings Inc
+KWR,RUSSELL2000,Quaker Chemical Corp
+L,SP500,
+LABL,RUSSELL2000,Multi-Color Corp
+LAD,RUSSELL2000,Lithia Motors
+LADR,RUSSELL2000,Ladder Capital Corp
+LANC,RUSSELL2000,Lancaster Colony Corp
+LAWS,RUSSELL2000,Lawson Products
+LBAI,RUSSELL2000,Lakeland Bancorp
+LBIO,RUSSELL2000,Lion Biotechnologies Inc
+LBY,RUSSELL2000,Libbey Inc
+LCI,RUSSELL2000,Lannett Co Inc
+LCUT,RUSSELL2000,Lifetime Brands
+LDL,RUSSELL2000,Lydall Inc
+LDR,RUSSELL2000,Landauer Inc
+LDRH,RUSSELL2000,Ldr Holding Corp
+LE,RUSSELL2000,Lands' End Inc
+LEG,SP500,
+LEN,SP500,
+LFUS,RUSSELL2000,Littelfuse
+LG,RUSSELL2000,Laclede Group
+LGIH,RUSSELL2000,LGI Homes Inc
+LGND,RUSSELL2000,Ligand Pharmaceuticals Inc
+LH,SP500,
+LHCG,RUSSELL2000,LHC Group
+LHO,RUSSELL2000,Lasalle Hotel Properties
+LIFE,BOTH,Atyr Pharma Inc
+LION,RUSSELL2000,Fidelity Southern Corp
+LIOX,RUSSELL2000,Lionbridge Technologies
+LJPC,RUSSELL2000,La Jolla Pharma
+LKFN,RUSSELL2000,Lakeland Financial Corp
+LL,RUSSELL2000,Lumber Liquidators Holdings Inc
+LLL,SP500,
+LLNW,RUSSELL2000,Limelight Networks
+LLTC,SP500,
+LLY,SP500,
+LM,SP500,
+LMAT,RUSSELL2000,Lemaitre Vascular
+LMNR,RUSSELL2000,Limoneira Co
+LMNX,RUSSELL2000,Luminex Cor
+LMOS,RUSSELL2000,Lumos Networks Corp
+LMT,SP500,
+LNC,SP500,
+LNCE,RUSSELL2000,Snyder's Lance Inc
+LNDC,RUSSELL2000,Landec Corp
+LNN,RUSSELL2000,Lindsay Corp
+LO,SP500,
+LOCK,RUSSELL2000,Lifelock Inc
+LOCO,RUSSELL2000,El Pollo Loco Holdings Inc
+LOGM,RUSSELL2000,Logmein Inc
+LOPE,RUSSELL2000,Grand Canyon Education
+LORL,RUSSELL2000,Loral Space and Communications
+LOW,SP500,
+LOXO,RUSSELL2000,Loxo Oncology Inc
+LPG,RUSSELL2000,Dorian Lpg Ltd
+LPSN,RUSSELL2000,Liveperson Inc
+LPX,RUSSELL2000,Louisiana-Pacific Corp
+LQ,RUSSELL2000,La Quinta Holdings Inc
+LQDT,RUSSELL2000,Liquidity Services
+LRCX,SP500,
+LRN,RUSSELL2000,K12 Inc
+LSCC,RUSSELL2000,Lattice Semiconductor Corp
+LSI,SP500,
+LTC,RUSSELL2000,Ltc Properties
+LTD,SP500,
+LTRPA,RUSSELL2000,Liberty Tripadvisor Holdings I
+LTS,RUSSELL2000,Ladenburg Thalmann Financial Inc
+LTXB,RUSSELL2000,Legacytexas Financial Group Inc
+LUK,SP500,
+LUV,SP500,
+LWAY,RUSSELL2000,Lifeway Foods
+LXFT,RUSSELL2000,Luxoft Holding Inc
+LXK,SP500,
+LXP,RUSSELL2000,Lexington Realty Trust
+LXRX,RUSSELL2000,Lexicon Pharmaceuticals
+LXU,RUSSELL2000,Lsb Industries Inc
+LYTS,RUSSELL2000,Lsi Industries Inc
+LZB,RUSSELL2000,La-Z-Boy Inc
+M,SP500,
+MA,SP500,
+MACK,RUSSELL2000,Merrimack Pharmaceuticals Inc
+MANH,RUSSELL2000,Manhattan Associates
+MANT,RUSSELL2000,Mantech International Corp
+MAR,SP500,
+MAS,SP500,
+MASI,RUSSELL2000,Masimo Corp
+MAT,SP500,
+MATW,RUSSELL2000,Matthews International Corp
+MATX,RUSSELL2000,Matson Inc
+MBFI,RUSSELL2000,MB Financial Inc
+MBI,RUSSELL2000,MBIA Inc
+MBUU,RUSSELL2000,Malibu Boats Inc
+MBVT,RUSSELL2000,Merchants Bancshares
+MBWM,RUSSELL2000,Mercantile Bank Corp
+MC,RUSSELL2000,Moelis
+MCD,SP500,
+MCF,RUSSELL2000,Contango Oil & Gas Company
+MCHP,SP500,
+MCHX,RUSSELL2000,Marchex Inc
+MCK,SP500,
+MCO,SP500,
+MCRI,RUSSELL2000,Monarch Casino & Resort
+MCS,RUSSELL2000,Marcus Corp
+MDAS,RUSSELL2000,Medassets Inc
+MDC,RUSSELL2000,M.D.C. Holdings
+MDCA,RUSSELL2000,M.D.C. Partners Inc
+MDCO,RUSSELL2000,The Medicines Company
+MDGN,RUSSELL2000,Medgenics Inc. Common Stock
+MDLY,RUSSELL2000,Medley Management Inc
+MDP,RUSSELL2000,Meredith Corp
+MDR,RUSSELL2000,McDermott International
+MDSO,RUSSELL2000,Medidata Solutions
+MDT,SP500,
+MDXG,RUSSELL2000,Mimedx Group Inc
+MED,RUSSELL2000,Medifast Inc
+MEG,RUSSELL2000,Media General
+MEI,RUSSELL2000,Methode Electronics
+MENT,RUSSELL2000,Mentor Graphics Corp
+MET,SP500,
+METR,RUSSELL2000,Metro Bancorp Inc
+MFLX,RUSSELL2000,Multi-Fineline Electronix
+MFRM,RUSSELL2000,Mattress Firm Holding Corp
+MG,RUSSELL2000,Mistras Group Inc
+MGEE,RUSSELL2000,Mge Energy Inc
+MGI,RUSSELL2000,Moneygram International
+MGLN,RUSSELL2000,Magellan Health Services
+MGNX,RUSSELL2000,Macrogenics Inc
+MGPI,RUSSELL2000,MGP Ingredients
+MGRC,RUSSELL2000,Mcgrath Rentcorp
+MHGC,RUSSELL2000,Morgans Hotel Group Co
+MHLD,RUSSELL2000,Maiden Hldgs Ltd
+MHO,RUSSELL2000,M/I Homes
+MHP,SP500,
+MIFI,RUSSELL2000,Novatel Wireless
+MINI,RUSSELL2000,Mobile Mini
+MITT,RUSSELL2000,Ag Mortgage Investment Trust
+MJN,SP500,
+MKC,SP500,
+MKSI,RUSSELL2000,Mks Instruments
+MKTO,RUSSELL2000,Marketo Inc
+MKTX,RUSSELL2000,Marketaxess Holdings
+MLAB,RUSSELL2000,Mesa Laboratories
+MLHR,RUSSELL2000,Herman Miller
+MLI,RUSSELL2000,Mueller Industries
+MLNK,RUSSELL2000,Moduslink Global Solutions Inc
+MLR,RUSSELL2000,Miller Industries
+MMC,SP500,
+MMI,RUSSELL2000,Marcus & Millichap
+MMM,SP500,
+MMS,RUSSELL2000,Maximus Inc
+MMSI,RUSSELL2000,Merit Medical Systems
+MNKD,RUSSELL2000,Mannkind Corp
+MNR,RUSSELL2000,Monmouth Real Estate Investment Corp
+MNRO,RUSSELL2000,Monro Muffler Brake
+MNST,SP500,
+MNTA,RUSSELL2000,Momenta Pharmaceuticals
+MO,SP500,
+MOBL,RUSSELL2000,Mobileiron Inc
+MOD,RUSSELL2000,Modine Manufacturing Company
+MODN,RUSSELL2000,Model N Inc. Common Stock
+MOFG,RUSSELL2000,Midwestone Financial Group
+MOG-A,RUSSELL2000,Moog Inc
+MOH,RUSSELL2000,Molina Healthcare Inc
+MOLX,SP500,
+MON,SP500,
+MORE,RUSSELL2000,Monogram Residential Trust In
+MOS,SP500,
+MOV,RUSSELL2000,Movado Group Inc
+MPAA,RUSSELL2000,Motorcar Parts of America
+MPC,SP500,
+MPG,RUSSELL2000,Metaldyne Performance Group Inc
+MPW,RUSSELL2000,Medical Properties Trust
+MPWR,RUSSELL2000,Monolithic Power Systems
+MPX,RUSSELL2000,Marine Products Corp
+MRC,RUSSELL2000,Mrc Global Inc
+MRCY,RUSSELL2000,Mercury Computer Systems
+MRIN,RUSSELL2000,Marin Sotfware Incorporated
+MRK,SP500,
+MRLN,RUSSELL2000,Marlin Business Services
+MRO,SP500,
+MRTN,RUSSELL2000,Marten Transport
+MRTX,RUSSELL2000,Mirati Therapeutics Inc
+MS,SP500,
+MSA,RUSSELL2000,Msa Safety Inc
+MSCC,RUSSELL2000,Microsemi Corp
+MSEX,RUSSELL2000,Middlesex Water Company
+MSFG,RUSSELL2000,Mainsource Financial Group
+MSFT,SP500,
+MSI,SP500,
+MSTR,RUSSELL2000,Microstrategy Inc
+MTB,SP500,
+MTDR,RUSSELL2000,Matador Resources Company
+MTG,RUSSELL2000,Mgic Investment Corp
+MTGE,RUSSELL2000,American Capital Mortgage Inves
+MTH,RUSSELL2000,Meritage Corp
+MTN,RUSSELL2000,Vail Resorts
+MTOR,RUSSELL2000,Arvinmeritor
+MTRN,RUSSELL2000,Brush Wellman Inc
+MTRX,RUSSELL2000,Matrix Service Company
+MTSC,RUSSELL2000,MTS Systems Corp
+MTSI,RUSSELL2000,M/A-Com Technology Solutions Ho
+MTSN,RUSSELL2000,Mattson Technology
+MTX,RUSSELL2000,Minerals Technologies Inc
+MTZ,RUSSELL2000,Mastec Inc
+MU,SP500,
+MUR,SP500,
+MW,RUSSELL2000,Men's Wearhouse
+MWA,RUSSELL2000,Mueller Water Products
+MWV,SP500,
+MWW,RUSSELL2000,Monster Worldwide
+MXL,RUSSELL2000,Maxlinear Inc
+MXPT,RUSSELL2000,Maxpoint Interactive Inc
+MYCC,RUSSELL2000,Clubcorp Holdings Inc
+MYE,RUSSELL2000,Myers Industries
+MYGN,RUSSELL2000,Myriad Genetics
+MYL,SP500,
+MYRG,RUSSELL2000,Myr Group
+NADL,RUSSELL2000,North Atlantic Drilling Ltd. Co
+NANO,RUSSELL2000,Nanometrics Inc
+NAO,RUSSELL2000,Nordic American Offshore Ltd
+NAT,RUSSELL2000,Nordic American Tanker Shipping Ltd
+NATL,RUSSELL2000,National Interstate Corp
+NATR,RUSSELL2000,Nature's Sunshine Products
+NAV,RUSSELL2000,Navistar International Corp
+NAVB,RUSSELL2000,Navidea Biopharmaceuticals Inc
+NAVG,RUSSELL2000,The Navigators Group
+NBBC,RUSSELL2000,Newbridge Bancorp
+NBHC,RUSSELL2000,National Bank Holdings Corp
+NBIX,RUSSELL2000,Neurocrine Biosciences
+NBL,SP500,
+NBR,SP500,
+NBTB,RUSSELL2000,NBT Bancorp Inc
+NC,RUSSELL2000,Nacco Industries
+NCI,RUSSELL2000,Navigant Consulting
+NCMI,RUSSELL2000,National Cinemedia
+NCOM,RUSSELL2000,National Commerce Corp
+NCS,RUSSELL2000,NCI Building Systems
+NDAQ,SP500,
+NDLS,RUSSELL2000,Noodles & Company
+NE,SP500,
+NEE,SP500,
+NEFF,RUSSELL2000,Neff Corp
+NEM,SP500,
+NEO,RUSSELL2000,Neogenomics Inc
+NEOG,RUSSELL2000,Neogen Corp
+NEWM,RUSSELL2000,New Media Investment Group Inc
+NEWP,RUSSELL2000,Newport Corp
+NEWR,RUSSELL2000,New Relic Inc
+NEWS,RUSSELL2000,Newstar Financial
+NFBK,RUSSELL2000,Northfield Bancorp
+NFLX,SP500,
+NFX,SP500,
+NGHC,RUSSELL2000,National General Holdings Corp
+NGS,RUSSELL2000,Natural Gas Services Group
+NGVC,RUSSELL2000,Natural Grocers By Vitamin Cottage Inc
+NHC,RUSSELL2000,National Healthcare Corp
+NHI,RUSSELL2000,National Health Investors
+NHTC,RUSSELL2000,Natural Health Trends Corp
+NI,SP500,
+NILE,RUSSELL2000,Blue Nile Inc
+NJR,RUSSELL2000,Newjersey Resources Corp
+NKE,SP500,
+NKSH,RUSSELL2000,National Bankshares
+NKTR,RUSSELL2000,Nektar Therapeutics
+NL,RUSSELL2000,NL Industries
+NLNK,RUSSELL2000,Newlink Genetics Corp
+NLS,RUSSELL2000,Nautilus Group
+NM,RUSSELL2000,Navios Maritime Holdings Inc
+NMBL,RUSSELL2000,Nimble Storage Inc
+NMIH,RUSSELL2000,Nmi Holdings Inc
+NNA,RUSSELL2000,Navios Maritime Acquisition Corp
+NNBR,RUSSELL2000,NN Inc
+NNI,RUSSELL2000,Nelnet Inc
+NOC,SP500,
+NOG,RUSSELL2000,Northern Oil and Gas
+NOV,SP500,
+NP,RUSSELL2000,Neenah Paper
+NPBC,RUSSELL2000,National Penn Bancshares
+NPK,RUSSELL2000,National Presto Industries
+NPO,RUSSELL2000,Enpro Industries
+NPTN,RUSSELL2000,Neophotonics Corp
+NR,RUSSELL2000,Newpark Resources
+NRCIA,RUSSELL2000,National Research Corp
+NRG,SP500,
+NRZ,RUSSELL2000,New Residential Investment Corp
+NSA,RUSSELL2000,National Storage Affiliates Tru
+NSC,SP500,
+NSIT,RUSSELL2000,Insight Enterprises
+NSM,RUSSELL2000,Nationstar Mortgage Holdngs I
+NSP,RUSSELL2000,Insperity Inc
+NSR,RUSSELL2000,Neustar Inc
+NSTG,RUSSELL2000,Nanostring Technologies Inc
+NTAP,SP500,
+NTCT,RUSSELL2000,Netscout Systems
+NTGR,RUSSELL2000,Netgear Inc
+NTK,RUSSELL2000,Nortek Inc
+NTLS,RUSSELL2000,Ntelos Holdings
+NTRI,RUSSELL2000,Nutrisystem Inc
+NTRS,SP500,
+NU,SP500,
+NUE,SP500,
+NUTR,RUSSELL2000,Nutraceutical International Corp
+NUVA,RUSSELL2000,Nuvasive Inc
+NVAX,RUSSELL2000,Novavax Inc
+NVDA,SP500,
+NVEC,RUSSELL2000,Nve Corp
+NVEE,RUSSELL2000,Nv5 Holdings Inc
+NVIV,RUSSELL2000,Invivo Therapeutics Holdings
+NVRO,RUSSELL2000,Nevro Corp
+NVTA,RUSSELL2000,Invitae Corp
+NWBI,RUSSELL2000,Northwest Bancshares
+NWBO,RUSSELL2000,Northwest Biotherapeutics
+NWE,RUSSELL2000,Northwestern Corp
+NWHM,RUSSELL2000,New Home Co Llc
+NWL,SP500,
+NWLI,RUSSELL2000,National Western Life Insurance
+NWN,RUSSELL2000,Northwest Natural Gas Company
+NWPX,RUSSELL2000,Northwest Pipe Company
+NWSA,SP500,
+NX,RUSSELL2000,Quanex Building Products Corp
+NXRT,RUSSELL2000,Nexpoint Residential Trust Inc
+NXST,RUSSELL2000,Nexstar Broadcasting Group
+NXTM,RUSSELL2000,Nxstage Medical
+NYLD,RUSSELL2000,NRG Yield Inc
+NYMT,RUSSELL2000,New York Mortgage Trust
+NYNY,RUSSELL2000,Empire Resorts
+NYRT,RUSSELL2000,New York REIT Inc
+NYT,RUSSELL2000,New York Times Company
+NYX,SP500,
+OAS,RUSSELL2000,Oasis Petroleum Inc
+OB,RUSSELL2000,Onebeacon Insurance Group
+OCAT,RUSSELL2000,Ocata Therapeutics Inc
+OCFC,RUSSELL2000,Oceanfirst Financial
+OCLR,RUSSELL2000,Oclaro Inc
+OCN,RUSSELL2000,Ocwen Financial Corp
+OCUL,RUSSELL2000,Ocular Therapeutix Inc
+ODC,RUSSELL2000,Oil-Dri Corporation of America
+OFG,RUSSELL2000,Oriental Financial Group
+OFIX,RUSSELL2000,Orthofix International N.V.
+OFLX,RUSSELL2000,Omega Flex
+OGS,RUSSELL2000,One Gas Inc
+OI,SP500,
+OIS,RUSSELL2000,Oil States International
+OKE,SP500,
+OKSB,RUSSELL2000,Southwest Bancorp
+OLED,RUSSELL2000,Universal Display Corp
+OLN,RUSSELL2000,Olin Corp
+OLP,RUSSELL2000,One Liberty Properties
+OMAM,RUSSELL2000,Om Asset Management Ltd
+OMC,SP500,
+OMCL,RUSSELL2000,Omnicell Inc
+OME,RUSSELL2000,Omega Protein Corp
+OMED,RUSSELL2000,Oncomed Pharmaceuticals Inc
+OMER,RUSSELL2000,Omeros Corp
+OMI,RUSSELL2000,Owens & Minor
+OMN,RUSSELL2000,Omnova Solutions Inc
+ONB,RUSSELL2000,Old National Bancorp Capital
+ONCE,RUSSELL2000,Spark Therapeutics Inc
+ONDK,RUSSELL2000,On Deck Capital Inc
+ONTY,RUSSELL2000,Oncothyreon Inc
+ONVO,RUSSELL2000,Organovo Holdings
+OPB,RUSSELL2000,Opus Bank
+OPHT,RUSSELL2000,Ophthotech Corp
+OPWR,RUSSELL2000,Opower Inc
+OPY,RUSSELL2000,Oppenheimer Holdings
+ORA,RUSSELL2000,Ormat Technologies
+ORBC,RUSSELL2000,Orbcomm Inc
+ORC,RUSSELL2000,Orchid Island Capital Inc. Com
+ORCL,SP500,
+OREX,RUSSELL2000,Orexigen Therapeutics
+ORIT,RUSSELL2000,Oritani Financial
+ORLY,SP500,
+ORN,RUSSELL2000,Orion Marine Group Inc
+OSBC,RUSSELL2000,Old Second Bancorp
+OSIR,RUSSELL2000,Osiris Therapeutics
+OSIS,RUSSELL2000,Osi Systems
+OSTK,RUSSELL2000,Overstock.Com
+OSUR,RUSSELL2000,Orasure Technologies
+OTIC,RUSSELL2000,Otonomy Inc
+OTTR,RUSSELL2000,Otter Tail Corp
+OUTR,RUSSELL2000,Outerwall Inc
+OVAS,RUSSELL2000,Ovascience Inc
+OVTI,RUSSELL2000,Omnivision Technologies
+OXFD,RUSSELL2000,Oxford Immunotec Global Plc
+OXM,RUSSELL2000,Oxford Industries
+OXY,SP500,
+OZRK,RUSSELL2000,Bank of The Ozarks
+PACB,RUSSELL2000,Pacific Biosciences of California
+PAHC,RUSSELL2000,Phibro Animal Health Corp
+PARR,RUSSELL2000,Par Petroleum Corp
+PATK,RUSSELL2000,Patrick Industries
+PAYC,RUSSELL2000,Paycom Software Inc
+PAYX,SP500,
+PB,RUSSELL2000,Prosperity Bancshares
+PBCT,SP500,
+PBH,RUSSELL2000,Prestige Brand Holdings
+PBI,SP500,
+PBPB,RUSSELL2000,Potbelly Corp
+PBY,RUSSELL2000,Pep Boys-Manny Moe & Jack
+PCAR,SP500,
+PCBK,RUSSELL2000,Pacific Continental Corporation [Ore]
+PCCC,RUSSELL2000,PC Connection
+PCG,SP500,
+PCH,RUSSELL2000,Potlatch Corp
+PCL,SP500,
+PCLN,SP500,
+PCO,RUSSELL2000,Pendrell Corp
+PCP,SP500,
+PCRX,RUSSELL2000,Pacira Pharmaceuticals
+PCS,SP500,
+PCTY,RUSSELL2000,Paylocity Holding Corp
+PCYG,RUSSELL2000,Park City Group
+PDCE,RUSSELL2000,Pdc Energy Inc
+PDCO,SP500,
+PDFS,RUSSELL2000,Pdf Solutions Inc
+PDLI,RUSSELL2000,Pdl Biopharma
+PDVW,RUSSELL2000,Pacific Datavision Inc
+PE,RUSSELL2000,Parsley Energy
+PEB,RUSSELL2000,Pebblebrook Hotel Trust
+PEBO,RUSSELL2000,Peoples Bancorp Inc
+PEG,SP500,
+PEGA,RUSSELL2000,Pegasystems Inc
+PEGI,RUSSELL2000,Pattern Energy Group Inc
+PEI,RUSSELL2000,Pennsylvania Real Estate Investment
+PEIX,RUSSELL2000,Pacific Ethanol
+PENN,RUSSELL2000,Penn National Gaming
+PEP,SP500,
+PERY,RUSSELL2000,Perry Ellis International Inc
+PES,RUSSELL2000,Pioneer Energy Services Corp
+PETS,RUSSELL2000,Petmed Express
+PETX,RUSSELL2000,Aratana Therapeutics Inc
+PFBC,RUSSELL2000,Preferred Bank
+PFE,SP500,
+PFG,SP500,
+PFIS,RUSSELL2000,Peoples Finl Svcs Co
+PFNX,RUSSELL2000,Pfenex Inc
+PFPT,RUSSELL2000,Proofpoint Inc
+PFS,RUSSELL2000,Provident Financial Services
+PFSI,RUSSELL2000,Pennymac Financial Services In
+PFSW,RUSSELL2000,Pfsweb Inc
+PG,SP500,
+PGC,RUSSELL2000,Peapack-Gladstone Financial Corp
+PGEM,RUSSELL2000,Ply Gem Holdings Inc
+PGND,RUSSELL2000,Pga Holdings Inc
+PGNX,RUSSELL2000,Progenics Pharmaceuticals Inc
+PGR,SP500,
+PGTI,RUSSELL2000,Pgt Industries
+PH,SP500,
+PHH,RUSSELL2000,Phh Corp
+PHIIK,RUSSELL2000,PHI Inc
+PHM,SP500,
+PHX,RUSSELL2000,Panhandle Royalty Company
+PICO,RUSSELL2000,Pico Holdings Inc
+PIR,RUSSELL2000,Pier 1 Imports
+PJC,RUSSELL2000,Piper Jaffray Companies
+PKD,RUSSELL2000,Parker Drilling Company
+PKE,RUSSELL2000,Park Electrochemical Corp
+PKI,SP500,
+PKOH,RUSSELL2000,Park-Ohio Holdings
+PKY,RUSSELL2000,Parkway Properties
+PLAB,RUSSELL2000,Photronics
+PLAY,RUSSELL2000,Dave and Buster's Entertainment
+PLCE,RUSSELL2000,The Children's Place Retail Stores
+PLCM,RUSSELL2000,Polycom Inc
+PLD,SP500,
+PLKI,RUSSELL2000,Popeyes Louisiana Kitchen Inc
+PLL,SP500,
+PLOW,RUSSELL2000,Douglas Dynamics
+PLPC,RUSSELL2000,Preformed Line Products Company
+PLT,RUSSELL2000,Plantronics
+PLUG,RUSSELL2000,Plug Power Inc
+PLUS,RUSSELL2000,Eplus Inc
+PLXS,RUSSELL2000,Plexus Corp
+PM,SP500,
+PMC,RUSSELL2000,Pharmerica Corp
+PMT,RUSSELL2000,Pennymac Mortgage Investment Trust
+PN,RUSSELL2000,Patriot National Inc
+PNC,SP500,
+PNFP,RUSSELL2000,Pinnacle Financial Partners
+PNK,RUSSELL2000,Pinnacle Entertainment
+PNM,RUSSELL2000,PNM Resources Inc
+PNW,SP500,
+PNY,RUSSELL2000,Piedmont Natural Gas Company
+PODD,RUSSELL2000,Insulet Corp
+POL,RUSSELL2000,Polyone Corp
+POM,SP500,
+POOL,RUSSELL2000,Pool Corp
+POR,RUSSELL2000,Portland General Electric Company
+POST,RUSSELL2000,Post Holdings Inc
+POWI,RUSSELL2000,Power Integrations
+POWL,RUSSELL2000,Powell Industries
+POWR,RUSSELL2000,Powersecure International Inc
+POZN,RUSSELL2000,Pozen Inc
+PPBI,RUSSELL2000,Pacific Premier Bancorp Inc
+PPG,SP500,
+PPHM,RUSSELL2000,Peregrine Pharmaceuticals Inc
+PPL,SP500,
+PRAA,RUSSELL2000,Portfolio Recovery Associates
+PRAH,RUSSELL2000,Pra Health Sciences Inc
+PRFT,RUSSELL2000,Perficient Inc
+PRGO,SP500,
+PRGS,RUSSELL2000,Progress Software Corp
+PRI,RUSSELL2000,Primerica Inc
+PRIM,RUSSELL2000,Primoris Services Corp
+PRK,RUSSELL2000,Park National Corp
+PRLB,RUSSELL2000,Proto Labs Inc
+PRO,RUSSELL2000,Pros Holdings
+PRSC,RUSSELL2000,The Providence Service Corp
+PRTA,RUSSELL2000,Prothena Corporation Plc
+PRTK,RUSSELL2000,Paratek Pharmaceuticals Inc
+PRTO,RUSSELL2000,Proteon Therapeutics Inc
+PRTY,RUSSELL2000,Party City Holdco Inc
+PRU,SP500,
+PRXL,RUSSELL2000,Parexel International Corp
+PSA,SP500,
+PSB,RUSSELL2000,Business Parks
+PSG,RUSSELL2000,Performance Sports Group Ltd
+PSIX,RUSSELL2000,Power Solutions Inte
+PSMT,RUSSELL2000,Pricesmart Inc
+PSTB,RUSSELL2000,Park Sterling Bank
+PSX,SP500,
+PTCT,RUSSELL2000,Ptc Therapeutics Inc
+PTLA,RUSSELL2000,Portola Pharmaceuticals Inc
+PTSI,RUSSELL2000,P.A.M. Transportation Services
+PTX,RUSSELL2000,Pernix Therapeutics Holdings Inc
+PVA,RUSSELL2000,Penn Virginia Corp
+PVTB,RUSSELL2000,Privatebancorp
+PWOD,RUSSELL2000,Penns Woods Bancorp
+PWR,SP500,
+PX,SP500,
+PXD,SP500,
+PZN,RUSSELL2000,Pzena Investment Management Inc
+PZZA,RUSSELL2000,Papa John's International
+QADA,RUSSELL2000,Qad Inc
+QCOM,SP500,
+QCRH,RUSSELL2000,Qcr Holdings
+QDEL,RUSSELL2000,Quidel Corp
+QEP,SP500,
+QLGC,RUSSELL2000,Qlogic Corp
+QLIK,RUSSELL2000,Qlik Technologies Inc
+QLYS,RUSSELL2000,Qualys Inc
+QNST,RUSSELL2000,Quinstreet Inc
+QSII,RUSSELL2000,Quality Systems
+QTM,RUSSELL2000,Quantum Corp
+QTS,RUSSELL2000,Qts Realty Trust Inc
+QTWO,RUSSELL2000,Q2 Holdings Inc
+QUAD,RUSSELL2000,Quad Graphics Inc
+R,SP500,
+RAI,SP500,
+RAIL,RUSSELL2000,Freightcar America
+RARE,RUSSELL2000,Ultragenyx Pharmaceutical Inc
+RAS,RUSSELL2000,Rait Financial Trust
+RATE,RUSSELL2000,Bankrate Inc
+RAVN,RUSSELL2000,Raven Industries
+RBCAA,RUSSELL2000,Republic Bancorp
+RCAP,RUSSELL2000,RCS Capital Corp
+RCII,RUSSELL2000,Rent-A-Center Inc
+RDC,SP500,
+RDEN,RUSSELL2000,Elizabeth Arden
+RDI,RUSSELL2000,Reading International Inc
+RDN,RUSSELL2000,Radian Group Inc
+RDNT,RUSSELL2000,Radnet Inc
+RDUS,RUSSELL2000,Radius Health Inc
+RECN,RUSSELL2000,Resources Connection
+REGI,RUSSELL2000,Renewable Energy Group Inc
+REI,RUSSELL2000,Ring Energy Inc
+REIS,RUSSELL2000,Reis Inc
+RELY,RUSSELL2000,Signature Group
+RENT,RUSSELL2000,Rentrak Corp
+RESI,RUSSELL2000,Altisource Residential Corporat
+REV,RUSSELL2000,Revlon Inc
+REX,RUSSELL2000,Rex American Resources Corporation
+REXI,RUSSELL2000,Resource America
+REXR,RUSSELL2000,Rexford Industrial Realty Inc
+REXX,RUSSELL2000,Rex Energy Corp
+RF,SP500,
+RGEN,RUSSELL2000,Repligen Corp
+RGLS,RUSSELL2000,Regulus Therapeutics Inc
+RGR,RUSSELL2000,Sturm Ruger & Company
+RGS,RUSSELL2000,Regis Corp
+RH,RUSSELL2000,Restoration Hardware Holdings
+RHI,SP500,
+RHP,RUSSELL2000,Gaylord Entertainment Company
+RHT,SP500,
+RIGL,RUSSELL2000,Rigel Pharmaceuticals
+RJET,RUSSELL2000,Republic Airways Holdings
+RKDA,RUSSELL2000,Arcadia Biosciences Inc
+RKUS,RUSSELL2000,Ruckus Wireless Inc
+RL,SP500,
+RLD,RUSSELL2000,Reald Inc
+RLGT,RUSSELL2000,Radiant Logistics
+RLI,RUSSELL2000,Rli Corp
+RLJ,RUSSELL2000,Rlj Lodging Trust
+RLYP,RUSSELL2000,Relypsa Inc
+RM,RUSSELL2000,Regional Managment Corp
+RMAX,RUSSELL2000,Re/Max Holdings Inc
+RMBS,RUSSELL2000,Rambus Inc
+RMTI,RUSSELL2000,Rockwell Medical Technologies
+RNET,RUSSELL2000,Rignet Inc
+RNG,RUSSELL2000,Ringcentral Inc
+RNST,RUSSELL2000,Renasant Corp
+RNWK,RUSSELL2000,Realnetworks
+ROCK,RUSSELL2000,Gibraltar Industries
+ROG,RUSSELL2000,Rogers Corp
+ROIC,RUSSELL2000,Retail Opportunity Investments
+ROK,SP500,
+ROLL,RUSSELL2000,RBC Bearings Inc
+ROP,SP500,
+ROST,SP500,
+ROVI,RUSSELL2000,Rovi Corp
+ROX,RUSSELL2000,Castle Brands
+RP,RUSSELL2000,Realpage Inc
+RPT,RUSSELL2000,Ramco-Gershenson Properties Trust
+RPTP,RUSSELL2000,Raptor Pharmaceutical
+RPXC,RUSSELL2000,Rpx Corp
+RRC,SP500,
+RRD,SP500,
+RRGB,RUSSELL2000,Red Robin Gourmet Burgers
+RRTS,RUSSELL2000,Roadrunner Transportation Systems Inc
+RSE,RUSSELL2000,Rouse Properties Inc. Common S
+RSG,SP500,
+RSO,RUSSELL2000,Resource Capital
+RSPP,RUSSELL2000,Rsp Permian Inc
+RSTI,RUSSELL2000,Rofin-Sinar Technologies
+RT,RUSSELL2000,Ruby Tuesday
+RTEC,RUSSELL2000,Rudolph Technologies
+RTIX,RUSSELL2000,Rti Biologics
+RTK,RUSSELL2000,Rentech Inc
+RTN,SP500,
+RTRX,RUSSELL2000,Retrophin Inc
+RUBI,RUSSELL2000,The Rubicon Project Inc
+RUSHA,RUSSELL2000,Rush Enterprises
+RUTH,RUSSELL2000,Ruth's Hospitality Group
+RVNC,RUSSELL2000,Revance Therapeutics Inc
+RWT,RUSSELL2000,Redwood Trust
+RXDX,RUSSELL2000,Ignyta Inc
+RXN,RUSSELL2000,Rexnord Corp
+RYAM,RUSSELL2000,Rayonier Advanced Materials Inc
+RYI,RUSSELL2000,Ryerson Holding Corp
+S,SP500,
+SAAS,RUSSELL2000,Incontact
+SAFM,RUSSELL2000,Sanderson Farms
+SAFT,RUSSELL2000,Safety Insurance Group
+SAGE,RUSSELL2000,Sage Therapeutics Inc
+SAH,RUSSELL2000,Sonic Automotive
+SAI,SP500,
+SAIA,RUSSELL2000,Saia Inc
+SAIC,RUSSELL2000,Science Applications Internatio
+SALE,RUSSELL2000,Retailmenot Inc
+SALT,RUSSELL2000,Scorpio Bulkers Inc. Common Sto
+SAM,RUSSELL2000,Boston Beer Company
+SANM,RUSSELL2000,Sanmina-Sci Corp
+SASR,RUSSELL2000,Sandy Spring Bancorp
+SB,RUSSELL2000,Safe Bulkers Inc
+SBCF,RUSSELL2000,Seacoast Banking Corporation of Florida
+SBGI,RUSSELL2000,Sinclair Broadcast Group
+SBRA,RUSSELL2000,Sabra Healthcare REIT Inc
+SBSI,RUSSELL2000,Southside Bancshares
+SBUX,SP500,
+SBY,RUSSELL2000,Silver Bay Realty Trust Corp
+SCAI,RUSSELL2000,Surgical Care Affiliates Inc
+SCG,SP500,
+SCHL,RUSSELL2000,Scholastic Corp
+SCHN,RUSSELL2000,Schnitzer Steel Industries
+SCHW,SP500,
+SCL,RUSSELL2000,Stepan Company
+SCLN,RUSSELL2000,Sciclone Pharmaceuticals
+SCMP,RUSSELL2000,Sucampo Pharmaceuticals
+SCOR,RUSSELL2000,Comscore Inc
+SCS,RUSSELL2000,Steelcase Inc
+SCSC,RUSSELL2000,Scansource Inc
+SCSS,RUSSELL2000,Select Comfort Corp
+SCVL,RUSSELL2000,Shoe Carnival
+SE,SP500,
+SEAC,RUSSELL2000,Seachange International
+SEAS,RUSSELL2000,Seaworld Entertainment Inc. Co
+SEB,RUSSELL2000,Seaboard Corp
+SEE,SP500,
+SEM,RUSSELL2000,Select Medical Holdings Corp
+SEMG,RUSSELL2000,Semgroup Corp
+SENEA,RUSSELL2000,Seneca Foods
+SF,RUSSELL2000,Stifel Financial Corp
+SFBS,RUSSELL2000,Servisfirst Bancshares Inc
+SFE,RUSSELL2000,Safeguard Scientifics
+SFL,RUSSELL2000,Ship Finance International
+SFLY,RUSSELL2000,Shutterfly
+SFNC,RUSSELL2000,Simmons First National Corp
+SFS,RUSSELL2000,Smart
+SFXE,RUSSELL2000,Sfx Entertainment Inc
+SGA,RUSSELL2000,Saga Communications
+SGBK,RUSSELL2000,Stonegate Bank [Fl]
+SGC,RUSSELL2000,Superior Uniform Group
+SGI,RUSSELL2000,Silicon Graphics International Corp
+SGM,RUSSELL2000,Stonegate Mortgage Corp
+SGMO,RUSSELL2000,Sangamo Biosciences
+SGMS,RUSSELL2000,Scientific Games Corp
+SGNT,RUSSELL2000,Sagent Pharmaceuticals Inc
+SGY,RUSSELL2000,Stone Energy Corp
+SGYP,RUSSELL2000,Synergy Pharmaceuticals Inc
+SHAK,RUSSELL2000,Shake Shack Inc
+SHEN,RUSSELL2000,Shenandoah Telecommunications Co
+SHLD,SP500,
+SHLM,RUSSELL2000,A. Schulman
+SHO,RUSSELL2000,Sunstone Hotel Investors
+SHOO,RUSSELL2000,Steven Madden
+SHOR,RUSSELL2000,Shoretel Inc
+SHW,SP500,
+SIAL,SP500,
+SIEN,RUSSELL2000,Sientra Inc
+SIGI,RUSSELL2000,Selective Insurance Group
+SIGM,RUSSELL2000,Sigma Designs
+SIR,RUSSELL2000,Select Income REIT Common Share
+SIXD,RUSSELL2000,6D Global Technologies Inc
+SJI,RUSSELL2000,South Jersey Industries
+SJM,SP500,
+SJW,RUSSELL2000,SJW Corp
+SKUL,RUSSELL2000,Skullcandy Inc
+SKYW,RUSSELL2000,Skywest Inc
+SLAB,RUSSELL2000,Silicon Laboratories
+SLB,SP500,
+SLCA,RUSSELL2000,U.S. Silica Holdings Inc
+SLM,SP500,
+SMCI,RUSSELL2000,Super Micro Computer
+SMP,RUSSELL2000,Standard Motor Products
+SMRT,RUSSELL2000,Stein Mart Inc
+SMTC,RUSSELL2000,Semtech Corp
+SN,RUSSELL2000,Sanchez Energy Corp
+SNA,SP500,
+SNAK,RUSSELL2000,Inventure Foods
+SNBC,RUSSELL2000,Sun Bancorp
+SNC,RUSSELL2000,State National Companies Inc
+SNCR,RUSSELL2000,Synchronoss Technologies
+SNDK,SP500,
+SNHY,RUSSELL2000,Sun Hydraulics Corp
+SNI,SP500,
+SNMX,RUSSELL2000,Senomyx Inc
+SNOW,RUSSELL2000,Intrawest Resorts Holdings Inc
+SNR,RUSSELL2000,New Senior Investment Group Inc
+SNTA,RUSSELL2000,Synta Pharmaceuticals
+SNX,RUSSELL2000,Synnex Corp
+SO,SP500,
+SONC,RUSSELL2000,Sonic Corp
+SONS,RUSSELL2000,Sonus Networks
+SP,RUSSELL2000,SP Plus Corporation
+SPA,RUSSELL2000,Sparton Corp
+SPG,SP500,
+SPKE,RUSSELL2000,Spark Energy Inc
+SPLS,SP500,
+SPNC,RUSSELL2000,The Spectranetics Corp
+SPNS,RUSSELL2000,Sapiens International Corporation N.V.
+SPOK,RUSSELL2000,Spok Holdings Inc
+SPPI,RUSSELL2000,Spectrum Pharmaceuticals
+SPSC,RUSSELL2000,Sps Commerce
+SPTN,RUSSELL2000,Spartan Stores
+SPWH,RUSSELL2000,Sportsman'S Warehouse Holdi
+SQBG,RUSSELL2000,Sequential Brands Group Inc
+SQI,RUSSELL2000,Sciquest Inc
+SQNM,RUSSELL2000,Sequenom Inc
+SRCE,RUSSELL2000,1St Source Corp
+SRCL,SP500,
+SRDX,RUSSELL2000,Surmodics Inc
+SRE,SP500,
+SREV,RUSSELL2000,Servicesource International In
+SRI,RUSSELL2000,Stoneridge Inc
+SRNE,RUSSELL2000,Sorrento Therapeutics
+SRPT,RUSSELL2000,Sarepta Therapeutics Inc
+SSB,RUSSELL2000,South State Corporation
+SSD,RUSSELL2000,Simpson Manufacturing Company
+SSE,RUSSELL2000,Seventy Seven Energy Inc
+SSI,RUSSELL2000,Stage Stores
+SSNI,RUSSELL2000,Silver Spring Networks Inc. Co
+SSP,RUSSELL2000,E.W. Scripps Company
+SSS,RUSSELL2000,Sovran Self Storage
+SSTK,RUSSELL2000,Shutterstock Inc
+SSYS,RUSSELL2000,Stratasys Ltd
+STAA,RUSSELL2000,Staar Surgical Company
+STAG,RUSSELL2000,STI Inc
+STAR,RUSSELL2000,Istar Financial Inc
+STBA,RUSSELL2000,S&T Bancorp
+STBZ,RUSSELL2000,State Bank Finl Corp
+STC,RUSSELL2000,Stewart Information Services Corp
+STCK,RUSSELL2000,Stock Building Supply Holdings
+STE,RUSSELL2000,Steris Corp
+STFC,RUSSELL2000,State Auto Financial Corp
+STI,SP500,
+STJ,SP500,
+STL,RUSSELL2000,Sterling Bancorp
+STML,RUSSELL2000,Stemline Therapeutics Inc
+STMP,RUSSELL2000,Stamps.Com Inc
+STNG,RUSSELL2000,Scorpio Tankers Inc
+STOR,RUSSELL2000,Store Capital Corpstore Capital
+STRA,RUSSELL2000,Strayer Education
+STRP,RUSSELL2000,Straight Path Communications In
+STRT,RUSSELL2000,Strattec Security Corp
+STT,SP500,
+STX,SP500,
+STZ,SP500,
+SUI,RUSSELL2000,Sun Communities
+SUM,RUSSELL2000,Summit Materials Inc
+SUN,SP500,
+SUP,RUSSELL2000,Superior Industries International
+SUPN,RUSSELL2000,Supernus Pharmaceuticals Inc
+SVU,RUSSELL2000,Supervalu Inc
+SWC,RUSSELL2000,Stillwater Mining Company
+SWFT,RUSSELL2000,Swift Transportation Company
+SWHC,RUSSELL2000,Smith & Wesson Holding Corp
+SWK,SP500,
+SWM,RUSSELL2000,Schweitzer-Mauduit International
+SWN,SP500,
+SWX,RUSSELL2000,Southwest Gas Corp
+SWY,SP500,
+SXC,RUSSELL2000,Suncoke Energy Inc
+SXI,RUSSELL2000,Standex International Corp
+SXT,RUSSELL2000,Sensient Technologies Corp
+SYA,RUSSELL2000,Symetra Financial Corp
+SYBT,RUSSELL2000,S.Y. Bancorp
+SYK,SP500,
+SYKE,RUSSELL2000,Sykes Enterprises Inc
+SYMC,SP500,
+SYNA,RUSSELL2000,Synaptics Inc
+SYNT,RUSSELL2000,Syntel Inc
+SYRG,RUSSELL2000,Synergy Resources Cp
+SYUT,RUSSELL2000,Synutra International
+SYX,RUSSELL2000,Systemax Inc
+SYY,SP500,
+SZMK,RUSSELL2000,Sizmek Inc
+SZYM,RUSSELL2000,Solazyme Inc
+T,SP500,
+TAL,RUSSELL2000,Tal International Group
+TAP,SP500,
+TASR,RUSSELL2000,Taser International
+TAST,RUSSELL2000,Carrols Restaurant Group
+TAT,RUSSELL2000,Transatlantic Petroleum Ltd
+TAX,RUSSELL2000,Jth Holding Inc
+TBBK,RUSSELL2000,The Bancorp
+TBI,RUSSELL2000,Trueblue Inc
+TBK,RUSSELL2000,Triumph Bancorp Inc
+TBNK,RUSSELL2000,Territorial Bancorp Inc
+TBPH,RUSSELL2000,Theravance Biopharma Inc
+TBRA,RUSSELL2000,Tobira Therapeutics Inc
+TCBI,RUSSELL2000,Texas Capital Bancshares
+TCBK,RUSSELL2000,Trico Bancshares
+TCS,RUSSELL2000,The Container Store Group Inc
+TDC,SP500,
+TDW,RUSSELL2000,Tidewater Inc
+TDY,RUSSELL2000,Teledyne Technologies Inc
+TE,SP500,
+TECD,RUSSELL2000,Tech Data Corp
+TEG,SP500,
+TEL,SP500,
+TEN,RUSSELL2000,Tenneco Automotive
+TER,SP500,
+TESO,RUSSELL2000,Tesco Corp
+TFM,RUSSELL2000,The Fresh Market
+TG,RUSSELL2000,Tredegar Corp
+TGH,RUSSELL2000,Textainer Group Holdings
+TGT,SP500,
+TGTX,RUSSELL2000,Tg Therapeutics
+THC,SP500,
+THFF,RUSSELL2000,First Financial Corporation Indiana
+THLD,RUSSELL2000,Threshold Pharmaceuticals
+THR,RUSSELL2000,Thermon Group Holdings Inc
+THRM,RUSSELL2000,Gentherm Inc
+THS,RUSSELL2000,Treehouse Foods
+TIE,SP500,
+TIF,SP500,
+TILE,RUSSELL2000,Interface
+TIME,RUSSELL2000,Time Inc. Common Stock When Iss
+TIPT,RUSSELL2000,Tiptree Financial Inc
+TIS,RUSSELL2000,Orchids Paper Products Company
+TISI,RUSSELL2000,Team Inc
+TITN,RUSSELL2000,Titan Machinery Inc
+TIVO,RUSSELL2000,Tivo Inc
+TJX,SP500,
+TKAI,RUSSELL2000,Tokai Pharmaceuticals Inc
+TLMR,RUSSELL2000,Talmer Bancorp Inc
+TLN,RUSSELL2000,Talen Energy Corporation
+TLYS,RUSSELL2000,Tilly's Inc
+TMH,RUSSELL2000,Team Health Holdings
+TMHC,RUSSELL2000,Taylor Morrison Home Corporatio
+TMK,SP500,
+TMO,SP500,
+TMP,RUSSELL2000,Tompkinstrustco
+TMST,RUSSELL2000,Timken Steel Corporation Common
+TNAV,RUSSELL2000,Telenav Inc
+TNC,RUSSELL2000,Tennant Company
+TNDM,RUSSELL2000,Tandem Diabetes Care Inc
+TNET,RUSSELL2000,Trinet Group Inc
+TNGO,RUSSELL2000,Tangoe Inc
+TNK,RUSSELL2000,Teekay Tankers Ltd
+TOWN,RUSSELL2000,Towne Bank
+TOWR,RUSSELL2000,Tower International
+TPC,RUSSELL2000,Tutor Perini Corp
+TPH,RUSSELL2000,Tri Pointe Homes Inc. Common S
+TPLM,RUSSELL2000,Triangle Petroleum Corp
+TPRE,RUSSELL2000,Third Point Reinsurance Ltd. Co
+TPUB,RUSSELL2000,Tribune Publishing Company Comm
+TR,RUSSELL2000,Tootsie Roll Industries
+TRC,RUSSELL2000,Tejon Ranch Company
+TREC,RUSSELL2000,Trecora Resources
+TREE,RUSSELL2000,Tree.Com
+TREX,RUSSELL2000,Trex Company
+TRIP,SP500,
+TRK,RUSSELL2000,Speedway Motorsports
+TRMK,RUSSELL2000,Trustmark Corp
+TRNO,RUSSELL2000,Terreno Realty Corp
+TROV,RUSSELL2000,Trovagene Inc
+TROW,SP500,
+TROX,RUSSELL2000,Tronox Inc
+TRR,RUSSELL2000,Trc Companies
+TRS,RUSSELL2000,Trimas Corp
+TRST,RUSSELL2000,Trustco Bank Corp NY
+TRUE,RUSSELL2000,Truecar Inc
+TRUP,RUSSELL2000,Trupanion Inc
+TRV,SP500,
+TRVN,RUSSELL2000,Trevena Inc
+TRXC,RUSSELL2000,Transenterix Inc
+TSC,RUSSELL2000,Tristate Capital Holdings Inc
+TSE,RUSSELL2000,Trinseo S.A.
+TSN,SP500,
+TSO,SP500,
+TSQ,RUSSELL2000,Townsquare Media Llc
+TSRA,RUSSELL2000,Tessera Technologies
+TSRO,RUSSELL2000,Tesaro Inc
+TSS,SP500,
+TSYS,RUSSELL2000,Telecommunication Systems
+TTEC,RUSSELL2000,Teletech Holdings
+TTEK,RUSSELL2000,Tetra Tech
+TTGT,RUSSELL2000,Techtarget
+TTI,RUSSELL2000,Tetra Technologies
+TTMI,RUSSELL2000,TTM Technologies
+TTOO,RUSSELL2000,T2 Biosystems Inc
+TTPH,RUSSELL2000,Tetraphase Pharmaceuticals Inc
+TTS,RUSSELL2000,Tile Shop Holdings Inc
+TTWO,RUSSELL2000,Take-Two Interactive Software
+TUBE,RUSSELL2000,Tubemogul Inc
+TUES,RUSSELL2000,Tuesday Morning
+TUMI,RUSSELL2000,Tumi Holdings Inc
+TVPT,RUSSELL2000,Travelport Worldwide Ltd
+TWC,SP500,
+TWI,RUSSELL2000,Titan International
+TWIN,RUSSELL2000,Twin Disc Inc
+TWOU,RUSSELL2000,2U Inc
+TWX,SP500,
+TXMD,RUSSELL2000,Therapeuticsmd Inc
+TXN,SP500,
+TXRH,RUSSELL2000,Texas Roadhouse
+TXT,SP500,
+TXTR,RUSSELL2000,Textura Corp
+TYC,SP500,
+TYL,RUSSELL2000,Tyler Technologies
+TYPE,RUSSELL2000,Monotype Imaging Holdings Inc
+TZOO,RUSSELL2000,Travelzoo Inc
+UACL,RUSSELL2000,Universal Truckload Services
+UAM,RUSSELL2000,Universal American Financial
+UBA,RUSSELL2000,Urstadt Biddle Properties Inc
+UBNK,RUSSELL2000,United Financial Bancorp Inc
+UBNT,RUSSELL2000,Ubiquiti Networks Inc
+UBSH,RUSSELL2000,Union First Market Bankshares Corp
+UBSI,RUSSELL2000,United Bankshares
+UCBI,RUSSELL2000,United Community Banks
+UCFC,RUSSELL2000,United Community Financial
+UCTT,RUSSELL2000,Ultra Clean Holdings
+UDF,RUSSELL2000,United Development Funding IV
+UE,RUSSELL2000,Urban Edge Properties Common Sh
+UEC,RUSSELL2000,Uranium Energy
+UEIC,RUSSELL2000,Universal Electronics Inc
+UFCS,RUSSELL2000,United Fire Group Inc
+UFI,RUSSELL2000,Unifi Inc
+UFPI,RUSSELL2000,Universal Forest Products
+UHT,RUSSELL2000,Universal Health Realty Income Trust
+UIHC,RUSSELL2000,United Insurance Hld
+UIS,RUSSELL2000,Unisys Corp
+ULTR,RUSSELL2000,Ultrapetrol [Bahamas] Ltd
+UMBF,RUSSELL2000,UMB Financial Corp
+UMH,RUSSELL2000,Umh Properties
+UMPQ,RUSSELL2000,Umpqua Holdings Corp
+UNF,RUSSELL2000,Unifirst Corp
+UNFI,RUSSELL2000,United Natural Foods
+UNH,SP500,
+UNIS,RUSSELL2000,Unilife Corp
+UNM,SP500,
+UNP,SP500,
+UNT,RUSSELL2000,Unit Corp
+UNTD,RUSSELL2000,United Online
+UPL,RUSSELL2000,Ultra Petroleum
+UPS,SP500,
+URBN,SP500,
+USAK,RUSSELL2000,USA Truck
+USB,SP500,
+USCR,RUSSELL2000,US Concrete
+USLM,RUSSELL2000,United States Lime & Minerals
+USNA,RUSSELL2000,Usana Health Sciences Inc
+USPH,RUSSELL2000,U.S. Physical Therapy
+UTEK,RUSSELL2000,Ultratech Inc
+UTI,RUSSELL2000,Universal Technical Institute Inc
+UTIW,RUSSELL2000,Uti Worldwide Inc
+UTL,RUSSELL2000,Unitil Corp
+UTMD,RUSSELL2000,Utah Medical Products
+UTX,SP500,
+UUUU,RUSSELL2000,Energy Fuels Inc
+UVE,RUSSELL2000,Universal Insurance Holdings Inc
+UVSP,RUSSELL2000,Univest Corporation of Pennsylvania
+UVV,RUSSELL2000,Universal Corp
+V,SP500,
+VA,RUSSELL2000,Virgin America Inc
+VAC,RUSSELL2000,Marriot Vacations Worldwide Cor
+VAR,SP500,
+VASC,RUSSELL2000,Vascular Solutions
+VCRA,RUSSELL2000,Vocera Communications Inc
+VCYT,RUSSELL2000,Veracyte Inc
+VDSI,RUSSELL2000,Vasco Data Security International
+VEC,RUSSELL2000,Vectrus Inc. Common Stock
+VECO,RUSSELL2000,Veeco Instruments Inc
+VFC,SP500,
+VG,RUSSELL2000,Vonage Holdings
+VGR,RUSSELL2000,Vector Group Ltd
+VHC,RUSSELL2000,Virnetx Holding Corp
+VHI,RUSSELL2000,Valhi Inc
+VIAB,SP500,
+VICR,RUSSELL2000,Vicor Corp
+VIRT,RUSSELL2000,Virtu Financial Inc
+VISI,RUSSELL2000,Vision Company As
+VIVO,RUSSELL2000,Meridian Bioscience Inc
+VLGEA,RUSSELL2000,Village Super Market
+VLO,SP500,
+VLY,RUSSELL2000,Valley National Bancorp
+VMC,SP500,
+VMEM,RUSSELL2000,Violin Memory Inc
+VNCE,RUSSELL2000,Vince Holding Corp. Common Stoc
+VNDA,RUSSELL2000,Vanda Pharmaceuticals Inc
+VNO,SP500,
+VOXX,RUSSELL2000,Audiovox Corp
+VPG,RUSSELL2000,Vishay Precision Group
+VRA,RUSSELL2000,Vera Bradley
+VRNS,RUSSELL2000,Varonis Systems Inc
+VRNT,RUSSELL2000,Verint Systems Inc
+VRSN,SP500,
+VRTS,RUSSELL2000,Virtus Investment Partners
+VRTU,RUSSELL2000,Virtusa Corp
+VRTV,RUSSELL2000,Veritiv Corporation Common Stoc
+VSAR,RUSSELL2000,Versartis Inc
+VSAT,RUSSELL2000,Viasat Inc
+VSEC,RUSSELL2000,VSE Corp
+VSH,RUSSELL2000,Vishay Intertechnology
+VSI,RUSSELL2000,Vitamin Shoppe Inc
+VSLR,RUSSELL2000,Vivint Solar Inc
+VSTM,RUSSELL2000,Verastem Inc
+VTAE,RUSSELL2000,Vitae Pharmaceuticals Inc
+VTL,RUSSELL2000,Vital Therapies Inc
+VTR,SP500,
+VVI,RUSSELL2000,Viad Corp
+VVUS,RUSSELL2000,Vivus Inc
+VZ,SP500,
+W,RUSSELL2000,Wayfair Inc
+WABC,RUSSELL2000,Westamerica Bancorporation
+WAC,RUSSELL2000,Walter Investment Management Corp
+WAFD,RUSSELL2000,Washington Federal
+WAG,SP500,
+WAGE,RUSSELL2000,Wageworks Inc
+WAIR,RUSSELL2000,Wesco Aircraft Holdings Inc
+WAL,RUSSELL2000,Western Alliance Bancorporation
+WASH,RUSSELL2000,Washington Trust Bancorp
+WAT,SP500,
+WBMD,RUSSELL2000,Webmd Health Corp
+WBS,RUSSELL2000,Webster Financial Corp
+WCG,RUSSELL2000,Wellcare Group
+WCIC,RUSSELL2000,Wci Communities Inc
+WD,RUSSELL2000,Walker & Dunlop
+WDC,SP500,
+WDFC,RUSSELL2000,Wd-40 Company
+WEC,SP500,
+WERN,RUSSELL2000,Werner Enterprises
+WETF,RUSSELL2000,Wisdomtree Invstmnts
+WEYS,RUSSELL2000,Weyco Group
+WFC,SP500,
+WFM,SP500,
+WGL,RUSSELL2000,WGL Holdings Inc
+WGO,RUSSELL2000,Winnebago Industries
+WHG,RUSSELL2000,Westwood Holdings Group Inc
+WHR,SP500,
+WIBC,RUSSELL2000,Wilshire Bancorp
+WIFI,RUSSELL2000,Boingo Wireless Inc
+WIN,BOTH,Windstream Holdings Inc
+WINA,RUSSELL2000,Winmark Corp
+WIRE,RUSSELL2000,Encore Wire Corp
+WIX,RUSSELL2000,Wix.Com Ltd
+WK,RUSSELL2000,Workiva Llc
+WLB,RUSSELL2000,Westmoreland Coal Company
+WLH,RUSSELL2000,William Lyon Homes
+WLP,SP500,
+WM,SP500,
+WMAR,RUSSELL2000,West Marine
+WMB,SP500,
+WMC,RUSSELL2000,Western Asset Mortgage Capital
+WMGI,RUSSELL2000,Wright Medical Group N.V.
+WMK,RUSSELL2000,Weis Markets
+WMS,RUSSELL2000,Advanced Drainage Systems Inc
+WMT,SP500,
+WNC,RUSSELL2000,Wabash National Corp
+WNR,RUSSELL2000,Western Refining
+WOR,RUSSELL2000,Worthington Industries
+WPI,SP500,
+WPO,SP500,
+WPP,RUSSELL2000,Wausau-Mosinee Paper Corp
+WPX,SP500,
+WRE,RUSSELL2000,Washington Real Estate Investment
+WRLD,RUSSELL2000,World Acceptance Corp
+WSBC,RUSSELL2000,Wesbanco Inc
+WSBF,RUSSELL2000,Waterstone Financial
+WSFS,RUSSELL2000,WSFS Financial Corp
+WSR,RUSSELL2000,Whitestone REIT
+WST,RUSSELL2000,West Pharmaceutical Services
+WSTC,RUSSELL2000,West Corp
+WTBA,RUSSELL2000,West Bancorporation
+WTFC,RUSSELL2000,Wintrust Financial Corp
+WTI,RUSSELL2000,W&T Offshore
+WTS,RUSSELL2000,Watts Water Technologies
+WTW,RUSSELL2000,Weight Watchers International Inc
+WU,SP500,
+WWD,RUSSELL2000,Woodward Inc
+WWE,RUSSELL2000,World Wrestling Entertainment
+WWW,RUSSELL2000,Wolverine World Wide
+WY,SP500,
+WYN,SP500,
+WYNN,SP500,
+X,SP500,
+XBIT,RUSSELL2000,Xbiotech Inc
+XCO,RUSSELL2000,Exco Resources NL
+XCRA,RUSSELL2000,Xcerra Corp
+XEL,SP500,
+XENT,RUSSELL2000,Intersect Ent Inc
+XHR,RUSSELL2000,Xenia Hotels & Resorts Inc
+XL,SP500,
+XLNX,SP500,
+XLRN,RUSSELL2000,Acceleron Pharma Inc
+XNCR,RUSSELL2000,Xencor Inc
+XNPT,RUSSELL2000,Xenoport Inc
+XOM,SP500,
+XOMA,RUSSELL2000,Xoma Ltd
+XONE,RUSSELL2000,The Exone Company
+XOXO,RUSSELL2000,Xoxo Group Inc
+XPO,RUSSELL2000,Express-1 Expedited Solutions
+XRAY,SP500,
+XRM,RUSSELL2000,Xerium Technologies
+XRX,SP500,
+XXIA,RUSSELL2000,IXIA
+XYL,SP500,
+YDKN,RUSSELL2000,Yadkin Valley Financial Corp
+YHOO,SP500,
+YORW,RUSSELL2000,The York Water Company
+YRCW,RUSSELL2000,YRC Worldwide
+YUM,SP500,
+ZAGG,RUSSELL2000,Zagg Inc
+ZAIS,RUSSELL2000,Zais Group Holdings Inc
+ZEN,RUSSELL2000,Zendesk Inc
+ZEUS,RUSSELL2000,Olympic Steel
+ZFGN,RUSSELL2000,Zafgen Inc
+ZGNX,RUSSELL2000,Zogenix Inc
+ZINC,RUSSELL2000,Horsehead Holding
+ZION,SP500,
+ZIOP,RUSSELL2000,Ziopharm Oncology Inc
+ZIXI,RUSSELL2000,Zix Corp
+ZLTQ,RUSSELL2000,Zeltiq Aesthetics Inc
+ZMH,SP500,
+ZOES,RUSSELL2000,Zoe'S Kitchen Inc
+ZUMZ,RUSSELL2000,Zumiez Inc
