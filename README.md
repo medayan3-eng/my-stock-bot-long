@@ -138,6 +138,63 @@ the app returns the target and the reward/risk in R.
 
 ---
 
+---
+
+## Pattern recognition
+
+Every candidate chart is examined automatically. No pattern is drawn by hand and
+nothing is configurable — the detectors run on every scan:
+
+| Pattern | How it is identified | Measured-move target |
+|---|---|---|
+| Flag / Pennant | thrust of ≥15% followed by a tight consolidation holding ≥55% of the pole | breakout + pole length |
+| Symmetrical Triangle | pivot highs falling and lows rising onto converging lines | breakout + base height |
+| Ascending Triangle | flat resistance with rising lows | resistance + base height |
+| Channel / Rectangle | parallel upper and lower lines the pivots actually touch | upper line + channel height |
+| Cup & Handle | rounded base with matching rims, central low, then a shallow handle | rim + cup depth |
+| Inverse Head & Shoulders | three troughs, middle lowest, shoulders similar in price *and* time | neckline + head-to-neckline |
+| Double Bottom | two troughs within 5% separated by a peak ≥7% above | peak + peak-to-bottom |
+| Base / Consolidation | tight range that is narrower than the preceding one | range high + range height |
+
+Support and resistance come from clustered pivot highs and lows: fractal pivots
+within 1.5% of each other are merged into one level and ranked by touch count.
+The app reports the nearest support below and resistance above the last close,
+and draws them on the chart.
+
+**Two gates keep false positives down.** *Containment* requires price to actually
+stay inside the detected trendlines; *adherence* requires the pivots to sit on
+those lines rather than merely inside a wide band. Confidence is capped at 0.95 —
+no detector claims certainty.
+
+**An honest limitation:** random price movement produces shapes that resemble
+these patterns. On synthetic random walks the detectors still fire around 85% of
+the time, mostly as low-confidence bases and cups. Treat the pattern as
+supporting evidence for a name that already passed the ten rules, not as a
+signal in its own right, and read the confidence score.
+
+---
+
+## No settings by design
+
+There is one button. Market regime, sector strength, the ten rules, pattern
+recognition, targets, stops and position sizing all run automatically with the
+values in `config.yaml`. Editing that file changes the behaviour; the interface
+deliberately exposes nothing, so a scan is reproducible and you are never
+tempted to loosen a threshold until something passes.
+
+## Performance notes
+
+* The universe is ~2,400 names, downloaded in batches of 120. The first scan of
+  the day takes several minutes; results are cached for the session.
+* Sector assignment does **not** use Yahoo's per-ticker profile request, which
+  would take hours at this size. Each stock is matched to the SPDR sector ETF its
+  daily returns correlate with most closely over 120 bars — free, since the ETF
+  history is already loaded.
+* Earnings dates are fetched only for finalists (8+ of 10 rules), where the cost
+  is affordable and the answer actually changes a decision.
+
+---
+
 ## Project layout
 
 ```
@@ -151,9 +208,12 @@ murphy-screener/
 │   ├── data.py          yfinance access, sector map, fault tolerance
 │   ├── indicators.py    SMA, RSI, ATR (Wilder), slopes, returns
 │   ├── market.py        market regime + sector strength
+│   ├── patterns.py      pivots, levels and the classic formations
 │   ├── screener.py      metrics, rule engine, scoring
 │   └── exits.py         pattern targets, stops, ladder, sizing
-└── tests/test_offline.py
+└── tests/
+    ├── test_offline.py   indicators, rules, sizing
+    └── test_patterns.py  synthetic formations vs the detectors
 ```
 
 ---
@@ -164,7 +224,7 @@ murphy-screener/
    beta, price above the 200-day SMA). Leave **Universe pre-filtered in Finviz**
    ticked in the sidebar: the app then trusts those cuts and reads the sector
    straight from `universe.csv`, skipping the slow per-ticker Yahoo profile call.
-1. Paste your tickers into the text box, or replace `universe.csv`.
+1. Replace `universe.csv` if you want a different list (first column = ticker).
 2. Press **Run scan** after the close.
 3. Read the regime banner first. Red means no new longs.
 4. Sort by score in **Results**; open **Chart & metrics** for anything that
