@@ -39,6 +39,10 @@ PATTERNS: Dict[str, str] = {
         "Target = breakout of the middle peak + the distance from the bottoms "
         "to that peak."
     ),
+    "Base / Consolidation": (
+        "Target = breakout of the range high + the height of the range. The "
+        "shallowest of the measured moves - treat the ladder as the main exit."
+    ),
     "No clear pattern": (
         "No measured move available - manage the position with the profit "
         "ladder and the trailing stop."
@@ -168,3 +172,53 @@ def build_plan(
 def trailing_stop(highest_close: float, atr: float, multiple: float = 2.0) -> float:
     """Chandelier-style trailing stop: highest close since entry minus N x ATR."""
     return round(highest_close - multiple * atr, 2)
+
+
+def auto_plan(row: dict, cfg: dict) -> TradePlan:
+    """Build the whole trade plan straight from a scan row - no user input.
+
+    Entry is the last close, the stop comes from ATR / structure, and the
+    target is the measured move of whichever pattern the detector found.
+    """
+    entry = float(row.get("price") or 0.0)
+    atr = float(row.get("atr14") or 0.0)
+    swing = row.get("swing_low_20")
+    swing = float(swing) if swing else None
+
+    stop, basis = initial_stop(entry, atr, swing, cfg)
+
+    # A support level just under the stop is a better structural anchor.
+    support = row.get("support")
+    if support and stop < float(support) < entry:
+        candidate = float(support) * 0.99
+        if candidate > stop:
+            stop, basis = round(candidate, 2), "just below the nearest support level"
+
+    risk_per_share = max(entry - stop, 0.01)
+    r = cfg["risk"]
+    capital_at_risk = r["account_size"] * r["risk_per_trade_pct"] / 100.0
+    shares = int(capital_at_risk // risk_per_share)
+    max_value = r["account_size"] * r["max_position_pct"] / 100.0
+    if entry > 0 and shares * entry > max_value:
+        shares = int(max_value // entry)
+
+    pattern = row.get("pattern") or "No clear pattern"
+    target = row.get("pattern_target")
+    target = float(target) if target else None
+    rr = round((target - entry) / risk_per_share, 2) if target else None
+
+    return TradePlan(
+        entry=round(entry, 2),
+        atr=round(atr, 2),
+        initial_stop=stop,
+        stop_basis=basis,
+        risk_per_share=round(risk_per_share, 2),
+        risk_pct=round(risk_per_share / entry * 100, 2) if entry else 0.0,
+        shares=max(shares, 0),
+        position_value=round(shares * entry, 2),
+        capital_at_risk=round(min(shares * risk_per_share, capital_at_risk), 2),
+        target=target,
+        target_basis=PATTERNS.get(pattern, PATTERNS["No clear pattern"]),
+        reward_risk=rr,
+        ladder=build_ladder(entry, atr, cfg),
+    )
